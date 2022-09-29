@@ -1,0 +1,37 @@
+.form_container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.mainLogo{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.mainLink{
+  font-size: 5rem;
+  text-decoration: none;
+  color: #6867AC;
+}
+.idInput{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  
+}
+label{
+  font-size: 140%;
+}
+.pwInput{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  
+}
+.submitBtn{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
