@@ -1,42 +1,50 @@
-import React from 'react';
-import {Button, InputText, Password} from 'primereact'
-import { useState } from 'react';
+import { useForm } from "react-hook-form";
 
-const Login = () => {
-  const [inputId,setInputId]=useState('')
-  const [inputPw,setInputPw]=useState('')
-  const submitLogin=(e)=>{
-    e.preventDefault();
+function Login({
+  onSubmit = async (data) => {
+    await new Promise((r) => setTimeout(r, 1000));
+    alert(JSON.stringify(data));
+  },
+}) {
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, isDirty, errors },
+  } = useForm();
 
-  }
-  const idInput=(e)=>{
-    setInputId(e.target.value)
-  }
-  const passwordInput=(e)=>{
-    setInputPw(e.target.value)
-  }
   return (
-    <div className="flex justify-content-center">
-      <div className="card">
-        <h5 className="text-center">Register</h5>
-        <form onSubmit={submitLogin}>
-        <div className="field">
-          <span className='p-float-label'>
-            <InputText id='id' name='id' onChange={idInput}/>
-            <label htmlFor="id">Id*</label>
-          </span>
-        </div>
-        <div className="field">
-          <span className='p-float-label'>
-            <Password id='password' name='password' onChange={passwordInput}/>
-            <label htmlFor="password">Password*</label>
-          </span>
-        </div>
-          <Button type='submit' label='Submit' className='mt-2'/>
-        </form>
-      </div>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="Id">아이디</label>
+      <input
+        id="Id"
+        type="text"
+        placeholder="아이디를 입력해주세여"
+        aria-invalid={!isDirty ? undefined : errors.id ? "true" : "false"}
+        {...register("id", {
+          required: "아이디은 필수 입력입니다."
+        })}
+      />
+      {errors.email && <small role="alert">{errors.email.message}</small>}
+      <label htmlFor="password">비밀번호</label>
+      <input
+        id="password"
+        type="password"
+        placeholder="****************"
+        aria-invalid={!isDirty ? undefined : errors.password ? "true" : "false"}
+        {...register("password", {
+          required: "비밀번호는 필수 입력입니다.",
+          minLength: {
+            value: 8,
+            message: "6자리 이상 비밀번호를 사용하세요.",
+          },
+        })}
+      />
+      {errors.password && <small role="alert">{errors.password.message}</small>}
+      <button type="submit" disabled={isSubmitting}>
+        로그인
+      </button>
+    </form>
   );
-};
+}
 
-export default Login;
+export default Login
