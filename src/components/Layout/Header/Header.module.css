@@ -1,0 +1,36 @@
+.navlink{
+  align-items: center;
+  justify-content: end;
+  display: flex;
+}
+.links{
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+}
+.links:hover{
+  color: blue;
+}
+.second_container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main{
+  display: flex;
+  font-size: 2rem;
+}
+.mainLink{
+  color: #6867AC;
+  text-decoration: none;
+  font-size: 50px;
+  font-weight: bold;
+}
+.search_container{
+  display: flex;
+}
+.icon_contier{
+  display: flex;
+}
