@@ -31,17 +31,27 @@ const Register = () => {
       
       return (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="Id">아이디</label>
-          <input type="text" placeholder="Id" {...register("Id", {required: true, maxLength: 80})} />
-          <label htmlFor="Id">비밀번호</label>
-          <input type="password" placeholder="Password" {...register("Password", {})} />
-          <label htmlFor="Id">비밀번호 확인</label>
-          <input type="password" placeholder="CheckPassWord" {...register("CheckPassWord", {})} />
-          <label htmlFor="Id">이메일</label>
-          <input type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
-          <label htmlFor="Id">닉네임</label>
-          <input type="text" placeholder="NickName" {...register("NickName", {required: true, maxLength: 100})} />
-          <input type="submit" />
+          <div className="formId">
+            <label htmlFor="Id">아이디</label>
+            <input type="text" placeholder="Id" {...register("userId", {required: true, maxLength: 80})} />
+          </div>
+          <div className="formPw">
+            <label htmlFor="Id">비밀번호</label>
+            <input type="password" placeholder="Password" {...register("Password", {})} />
+          </div>
+          <div className="formPwChk">
+            <label htmlFor="Id">비밀번호 확인</label>
+            <input type="password" placeholder="CheckPassWord" {...register("CheckPassWord", {})} />
+          </div>
+          <div className="formEmail">
+            <label htmlFor="Id">이메일</label>
+            <input type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
+          </div>
+          <div className="formEmail">
+            <label htmlFor="Id">닉네임</label>
+            <input type="text" placeholder="NickName" {...register("NickName", {required: true, maxLength: 100})} />
+          </div>
+            <input type="submit" />
         </form>
       );
 }

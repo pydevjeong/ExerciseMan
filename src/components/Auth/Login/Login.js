@@ -25,9 +25,9 @@ function Login({
         <input
           id="Id"
           type="text"
-          placeholder="아이디를 입력해주세여"
+          placeholder="아이디를 입력해주세요"
           aria-invalid={!isDirty ? undefined : errors.id ? "true" : "false"}
-          {...register("id", {
+          {...register("userId", {
             required: "아이디은 필수 입력입니다."
           })}
         />
@@ -43,7 +43,7 @@ function Login({
           {...register("password", {
             required: "비밀번호는 필수 입력입니다.",
             minLength: {
-              value: 8,
+              value: 6,
               message: "6자리 이상 비밀번호를 사용하세요.",
             },
           })}
