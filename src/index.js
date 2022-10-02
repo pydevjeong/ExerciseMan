@@ -25,6 +25,10 @@ const router=createBrowserRouter([
   {
     path:'/map',
     element:<MapPage/>
+  },
+  {
+    path:'/basketball',
+    element:<MapPage/>
   }
 ])
 

@@ -7,7 +7,8 @@ function Login({
     await new Promise((r) => setTimeout(r, 1000));
     alert(JSON.stringify(data));
   },
-}) {
+}) 
+{
   const {
     register,
     handleSubmit,

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-
+//'https://floating-savannah-45478.herokuapp.com/http://openapi.seoul.go.kr:8088/'+'/'+'http://43.201.58.181:8080/user/member',
 const Register = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = ()=>{
+  }
   console.log(errors);
 
   const [idInput,setIdInput]=useState('')
