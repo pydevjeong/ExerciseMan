@@ -3,75 +3,72 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 
 
+function KaKaoMap({keyword}){
+  const [coord,setCoord]= useState({})
+  const [info, setInfo] = useState()
+  const [markers, setMarkers] = useState([])
+  const [map, setMap] = useState()
 
-function KakaoMap(){
-  const mapRef = useRef()
-  const [info, setInfo] = useState();
-  const [points, setPoints] = useState([
-    {lat: 33.452278, lng:126.567803},
-    {lat: 33.452671, lng:126.574792},
-    {lat: 33.451744, lng:126.572441},
-  ])
+  useEffect(()=>{
+    navigator.geolocation.getCurrentPosition(({coords:{latitude,longitude}})=>{
+      setCoord({lat:latitude,lng:longitude})
+    })
+  },[])
+// console.log(coord);
+  useEffect(() => {
+    if (!map) return
+    const ps = new kakao.maps.services.Places()
 
-  const bounds = useMemo(() => {
-    const bounds = new kakao.maps.LatLngBounds();
+    ps.keywordSearch("성남 헬스", (data, status, _pagination) => {
+      if (status === kakao.maps.services.Status.OK) {
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        const bounds = new kakao.maps.LatLngBounds()
+        let markers = []
 
-    points.forEach(point => {
-      bounds.extend(new kakao.maps.LatLng(point.lat, point.lng))
-    });
-    return bounds;
-  }, [points])
+        for (var i = 0; i < data.length; i++) {
+          markers.push({
+            position: {
+              lat: data[i].y,
+              lng: data[i].x,
+            },
+            content: data[i].place_name,
+          })
+          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x))
+        }
+        setMarkers(markers)
 
-  console.log(info);
+        map.setBounds(bounds)
+      }
+    })
+  }, [map])
 
   return (
-    <>
-      <Map // 지도를 표시할 Container
-        center={{
-          // 지도의 중심좌표
-          lat: 33.450701,
-          lng: 126.570667,
-        }}
-        style={{
-          width: "100%",
-          height: "450px",
-        }}
-        level={3} // 지도의 확대 레벨
-        ref={mapRef}
-      >
-        {points.map(point => <MapMarker key={`${point.lat}-${point.lng}`} position={point} />)}
-      </Map>
-      <button
-        onClick={() => {
-          const map = mapRef.current
-          if (map) map.setBounds(bounds)
-        }}
-      >
-        지도 범위 재설정 하기
-      </button>
-      <button onClick={() => {
-            const map = mapRef.current
-            setInfo({
-              center: {
-                lat: map.getCenter().getLat(),
-                lng: map.getCenter().getLng(),
-              },
-              level: map.getLevel(),
-              typeId: map.getMapTypeId(),
-              swLatLng: {
-                lat: map.getBounds().getSouthWest().getLat(),
-                lng: map.getBounds().getSouthWest().getLng(),
-              },
-              neLatLng: {
-                lat: map.getBounds().getNorthEast().getLat(),
-                lng: map.getBounds().getNorthEast().getLng(),
-              },
-            })
-          }}>
-            정보 가져 오기!
-          </button>
-    </>
+    <Map // 로드뷰를 표시할 Container
+      center={{
+        lat: 37.566826,
+        lng: 126.9786567,
+      }}
+      style={{
+        width: "100%",
+        height: "350px",
+      }}
+      level={3}
+      onCreate={setMap}
+    >
+      {markers.map((marker) => (
+        <MapMarker
+          key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
+          position={marker.position}
+          onClick={() => setInfo(marker)}
+        >
+          {info &&info.content === marker.content && (
+            <div style={{color:"#000"}}>{marker.content}</div>
+          )}
+        </MapMarker>
+      ))}
+    </Map>
   )
 }
 
-export default KakaoMap
+export default KaKaoMap;

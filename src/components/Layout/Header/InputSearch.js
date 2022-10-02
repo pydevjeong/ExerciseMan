@@ -8,14 +8,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 
 export default function CustomizedInputBase() {
-  const [searchInput,setSearchInput]=useState()
+  const [searchInput,setSearchInput]=useState('')
   const searchBtnClicked=(e)=>{
     e.preventDefault();
   }
   const inputSearch=(e)=>{
     setSearchInput(e.target.value)
   }
-  console.log(searchInput);
   return (
     <Paper
       component="form"

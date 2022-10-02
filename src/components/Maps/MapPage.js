@@ -1,25 +1,40 @@
 import React from 'react';
-import {CssBaseline,Grid} from '@mui/material';
+import {} from '@mui/material';
 import KaKaoMap from './KakaoMap';
 import MyGeolocation from './MyGeolocation';
+// import KaKaoAPI from './KaKaoAPI';
+import ApiTest from './ApiTest';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
 
+import SearchIcon from '@mui/icons-material/Search';
+import MyLocationIcon from '@mui/icons-material/MyLocation';
 
 const MapPage = () => {
   return (
     <>
-    <KaKaoMap
-      center={{
-        // 지도의 중심좌표
-        lat: 33.450701,
-        lng: 126.570667,
-      }}
-      style={{
-        // 지도의 크기
-        width: "100%",
-        height: "450px",
-      }}
-      level={3} // 지도의 확대 레벨
-    />
+    <div>
+      <h1>검색</h1>
+      <Paper
+      component="form"
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+    >
+      <IconButton sx={{ p: '10px' }} aria-label="menu">
+        <MyLocationIcon />
+      </IconButton>
+      <InputBase
+        sx={{ ml: 1, flex: 1 }}
+        placeholder="검색하기"
+        inputProps={{ 'aria-label': 'search' }}
+      />
+      <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+        <SearchIcon />
+      </IconButton>
+    </Paper>
+    </div>
+    <KaKaoMap/>
     {/* <MyGeolocation/> */}
     </>
   );
