@@ -8,6 +8,7 @@ import Login from './components/Auth/Login/Login';
 import Register from './components/Auth/Register/Register'
 import MainPage from './components/MainPage/MainPage';
 import MapPage from './components/Maps/MapPage';
+import MainCommnuity from './components/Community/MainCommnuity';
 
 const router=createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router=createBrowserRouter([
   },
   {
     path:'/basketball',
-    element:<MapPage/>
+    element:<MainCommnuity/>
   }
 ])
 

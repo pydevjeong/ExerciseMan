@@ -15,9 +15,9 @@ const RouterPages = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/login' element={<Login/>}/>
+        {/* <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
-        <Route path='/map' element={<MapPage/>}/>
+        <Route path='/map' element={<MapPage/>}/> */}
       </Routes>
     </BrowserRouter>
   );

@@ -9,12 +9,28 @@ import AddLocationAltOutlinedIcon from '@mui/icons-material/AddLocationAltOutlin
 import SportsSoccerOutlinedIcon from '@mui/icons-material/SportsSoccerOutlined';
 import { Container } from '@mui/material';
 
-// const icons=[
-//   "SportsBasketballIcon",
-//   "SportsTennisOutlinedIcon",
-//   "FitnessCenterOutlinedIcon",
-//   "AddLocationAltOutlinedIcon",
-//   "SportsSoccerOutlinedIcon"
+const icons=[
+  {
+    icon:<SportsBasketballIcon/>,
+    link:'/basketball'
+  },
+  {
+    icon:<SportsSoccerOutlinedIcon/>,
+    link:'/soccer'
+  },
+  {
+    icon:<SportsTennisOutlinedIcon/>,
+    link:'/badminton'
+  },
+  {
+    icon:<FitnessCenterOutlinedIcon/>,
+    link:'/gym'
+  },
+  {
+    icon:<AddLocationAltOutlinedIcon/>,
+    link:'/location'
+  },
+]
 // 코드 더 깔끔하게 만들방법 찾으면 map으로 사용]
 
 const Header = () => {
@@ -25,7 +41,7 @@ const Header = () => {
         <Link className={styles.links} to='/login'>로그인</Link>
         <Link className={styles.links} to='/register'>회원가입</Link>
         <Link className={styles.links} to='/'>공지/이벤트</Link>
-        <Link className={styles.links} to='/contact'>Contact</Link>
+        <Link className={styles.links} to='/contact_us'>Contact</Link>
       </div>
       <div className={styles.second_container}>
         <div className={styles.main}>
@@ -35,11 +51,9 @@ const Header = () => {
           <CustomizedInputBase/>
         </div>
         <div className={styles.icon_contier}>
-          <Link className={styles.links} to='/soccer'><SportsSoccerOutlinedIcon/></Link>
-          <Link className={styles.links} to='/tennis'><SportsTennisOutlinedIcon/> </Link>
-          <Link className={styles.links} to='/basket'><SportsBasketballIcon/> </Link>
-          <Link className={styles.links} to='/gym'><FitnessCenterOutlinedIcon/></Link>
-          <Link className={styles.links} to='/map'><AddLocationAltOutlinedIcon/></Link>
+          {icons.map((item,idx)=>
+          <Link className={styles.links} to={item.link}>{item.icon}</Link>
+          )}
         </div>
       </div>
     </Container>
