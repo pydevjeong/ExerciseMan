@@ -20,7 +20,7 @@ const MapPage = () => {
       }}
       level={3} // 지도의 확대 레벨
     />
-    <MyGeolocation/>
+    {/* <MyGeolocation/> */}
     </>
   );
 };
