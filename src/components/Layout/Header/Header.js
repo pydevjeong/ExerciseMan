@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css'
-import CustomizedInputBase from './GoogleSearch';
+import CustomizedInputBase from './InputSearch';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import SportsTennisOutlinedIcon from '@mui/icons-material/SportsTennisOutlined';
 import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
@@ -52,7 +52,7 @@ const Header = () => {
         </div>
         <div className={styles.icon_contier}>
           {icons.map((item,idx)=>
-          <Link className={styles.links} to={item.link}>{item.icon}</Link>
+          <Link key={idx} className={styles.links} to={item.link}>{item.icon}</Link>
           )}
         </div>
       </div>

@@ -9,6 +9,7 @@ import Register from './components/Auth/Register/Register'
 import MainPage from './components/MainPage/MainPage';
 import MapPage from './components/Maps/MapPage';
 import MainCommnuity from './components/Community/MainCommnuity';
+import ContactUs from './components/SubPage/ContactUs';
 
 const router=createBrowserRouter([
   {
@@ -24,12 +25,16 @@ const router=createBrowserRouter([
     element:<Register/>
   },
   {
-    path:'/map',
+    path:'/location',
     element:<MapPage/>
   },
   {
     path:'/basketball',
     element:<MainCommnuity/>
+  },
+  {
+    path:'/contact_us',
+    element:<ContactUs/>
   }
 ])
 

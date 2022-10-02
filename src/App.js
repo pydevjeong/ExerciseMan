@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="side">
       <Layout/>
+      
     </div>
   );
 }
