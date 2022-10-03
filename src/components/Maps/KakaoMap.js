@@ -1,25 +1,33 @@
 /* global kakao */
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { useLocation } from "react-router-dom";
 
 
-function KaKaoMap({keyword}){
+function KaKaoMap(){
+  // coord는 현재위치를 나타내는 좌표를 받아오는 state
   const [coord,setCoord]= useState({})
   const [info, setInfo] = useState()
   const [markers, setMarkers] = useState([])
   const [map, setMap] = useState()
+  const [location,setLocation] = useState('')
+  const locationState=useLocation()
+
+  useEffect(()=>{
+    console.log(locationState.state);
+    setLocation(locationState.state)
+  },[locationState])
 
   useEffect(()=>{
     navigator.geolocation.getCurrentPosition(({coords:{latitude,longitude}})=>{
       setCoord({lat:latitude,lng:longitude})
     })
   },[])
-// console.log(coord);
   useEffect(() => {
     if (!map) return
     const ps = new kakao.maps.services.Places()
 
-    ps.keywordSearch("성남 헬스", (data, status, _pagination) => {
+    ps.keywordSearch(location, (data, status, _pagination) => {
       if (status === kakao.maps.services.Status.OK) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
@@ -41,7 +49,7 @@ function KaKaoMap({keyword}){
         map.setBounds(bounds)
       }
     })
-  }, [map])
+  }, [location, map])
 
   return (
     <Map // 로드뷰를 표시할 Container

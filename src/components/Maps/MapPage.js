@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {} from '@mui/material';
 import KaKaoMap from './KakaoMap';
 import MyGeolocation from './MyGeolocation';
@@ -11,8 +11,15 @@ import IconButton from '@mui/material/IconButton';
 
 import SearchIcon from '@mui/icons-material/Search';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
+import { Link } from 'react-router-dom';
 
 const MapPage = () => {
+  const [inputLoaction,setInputLoaction] =useState([])
+  
+  const setLocation=(e)=>{
+    setInputLoaction(e.target.value);
+  }
+
   return (
     <>
     <div>
@@ -28,10 +35,13 @@ const MapPage = () => {
         sx={{ ml: 1, flex: 1 }}
         placeholder="검색하기"
         inputProps={{ 'aria-label': 'search' }}
-      />
-      <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+        onChange={setLocation}
+        />
+      <Link to='/location' state={inputLoaction}>
+      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton>
+      </Link>
     </Paper>
     </div>
     <KaKaoMap/>
