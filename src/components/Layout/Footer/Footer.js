@@ -4,7 +4,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <div>
-      
+      <h1>hiqwd</h1>
     </div>
   );
 };

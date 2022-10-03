@@ -3,36 +3,40 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { useLocation } from "react-router-dom";
 
+function KaKaoMap({ myGeo }) {
+  const [points, setPoints] = useState({});
 
-function KaKaoMap(){
-  // coord는 현재위치를 나타내는 좌표를 받아오는 state
-  const [coord,setCoord]= useState({})
-  const [info, setInfo] = useState()
-  const [markers, setMarkers] = useState([])
-  const [map, setMap] = useState()
-  const [location,setLocation] = useState('')
-  const locationState=useLocation()
+  const [info, setInfo] = useState();
+  const [markers, setMarkers] = useState([]);
+  const [map, setMap] = useState();
+  const [location, setLocation] = useState([]);
+  const locationState = useLocation();
 
-  useEffect(()=>{
-    console.log(locationState.state);
-    setLocation(locationState.state)
-  },[locationState])
-
-  useEffect(()=>{
-    navigator.geolocation.getCurrentPosition(({coords:{latitude,longitude}})=>{
-      setCoord({lat:latitude,lng:longitude})
-    })
-  },[])
   useEffect(() => {
-    if (!map) return
-    const ps = new kakao.maps.services.Places()
+    setPoints(myGeo);
+  }, [myGeo]);
+console.log(points);
+  useEffect(() => {
+    setLocation(locationState.state);
+  }, [locationState]);
+
+  // useEffect(()=>{
+  //   navigator.geolocation.getCurrentPosition(({coords:{latitude,longitude}})=>{
+  //     setCoord({lat:latitude,lng:longitude})
+  //   })
+  // },[])
+
+  //여기에 map이 로딩되기전에 loading 컴포넌트가 하나 있었으면 하고, 로딩 안됬을때 에러 컴포넌트도 만들예정
+  useEffect(() => {
+    if (!map) return;
+    const ps = new kakao.maps.services.Places();
 
     ps.keywordSearch(location, (data, status, _pagination) => {
       if (status === kakao.maps.services.Status.OK) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
-        const bounds = new kakao.maps.LatLngBounds()
-        let markers = []
+        const bounds = new kakao.maps.LatLngBounds();
+        let markers = [];
 
         for (var i = 0; i < data.length; i++) {
           markers.push({
@@ -41,15 +45,15 @@ function KaKaoMap(){
               lng: data[i].x,
             },
             content: data[i].place_name,
-          })
-          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x))
+          });
+          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
         }
-        setMarkers(markers)
+        setMarkers(markers);
 
-        map.setBounds(bounds)
+        map.setBounds(bounds);
       }
-    })
-  }, [location, map])
+    });
+  }, [location, map]);
 
   return (
     <Map // 로드뷰를 표시할 Container
@@ -59,9 +63,9 @@ function KaKaoMap(){
       }}
       style={{
         width: "100%",
-        height: "350px",
+        height: "30rem",
       }}
-      level={3}
+      level={5}
       onCreate={setMap}
     >
       {markers.map((marker) => (
@@ -70,13 +74,13 @@ function KaKaoMap(){
           position={marker.position}
           onClick={() => setInfo(marker)}
         >
-          {info &&info.content === marker.content && (
-            <div style={{color:"#000"}}>{marker.content}</div>
+          {info && info.content === marker.content && (
+            <div style={{ color: "#000" }}>{marker.content}</div>
           )}
         </MapMarker>
       ))}
     </Map>
-  )
+  );
 }
 
 export default KaKaoMap;
