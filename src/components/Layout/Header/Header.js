@@ -40,7 +40,7 @@ const Header = () => {
       <div className={styles.navlink}>
         <Link className={styles.links} to='/login'>로그인</Link>
         <Link className={styles.links} to='/register'>회원가입</Link>
-        <Link className={styles.links} to='/'>공지/이벤트</Link>
+        <Link className={styles.links} to='/community'>공지/이벤트</Link>
         <Link className={styles.links} to='/contact_us'>Contact</Link>
       </div>
       <div className={styles.second_container}>

@@ -29,7 +29,30 @@ const router=createBrowserRouter([
     element:<MapPage/>
   },
   {
+    path:'/community',
+    element:<MainCommnuity/>
+  },
+  {
     path:'/basketball',
+    element:<MainCommnuity/>
+  },
+  {
+    path:'/baseball',
+    element:<MainCommnuity/>
+  },
+  {
+    path:'/badminton',
+    element:<MainCommnuity/>
+  },
+  {
+    path:'/gym',
+    element:<MainCommnuity/>
+  },
+  {
+    path:'/soccer',
+    element:<MainCommnuity/>
+  },  {
+    path:'/others',
     element:<MainCommnuity/>
   },
   {
