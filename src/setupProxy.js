@@ -2,13 +2,9 @@ const proxy=require('http-proxy-middleware')
 
 module.exports=function(app){
   app.use(
-    'api',
-    proxy.createProxyMiddleware({
-      target:'https://openapi.gg.go.kr',
-      changeOrigin:true,
-      pathRewrite:{
-        '^/api':''
-      }
+    proxy.createProxyMiddleware('/api',{
+      target:'https://13.125.127.72:8080',
+      changeOrigin: true
     })
   )
 }

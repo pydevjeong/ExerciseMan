@@ -4,8 +4,7 @@ import './Login.css'
 
 function Login({
   onSubmit = async (data) => {
-    await new Promise((r) => setTimeout(r, 1000));
-    alert(JSON.stringify(data));
+    await console.log(data);
   },
 }) 
 {
@@ -45,7 +44,6 @@ function Login({
             required: "비밀번호는 필수 입력입니다.",
             minLength: {
               value: 6,
-              message: "6자리 이상 비밀번호를 사용하세요.",
             },
           })}
         />
