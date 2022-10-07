@@ -1,0 +1,21 @@
+.v48_111 {
+    width: 800px;
+    height: 1000px;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .v50_111 {
+    width: 500px;
+    height: 80px;
+    background: rgba(227,200,255,1);
+    opacity: 1;
+    position: absolute;
+    font-size: 25px;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 20px;
+  }
