@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="side">
       <Layout />
-      <div></div>
     </div>
   );
 }
