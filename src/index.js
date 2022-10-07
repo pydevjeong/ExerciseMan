@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter,RouterProvider,Route } from 'react-router-dom';
+import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import Login from './components/Auth/Login/Login';
 import Register from './components/Auth/Register/Register'
 import MainPage from './components/MainPage/MainPage';
 import MapPage from './components/Maps/MapPage';
-import MainCommnuity from './components/Community/MainCommnuity';
+import MainCommunity from './components/Community/MainCommunity';
 import ContactUs from './components/SubPage/ContactUs';
 
 const router=createBrowserRouter([
@@ -30,30 +30,30 @@ const router=createBrowserRouter([
   },
   {
     path:'/community',
-    element:<MainCommnuity/>
+    element:<MainCommunity/>
   },
   {
     path:'/basketball',
-    element:<MainCommnuity/>
+    element:<MainCommunity/>
   },
   {
     path:'/baseball',
-    element:<MainCommnuity/>
+    element:<MainCommunity/>
   },
   {
     path:'/badminton',
-    element:<MainCommnuity/>
+    element:<MainCommunity/>
   },
   {
     path:'/gym',
-    element:<MainCommnuity/>
+    element:<MainCommunity/>
   },
   {
     path:'/soccer',
-    element:<MainCommnuity/>
+    element:<MainCommunity/>
   },  {
     path:'/others',
-    element:<MainCommnuity/>
+    element:<MainCommunity/>
   },
   {
     path:'/contact_us',

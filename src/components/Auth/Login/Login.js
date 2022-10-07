@@ -3,19 +3,6 @@ import { Link } from "react-router-dom";
 import './Login.css'
 import axios from 'axios'
 
-const handleRegistration = async(data)=>{
-  const {userId,password,email,name}=data
-  console.log(userId,password,email,name);
-  await axios.post('/user/join',{
-    userId: userId,
-    password: password,
-    email: email,
-    name: name
-  })
-  .then(response=>console.log('great!',response.data))
-  .catch(err=>console.log('error',err))
-}
-
 function Login({
   onSubmit = async (data) => {
     const {userId,password}=data
@@ -24,7 +11,10 @@ function Login({
       userId:userId,
       password:password
     })
-    .then(res=>console.log('good',res))
+    .then(res=>{
+      console.log('good',res)
+      localStorage.getItem("token")
+    })
     .catch(err=>console.log(err))
   },
 }) 
@@ -59,12 +49,12 @@ function Login({
         <input
           id="password"
           type="password"
-          placeholder="****************"
+          placeholder="*****"
           aria-invalid={!isDirty ? undefined : errors.password ? "true" : "false"}
           {...register("password", {
             required: "비밀번호는 필수 입력입니다.",
             minLength: {
-              value: 6,
+              value: 3,
             },
           })}
         />

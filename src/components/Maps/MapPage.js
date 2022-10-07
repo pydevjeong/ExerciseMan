@@ -3,10 +3,8 @@ import {} from '@mui/material';
 import KaKaoMap from './KakaoMap';
 import MyGeolocation from './MyGeolocation';
 // import KaKaoAPI from './KaKaoAPI';
-import ApiTest from './ApiTest';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import useGeolocation from "react-hook-geolocation";
 

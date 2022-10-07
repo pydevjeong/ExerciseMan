@@ -20,7 +20,9 @@ const Register = () => {
       email: email,
       name: name
     })
-    .then(response=>console.log('great!',response.data))
+    .then(response=>{
+      console.log('great!',response.data)
+    })
     .catch(err=>console.log('error',err))
   }
 
