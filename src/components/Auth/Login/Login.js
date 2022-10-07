@@ -1,11 +1,21 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import './Login.css'
+import axios from 'axios'
 
 function Login({
   onSubmit = async (data) => {
-    await new Promise((r) => setTimeout(r, 1000));
-    alert(JSON.stringify(data));
+    const {userId,password}=data
+    console.log(userId,password)
+    await axios.get('/user/login',{
+      userId:userId,
+      password:password
+    })
+    .then(res=>{
+      console.log('good',res)
+      localStorage.getItem("token")
+    })
+    .catch(err=>console.log(err))
   },
 }) 
 {
@@ -39,13 +49,12 @@ function Login({
         <input
           id="password"
           type="password"
-          placeholder="****************"
+          placeholder="*****"
           aria-invalid={!isDirty ? undefined : errors.password ? "true" : "false"}
           {...register("password", {
             required: "비밀번호는 필수 입력입니다.",
             minLength: {
-              value: 6,
-              message: "6자리 이상 비밀번호를 사용하세요.",
+              value: 3,
             },
           })}
         />

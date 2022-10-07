@@ -4,7 +4,8 @@ import Slider from 'react-slick';
 import contact_us from '../../img/contact_us.jpg'
 import FoodFinder_img from '../../img/FoodFinder_img.jpg'
 import './SliderBanner.css'
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const SliderBanner = () => {
  const settings = {
@@ -30,7 +31,6 @@ const SliderBanner = () => {
     };
   return (
     <div>
-    
     <Slider {...settings}>
       <div>
         <Link to='/contact_us'>
@@ -38,9 +38,9 @@ const SliderBanner = () => {
         </Link>
       </div>
       <div>
-        <Link to='성철이형주소'>
-          <img className="bannerImg" src={FoodFinder_img} alt="" />
-        </Link>
+        <a href="https://peaceful-sands-33500.herokuapp.com" target="_blank" rel="noreferrer">
+          <img className="bannerImg" src={FoodFinder_img} alt=""/>
+        </a>
       </div>
     </Slider>
   </div>

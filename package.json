@@ -8,12 +8,14 @@
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.7",
+    "@mui/x-date-pickers": "^5.0.4",
     "@react-google-maps/api": "^2.13.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "chart.js": "^3.9.1",
+    "dayjs": "^1.11.5",
     "dotenv": "^16.0.2",
     "dotenv-webpack": "^8.0.1",
     "formik": "^2.2.9",
@@ -59,5 +61,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy":"http://3.37.89.193:8080"
 }
