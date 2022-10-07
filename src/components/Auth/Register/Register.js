@@ -14,7 +14,7 @@ const Register = () => {
   const handleRegistration = async(data)=>{
     const {userId,password,email,name}=data
     console.log(userId,password,email,name);
-    await axios.post('/api/user/join',{
+    await axios.post('/user/join',{
       userId: userId,
       password: password,
       email: email,

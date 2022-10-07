@@ -1,10 +1,31 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import './Login.css'
+import axios from 'axios'
+
+const handleRegistration = async(data)=>{
+  const {userId,password,email,name}=data
+  console.log(userId,password,email,name);
+  await axios.post('/user/join',{
+    userId: userId,
+    password: password,
+    email: email,
+    name: name
+  })
+  .then(response=>console.log('great!',response.data))
+  .catch(err=>console.log('error',err))
+}
 
 function Login({
   onSubmit = async (data) => {
-    await console.log(data);
+    const {userId,password}=data
+    console.log(userId,password)
+    await axios.get('/user/login',{
+      userId:userId,
+      password:password
+    })
+    .then(res=>console.log('good',res))
+    .catch(err=>console.log(err))
   },
 }) 
 {
