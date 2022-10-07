@@ -4,6 +4,8 @@ import Slider from 'react-slick';
 import contact_us from '../../img/contact_us.jpg'
 import FoodFinder_img from '../../img/FoodFinder_img.jpg'
 import './SliderBanner.css'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const SliderBanner = () => {
  const settings = {
