@@ -3,65 +3,46 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import { createBrowserRouter,RouterProvider,Route } from 'react-router-dom';
 import Login from './components/Auth/Login/Login';
 import Register from './components/Auth/Register/Register'
 import MainPage from './components/MainPage/MainPage';
 import MapPage from './components/Maps/MapPage';
-import MainCommunity from './components/Community/MainCommunity';
+import MainCommnuity from './components/Community/MainCommnuity';
 import ContactUs from './components/SubPage/ContactUs';
 
-const router=createBrowserRouter([
+const router = createBrowserRouter([
   {
-    path:'/',
-    element:<MainPage/>
+    path: "/",
+    element: <MainPage />,
   },
   {
-    path:'/login',
-    element:<Login/>
+    path: "/login",
+    element: <Login />,
   },
   {
-    path:'/register',
-    element:<Register/>
+    path: "/register",
+    element: <Register />,
   },
   {
-    path:'/location',
-    element:<MapPage/>
-  },
-  {
-    path:'/community',
-    element:<MainCommunity/>
+    path: "/location",
+    element: <MapPage />,
   },
   {
     path:'/basketball',
-    element:<MainCommunity/>
+    element:<MainCommnuity/>
   },
   {
-    path:'/baseball',
-    element:<MainCommunity/>
+    path: "/contact_us",
+    element: <ContactUs />,
   },
   {
-    path:'/badminton',
-    element:<MainCommunity/>
+    path: "/booking_popup",
+    element: <BookingPopup />,
   },
-  {
-    path:'/gym',
-    element:<MainCommunity/>
-  },
-  {
-    path:'/soccer',
-    element:<MainCommunity/>
-  },  {
-    path:'/others',
-    element:<MainCommunity/>
-  },
-  {
-    path:'/contact_us',
-    element:<ContactUs/>
-  }
-])
+]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
