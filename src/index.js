@@ -1,16 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
-import Login from "./components/Auth/Login/Login";
-import Register from "./components/Auth/Register/Register";
-import MainPage from "./components/MainPage/MainPage";
-import MapPage from "./components/Maps/MapPage";
-import MainCommnuity from "./components/Community/MainCommnuity";
-import ContactUs from "./components/SubPage/ContactUs";
-import BookingPopup from "./components/SubPage/BookingPopup";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter,RouterProvider,Route } from 'react-router-dom';
+import Login from './components/Auth/Login/Login';
+import Register from './components/Auth/Register/Register'
+import MainPage from './components/MainPage/MainPage';
+import MapPage from './components/Maps/MapPage';
+import MainCommnuity from './components/Community/MainCommnuity';
+import ContactUs from './components/SubPage/ContactUs';
 
 const router = createBrowserRouter([
   {
@@ -30,8 +29,8 @@ const router = createBrowserRouter([
     element: <MapPage />,
   },
   {
-    path: "/basketball",
-    element: <MainCommnuity />,
+    path:'/basketball',
+    element:<MainCommnuity/>
   },
   {
     path: "/contact_us",

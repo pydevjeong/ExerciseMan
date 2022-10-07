@@ -38,9 +38,9 @@ const SliderBanner = () => {
         </Link>
       </div>
       <div>
-        <Link to='성철이형주소'>
-          <img className="bannerImg" src={FoodFinder_img} alt="" />
-        </Link>
+        <a href="https://peaceful-sands-33500.herokuapp.com" target="_blank" rel="noreferrer">
+          <img className="bannerImg" src={FoodFinder_img} alt=""/>
+        </a>
       </div>
     </Slider>
   </div>

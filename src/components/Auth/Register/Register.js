@@ -1,59 +1,97 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-//'https://floating-savannah-45478.herokuapp.com/http://openapi.seoul.go.kr:8088/'+'/'+'http://43.201.58.181:8080/user/member',
-const Register = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = ()=>{
-  }
-  console.log(errors);
+import React from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
-  const [idInput,setIdInput]=useState('')
-  const [pwInput,setPwInput]=useState('')
-  const [checkPw,setCheckPw]=useState(false)
-  const submitBtn=(e)=>{
-    e.preventDefault();
-    console.log(e);
+
+const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+
+  const handleRegistration = async(data)=>{
+    const {userId,password,email,name}=data
+    console.log(userId,password,email,name);
+    await axios.post('/user/join',{
+      userId: userId,
+      password: password,
+      email: email,
+      name: name
+    })
+    .then(response=>{
+      console.log('great!',response.data)
+    })
+    .catch(err=>console.log('error',err))
   }
-  const idInputHandler=(e)=>{
-    setIdInput(e.target.value)
-  }
-  const passwordInputHandler=(e)=>{
-    setPwInput(e.target.value)
-  }
-  const checkPassword=(e)=>{
-    if(e.target.value===pwInput){
-      setCheckPw(true)
-    }
-    setCheckPw(false)
-  }
-  const nickNameInput=(e)=>{
-    console.log(e);
-  }
-      
-      return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="formId">
-            <label htmlFor="Id">아이디</label>
-            <input type="text" placeholder="Id" {...register("userId", {required: true, maxLength: 80})} />
-          </div>
-          <div className="formPw">
-            <label htmlFor="Id">비밀번호</label>
-            <input type="password" placeholder="Password" {...register("Password", {})} />
-          </div>
-          <div className="formPwChk">
-            <label htmlFor="Id">비밀번호 확인</label>
-            <input type="password" placeholder="CheckPassWord" {...register("CheckPassWord", {})} />
-          </div>
-          <div className="formEmail">
-            <label htmlFor="Id">이메일</label>
-            <input type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
-          </div>
-          <div className="formEmail">
-            <label htmlFor="Id">닉네임</label>
-            <input type="text" placeholder="NickName" {...register("NickName", {required: true, maxLength: 100})} />
-          </div>
-            <input type="submit" />
-        </form>
-      );
-}
+
+  const handleError = (errors) => {};
+
+  const registerOptions = {
+    name: { required: "Name is required" },
+    email: { required: "Email is required" },
+    password: {
+      required: "Password is required",
+      minLength: {
+        value: 8,
+        message: "Password must have at least 8 characters",
+      },
+    },
+  };
+
+  return (
+    <form onSubmit={handleSubmit(handleRegistration, handleError)}>
+      <div>
+        <label>Id</label>
+        <input
+          name="userId"
+          type="text"
+          {...register("userId", registerOptions.name)}
+        />
+        <small className="text-danger">
+          {errors?.name && errors.name.message}
+        </small>
+      </div>
+
+      <div>
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          {...register("password", registerOptions.password)}
+        />
+        <small className="text-danger">
+          {errors?.password && errors.password.message}
+        </small>
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          {...register("email", registerOptions.email)}
+        />
+        <small className="text-danger">
+          {errors?.email && errors.email.message}
+        </small>
+      </div>
+
+      <div>
+        <label>Name</label>
+        <input
+          name="name"
+          type="text"
+          {...register("name", registerOptions.name)}
+        />
+        <small className="text-danger">
+          {errors?.name && errors.name.message}
+        </small>
+      </div>
+
+      <button>Submit</button>
+    </form>
+  );
+};
 export default Register;
