@@ -1,19 +1,9 @@
-import React from "react";
-import { StyledEngineProvider } from "@mui/material/styles";
-import DatePicker from "./DatePicker";
-import PopupTitle from "./PopupTitle";
-import Time from "./Time";
+import React from 'react';
 
 const BookingPopup = () => {
   return (
     <div>
-      <PopupTitle />
-      <div className="v50_">
-        <StyledEngineProvider injectFirst>
-          <DatePicker />
-        </StyledEngineProvider>
-      </div>
-      <Time />
+      <h1>hi</h1>
     </div>
   );
 };

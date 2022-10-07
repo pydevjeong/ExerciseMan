@@ -5,7 +5,6 @@ import contact_us from '../../img/contact_us.jpg'
 import FoodFinder_img from '../../img/FoodFinder_img.jpg'
 import './SliderBanner.css'
 
-
 const SliderBanner = () => {
  const settings = {
       dots: true,
@@ -30,7 +29,6 @@ const SliderBanner = () => {
     };
   return (
     <div>
-    
     <Slider {...settings}>
       <div>
         <Link to='/contact_us'>
