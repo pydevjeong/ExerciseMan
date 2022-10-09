@@ -5,17 +5,17 @@ import axios from 'axios'
 
 function Login({
   onSubmit = async (data) => {
-    // const {userId,password}=data
-    // console.log(userId,password)
-    // await axios.get('/user/login',{
-    //   userId:userId,
-    //   password:password
-    // })
-    // .then(res=>{
-    //   console.log('good',res)
-    //   localStorage.getItem("token")
-    // })
-    // .catch(err=>console.log(err))
+    const {userId,password}=data
+    console.log(userId,password)
+    await axios.get('/user/login',{
+      userId:userId,
+      password:password
+    })
+    .then(res=>{
+      console.log('good',res)
+      localStorage.getItem("token")
+    })
+    .catch(err=>console.log(err))
   },
 }) 
 {
