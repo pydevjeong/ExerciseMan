@@ -1,10 +1,11 @@
-const proxy=require('http-proxy-middleware')
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
-module.exports=function(app){
+module.exports = function(app) {
   app.use(
-    proxy.createProxyMiddleware('/api',{
-      target:'https://13.125.127.72:8080',
-      changeOrigin: true
+    '/api',
+    createProxyMiddleware({
+      target: 'http://3.34.197.152:8080',
+      changeOrigin: true,
     })
-  )
-}
+  );
+};
