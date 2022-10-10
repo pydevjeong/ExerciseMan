@@ -1,10 +1,11 @@
+import { Container } from '@mui/material';
 import React from 'react';
 
-const Notice = () => {
+const Notice = (props) => {
   return (
-    <div>
+    <Container>
       <h1>hi there</h1>
-    </div>
+    </Container>
   );
 };
 

@@ -6,6 +6,7 @@ import FoodFinder_img from '../../img/FoodFinder_img.jpg'
 import './SliderBanner.css'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { Container } from '@mui/material';
 
 const SliderBanner = () => {
  const settings = {
@@ -30,7 +31,7 @@ const SliderBanner = () => {
       )
     };
   return (
-    <div>
+    <Container>
     <Slider {...settings}>
       <div>
         <Link to='/contact_us'>
@@ -43,7 +44,7 @@ const SliderBanner = () => {
         </a>
       </div>
     </Slider>
-  </div>
+  </Container>
   );
 };
 

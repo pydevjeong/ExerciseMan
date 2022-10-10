@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import SportsCard from "./SportsCard";
@@ -38,12 +38,12 @@ const sportsImgs = [
 
 const CommunityCategory = (props) => {
   return (
-    <div>
+    <Container>
       <h1>스포츠 카테고리</h1>
       <div>
         <SportsCard />
       </div>
-    </div>
+    </Container>
   );
 };
 

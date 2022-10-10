@@ -11,6 +11,7 @@ import MapPage from "./components/Maps/MapPage";
 import MainCommunity from "./components/Community/MainCommunity";
 import ContactUs from "./components/SubPage/ContactUs";
 import BookingPopup from "./components/SubPage/BookingPopup";
+import CloseFacility from "./components/SubPage/CloseFacility";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
   {
     path: "/booking_popup",
     element: <BookingPopup />,
+  },
+  {
+    path:"/closeFacilty",
+    element:<CloseFacility/>
   },
 ]);
 
