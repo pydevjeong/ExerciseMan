@@ -8,9 +8,10 @@ const CloseFacility = (props) => {
   const [inputValue,setInputValue]=useState("")
   useEffect(()=>{
     setInputValue(checkProps.state.searchInput)
-  },[checkProps.state.searchInput])
+  },[])
   
   console.log(inputValue)
+  
   return (
     <div>
       <ApiTest inputValue={inputValue}/>
