@@ -1,21 +1,20 @@
 import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import ApiTest from './ApiTest';
+import ApiPage from './ApiPage';
 
 const CloseFacility = (props) => {
   const checkProps= useLocation()
   const [inputValue,setInputValue]=useState("")
   useEffect(()=>{
     setInputValue(checkProps.state.searchInput)
-  },[])
+  },[checkProps.state.searchInput])
   
-  console.log(inputValue)
   
   return (
     <div>
-      <ApiTest inputValue={inputValue}/>
     <Container>
+      <ApiPage inputValue={inputValue}/>
       <h1>{inputValue}</h1>
       <h2>CloseFacility 페이지</h2>
     </Container>

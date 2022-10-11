@@ -34,8 +34,6 @@ function CustomizedInputBase() {
     if (e.key === "Enter") {
       console.log('enter');
       if (checkInput) {
-        console.log(checkInput);
-        console.log(searchInput);
         navigate('/closeFacilty',{state:{
           searchInput:searchInput
         }
