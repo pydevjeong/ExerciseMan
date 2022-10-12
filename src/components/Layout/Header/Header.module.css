@@ -4,15 +4,18 @@
   display: flex;
 }
 .links{
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-decoration: none;
-  color: black;
+  color: rgb(48, 47, 47);
+  margin-left: 1%;
+  font-weight: bold;
 }
 .links:hover{
   color: blue;
 }
 .second_container{
   display: flex;
+  margin-top: 3%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -33,4 +36,13 @@
 }
 .icon_contier{
   display: flex;
+}
+.icon_links{
+  text-decoration: none;
+  color: rgb(48, 47, 47);
+  font-weight: bold;
+  font-size: 250%;
+}
+.icon_links:hover{
+  color: rgb(255, 0, 212);
 }

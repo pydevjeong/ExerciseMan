@@ -81,7 +81,7 @@ function ApiPage(props) {
   // REFINE_WGS84_LOGT , REFINE_WGS84_LAT 위도 경도
   return (
     <Container>
-      <h1>API페이지</h1>
+      <h1>API페이지 / 가장 가까운 시설 보여주기</h1>
       {findGym.map((data, idx) => (
         <NearFacilityList
           key={idx}

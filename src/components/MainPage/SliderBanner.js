@@ -31,7 +31,7 @@ const SliderBanner = () => {
       )
     };
   return (
-    <Container>
+    <Container style={{marginTop:"3%"}} >
     <Slider {...settings}>
       <div>
         <Link to='/contact_us'>

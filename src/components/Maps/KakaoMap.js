@@ -33,8 +33,7 @@ console.log(points);
 
     ps.keywordSearch(location, (data, status, _pagination) => {
       if (status === kakao.maps.services.Status.OK) {
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        // LatLngBounds 객체에 좌표를 추가합니다
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해 LatLngBounds 객체에 좌표를 추가
         const bounds = new kakao.maps.LatLngBounds();
         let markers = [];
 
@@ -56,7 +55,7 @@ console.log(points);
   }, [location, map]);
 
   return (
-    <Map // 로드뷰를 표시할 Container
+    <Map //center부분 수정예정(?)
       center={{
         lat: 37.566826,
         lng: 126.9786567,

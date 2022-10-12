@@ -1,4 +1,4 @@
-import { ListItem, Stack } from "@mui/material";
+import { FormControl, InputLabel, ListItem, MenuItem, Select, Stack } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -10,6 +10,8 @@ const MainCommunity = () => {
   const navigate = useNavigate();
   const [categoryName, setCategoryName] = useState("전체");
   const [urlName, setUrlName] = useState("");
+// 로직상 이 페이지가 열리면 아래 useEffect부분에 case "전체"가 제일 먼저 실행됨
+// -> 받아온 url에 따라서 카테고리도 바뀌게 변경해야함
   useEffect(() => {
     setUrlName(checkURL.pathname);
     switch (categoryName) {
@@ -56,17 +58,21 @@ const MainCommunity = () => {
       <Header />
       <Container maxWidth="lg">
         <div className={styles.select_container}>
-          <select
+          <FormControl>
+          <InputLabel id="demo-simple-select-label">카테고리</InputLabel>
+          <Select
             onChange={catagoryChanged}
-            name="카테고리"
+            label="카테고리"
             id="select_Catagory"
+            value={categoryName}
           >
             {sportName.map((item, idx) => (
-              <option value={item} key={idx}>
+              <MenuItem value={item} key={idx}>
                 {item}
-              </option>
+              </MenuItem >
             ))}
-          </select>
+          </Select>
+          </FormControl>
         {/* </div>
         <div className={styles.btn_container}> */}
           <button className={styles.write_btn} onClick={writingBtn}>

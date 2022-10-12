@@ -1,6 +1,8 @@
 import React from 'react';
 import CommunityCategory from '../Community/CommunityCategory';
 import Layout from '../Layout/Layout';
+
+import ApiPage from '../SubPage/ApiPage'
 import Notice from '../SubPage/Notice';
 import SliderBanner from './SliderBanner';
 
@@ -10,6 +12,7 @@ const MainPage = () => {
         <Notice/>
         <SliderBanner/>
         <CommunityCategory/>
+        <ApiPage/>
     </Layout>
   );
 };
