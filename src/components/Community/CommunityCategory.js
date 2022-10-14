@@ -39,10 +39,7 @@ const sportsImgs = [
 const CommunityCategory = (props) => {
   return (
     <Container>
-      <h1>스포츠 카테고리</h1>
-      <div>
-        <SportsCard />
-      </div>
+      <SportsCard />
     </Container>
   );
 };
