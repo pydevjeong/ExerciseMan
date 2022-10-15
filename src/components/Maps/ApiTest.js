@@ -1,3 +1,6 @@
+
+//not use
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import XMLParser from 'react-xml-parser'
@@ -10,7 +13,7 @@ function ApiTest() {
 
 
   const url=`https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?
-  KEY=5b0d3a9a782b426691456ec012d45f50&TYPE=xml&SIGUN_CD=41130`
+  KEY={env파일에넣을예정}&TYPE=xml&SIGUN_CD=41130`
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -41,3 +44,4 @@ function ApiTest() {
   )
 }
 export default ApiTest;
+

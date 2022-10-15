@@ -1,0 +1,7 @@
+.community_category123 {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: rgba(255,188,209,1);
+    overflow: hidden;
+    padding-bottom: 3%;
+  }
