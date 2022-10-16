@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import XMLParser from "react-xml-parser";
 import { Container } from "@mui/system";
@@ -12,7 +12,9 @@ function ApiPage(props) {
   const [checkInputValue, setCheckInputValue] = useState(false);
 
 
+  // eslint-disable-next-line no-unused-vars
   const [limit, setLimit] = useState(10);
+  // eslint-disable-next-line no-unused-vars
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
@@ -29,6 +31,7 @@ function ApiPage(props) {
     } else {
       console.log("안돼");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let makeData = [];
@@ -55,6 +58,7 @@ function ApiPage(props) {
       }
     };
     fetchDatas();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // console.log(datas) datas에 정상적으로 담김
@@ -65,6 +69,7 @@ function ApiPage(props) {
 
   // console.log(makeData) 여기도 Array로 정상적으로 출력후 쓸모없는 부분 잘린거 확인
   //아래서 arr[2].value 하면 시설이름이 나옴
+  // eslint-disable-next-line array-callback-return
   makeData.map((arr) => {
     if (arr[5].value !== "폐업") {
       findGym.push({
