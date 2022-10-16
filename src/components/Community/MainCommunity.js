@@ -13,6 +13,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../Layout/Header/Header";
 import styles from "./MainCommunity.module.css";
 import Modal from "react-modal";
+import axios from "axios";
 
 
   //modal
@@ -96,10 +97,6 @@ const MainCommunity = () => {
     setIsOpen(false);
   }
 
-
-  useEffect(()=>{
-    submitBtn()
-  })
   const getTitle=(e)=>{
     setTitle(e.target.value)
   }
@@ -108,11 +105,26 @@ const MainCommunity = () => {
     setContent(e.target.value)
   }
 
-  const submitBtn = (e) => {
-    // e.preventDefault();
+  const submitBtn = async(e) => {
+    e.preventDefault();
     console.log(title,content);
-
+    if(title==="" && content===""){
+      alert("내용입력바람")
+      return false
+    }
+    else{
+    await axios.post("/posts/create",{
+      title:title,
+      content:content
+    })
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(err=>console.log(err))
+  }
   };
+
+
   const catagoryChanged = (e) => {
     console.log(e.target.value);
     setCategoryName(e.target.value);
