@@ -45,6 +45,7 @@
     "eject": "react-scripts eject",
     "deploy": "aws s3 sync ./build s3://exerciseman --profile=project_user"
   },
+  "homepage": "https://yoursports.netlify.app/",
   "eslintConfig": {
     "extends": [
       "react-app",
