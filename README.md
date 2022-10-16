@@ -13,3 +13,4 @@
 # Developing Documents ( 개발 문서 )
 https://www.notion.so/3-2-Project-8f9f0dfdcb3c43f29f7d6ed9affe75c1
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b912fa69-52ce-49da-8e6b-45a57cdf80bb/deploy-status)](https://app.netlify.com/sites/yoursports/deploys)
