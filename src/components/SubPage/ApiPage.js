@@ -10,7 +10,7 @@ function ApiPage(props) {
   const [datas, setDatas] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [checkInputValue, setCheckInputValue] = useState(false);
-
+  const gymApi=process.env.REACT_APP_GYM_API
 
   // eslint-disable-next-line no-unused-vars
   const [limit, setLimit] = useState(10);
@@ -43,7 +43,7 @@ function ApiPage(props) {
   // SIGUN_CD하드코딩 된걸 입력값에 따라서 지역코드가 나타나게 해야함
   // ex) 검색에 성남시 헬스장 -> 41130(성남 코드)
 
-  const url = `https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?KEY=${process.env.REACT_APP_GYM_API}&TYPE=xml&SIGUN_NM=${checkInputValue ? inputValue : "부천시"}`;
+  const url = `https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?KEY=${gymApi}&TYPE=xml&SIGUN_NM=${checkInputValue ? inputValue : "부천시"}`;
   useEffect(() => {
     const fetchDatas = async () => {
       try {
