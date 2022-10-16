@@ -124,6 +124,19 @@ const MainCommunity = () => {
   }
   };
 
+  /*
+  const getContents=async()=>{
+    // 특정조회시 `/posts/${postId}`
+    await axios.get(`/posts`,{
+      title:title,
+      content:content
+    })
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(err=>console.log(err))
+  }
+  */
 
   const catagoryChanged = (e) => {
     console.log(e.target.value);

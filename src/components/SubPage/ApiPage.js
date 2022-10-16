@@ -5,12 +5,16 @@ import { Container } from "@mui/system";
 // import CloseFacility from "./CloseFacility";
 import NearFacilityList from "./NearFacilityList";
 
-// API q 커스텀 훅으로 만들어야함 
+// API q 커스텀 훅으로 만들어야함
 function ApiPage(props) {
   const [datas, setDatas] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [checkInputValue, setCheckInputValue] = useState(false);
-  
+
+
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   /* 
   고쳐야 하는 로직 -> 검색하고 난후 const [inputValue, setInputValue] = useState("");
@@ -18,15 +22,14 @@ function ApiPage(props) {
   어떻게 수정할건지?
   아마도 api를 불러오는 시간을 따로 설정해서 완전히 state가 초기화 되는것을 방지?
   */
-  useEffect(()=>{
-    setInputValue(props.inputValue)
-    if(inputValue==="성남시"){
-      setCheckInputValue(true)
+  useEffect(() => {
+    setInputValue(props.inputValue);
+    if (inputValue === "성남시") {
+      setCheckInputValue(true);
+    } else {
+      console.log("안돼");
     }
-    else{
-      console.log("안돼")
-    }
-  },[])
+  }, []);
 
   let makeData = [];
   let findGym = [];
@@ -37,13 +40,10 @@ function ApiPage(props) {
   // SIGUN_CD하드코딩 된걸 입력값에 따라서 지역코드가 나타나게 해야함
   // ex) 검색에 성남시 헬스장 -> 41130(성남 코드)
 
-  const url = `https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?KEY=5b0d3a9a782b426691456ec012d45f50&TYPE=xml&SIGUN_NM=${
-    checkInputValue ? inputValue : "부천시"
-  }`;
+  const url = `https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?KEY=${process.env.REACT_APP_GYM_API}&TYPE=xml&SIGUN_NM=${checkInputValue ? inputValue : "부천시"}`;
   useEffect(() => {
     const fetchDatas = async () => {
       try {
-        console.log(url);
         const response = await axios.get(url);
         // 성남시에 있는 헬스장 데이터를 불러 오는데 문제 없음
         let xml = new XMLParser().parseFromString(response.data);
@@ -74,7 +74,6 @@ function ApiPage(props) {
       });
     }
   });
-  // console.log(findGym);
   //item.name==="BIZPLC_NM"에서 value(시설이름) item.name==="BSN_STATE_NM"에서 value가 영업중인것
   //item.name==="REFINE_ROADNM_ADDR" value(도로명주소)
   //item.name==="LOCPLC_FACLT_TELNO" value(전화번호)
@@ -82,7 +81,7 @@ function ApiPage(props) {
   return (
     <Container>
       <h1>API페이지 / 가장 가까운 시설 보여주기</h1>
-      {findGym.map((data, idx) => (
+      {findGym.slice(offset,offset+limit).map((data, idx) => (
         <NearFacilityList
           key={idx}
           name={data.name}

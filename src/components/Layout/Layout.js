@@ -8,7 +8,9 @@ const Layout = (props) => {
     <Container>
       <Header />
       {props.children}
+      <div style={{    width: "100vw",marginLeft: "calc(-50vw + 50%)", background: "#303030" ,overflow: "hidden",}}>
       <Footer />
+      </div>
     </Container>
   );
 };

@@ -56,7 +56,7 @@ export default function SportsCard(props) {
       >
         {sportsImgs.map((item, idx) => (
           <Grid key={idx} item xs={2} sm={4} md={4}>
-            <Link to={item.link}>
+            <Link style={{textDecoration:"none"}} to={item.link}>
               <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea>
                   <CardMedia component="img" height="140" image={item.img} />

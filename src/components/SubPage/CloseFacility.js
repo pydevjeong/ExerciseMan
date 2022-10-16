@@ -8,7 +8,7 @@ const CloseFacility = (props) => {
   const [inputValue,setInputValue]=useState("")
   useEffect(()=>{
     setInputValue(checkProps.state.searchInput)
-  },[checkProps.state.searchInput])
+  },[])
   
   
   return (

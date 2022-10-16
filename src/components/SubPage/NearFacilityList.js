@@ -1,9 +1,9 @@
-import React from "react";
-import Box from "@mui/material/Box";
+import React, { useEffect, useState } from "react";
+// import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
+// import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import { CardActionArea } from "@mui/material";
@@ -14,15 +14,19 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 const NearFacilityList = ({ name, location, tel }) => {
   const navigate=useNavigate()
   const params={gym:`${name}`}
-  // console.log(name,location,tel);
+
+
+  useEffect(()=>{
+  },[])
   const cardClicked=(e)=>{
     e.preventDefault();
+    // 미완성 기능 -> 오류 생김 22/10/16
     navigate({
       'pathname':'/closeFacilty',
       search:`?${createSearchParams(params)}`
     })
   }
-
+  
   return (
     <Container>
       <Card style={{marginTop:"10px"}}>

@@ -1,13 +1,12 @@
-import { Info, Security } from "@mui/icons-material";
 import { AppBar, Container, Grid, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body2" color="#fff">
       {'Copyright © '}
-      <Link>
+      <Link style={{textDecoration:"none",color:"#fff"}}>
         운동人
       </Link>{' '}
       {new Date().getFullYear()}
@@ -20,6 +19,7 @@ const Footer = () => {
   return (
     <Container>
       <AppBar
+       style={{background:"#303030"}}
         position="static"
         elevation={0}
         component="footer"
