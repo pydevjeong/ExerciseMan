@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CommunityCategory from "../Community/CommunityCategory";
 import Layout from "../Layout/Layout";
 
@@ -7,8 +7,11 @@ import Notice from "../SubPage/Notice";
 import SliderBanner from "./SliderBanner";
 import "./MainPage.css";
 import { Container } from "@mui/material";
+import ErrorLoadingPage from "../Error/ErrorLoadingPage";
 
 const MainPage = () => {
+  const [apiFectched,setApiFectched]=useState(false)
+  //api fetching 되면 페이지가 나오게 만들어야함
   return (
     <Layout>
       <Notice />
@@ -19,7 +22,7 @@ const MainPage = () => {
       <div className="community_category123">
         <CommunityCategory />
       </div>
-      <ApiPage />
+      {apiFectched ? <ApiPage /> : <ErrorLoadingPage/>}
     </Layout>
   );
 };

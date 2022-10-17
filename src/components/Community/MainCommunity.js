@@ -33,8 +33,8 @@ import axios from "axios";
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      width: "45%",
-      height: "45%",
+      width: "50%",
+      height: "55%",
       overflow: "hidden",
     },
   };

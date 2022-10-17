@@ -8,7 +8,6 @@ const CloseFacility = (props) => {
   const [inputValue,setInputValue]=useState("")
   useEffect(()=>{
     setInputValue(checkProps.state.searchInput)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   
   
