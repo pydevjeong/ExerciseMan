@@ -9,7 +9,8 @@ import MapPage from "./components/Maps/MapPage";
 import MainCommunity from "./components/Community/MainCommunity";
 import ContactUs from "./components/SubPage/ContactUs";
 import BookingPopup from "./components/SubPage/BookingPopup";
-import CloseFacility from "./components/SubPage/CloseFacility";
+import CloseFacility from "./components/SubPage/GymPage/CloseFacility";
+import FindAccount from "./components/Auth/FindAccount/FindAccount";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
   {
     path: "/location",
     element: <MapPage />,
+  },
+  {
+    path:"/community",
+    // 커뮤니티에 대한 페이지 개발후 수정
+    element: <MainCommunity/>
   },
   {
     path: "/basketball",
@@ -64,6 +70,10 @@ const router = createBrowserRouter([
     path:"/closeFacilty",
     element:<CloseFacility/>
   },
+  {
+    path:"/findAccount",
+    element:<FindAccount/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import ApiPage from './ApiPage';
+import ApiPage from '../../API/ApiPage';
 
 const CloseFacility = (props) => {
   const checkProps= useLocation()

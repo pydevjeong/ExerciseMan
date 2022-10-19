@@ -3,7 +3,7 @@ import axios from "axios";
 import XMLParser from "react-xml-parser";
 import { Container } from "@mui/system";
 // import CloseFacility from "./CloseFacility";
-import NearFacilityList from "./NearFacilityList";
+import NearFacilityList from "../SubPage/GymPage/NearFacilityList";
 import ErrorPage from "../Error/ErrorPage";
 
 // API q 커스텀 훅으로 만들어야함
@@ -11,8 +11,8 @@ function ApiPage(props) {
   const [datas, setDatas] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [checkInputValue, setCheckInputValue] = useState(false);
-  const gymApi=process.env.REACT_APP_GYM_API
-  const [apiFectched,setApiFectched]=useState(false)
+
+  const [apiFectched,setApiFectched]=useState(true);
   
   const [limit, setLimit] = useState(10);
   
@@ -30,9 +30,9 @@ function ApiPage(props) {
     if (inputValue === "성남시") {
       setCheckInputValue(true);
     } else {
-      console.log("안돼");
+      console.log("입력값을 api에 적용 불가")
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
   let makeData = [];
@@ -43,7 +43,7 @@ function ApiPage(props) {
   // const regex=/name/gi
   // SIGUN_CD하드코딩 된걸 입력값에 따라서 지역코드가 나타나게 해야함
   // ex) 검색에 성남시 헬스장 -> 41130(성남 코드)
-
+  const gymApi=process.env.REACT_APP_GYM_API
   const url = `https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?KEY=${gymApi}&TYPE=xml&SIGUN_NM=${checkInputValue ? inputValue : "부천시"}`;
   
   const fetchDatas = async () => {
@@ -60,24 +60,14 @@ function ApiPage(props) {
   };
   useEffect(() => {
     fetchDatas();
-  
   }, []);
 
+  setApiDatas()
   // console.log(datas) datas에 정상적으로 담김
-
-  makeData = datas.map((e) => {
-    if(e.value.includes("ERROR")){
-      console.log("ERROR 발생")
-      setApiFectched(false)
-      return ["Error"];
-    }
-    else{
-      console.log("API Fetched Well")
-      setApiFectched(true)
+  function setApiDatas(){
+    makeData = datas.map((e) => {
       return e.children;
-    }
   });
-
 
   if(apiFectched){
     makeData.shift(); //쓸모없는 첫번째 배열부분 자르기
@@ -91,12 +81,15 @@ function ApiPage(props) {
           tel: arr[11].value,
         });
       }
+      return findGym
     });
   }
   else{
     console.log("value 에러")
-    console.log(makeData)
   }
+
+  }
+
 
   //item.name==="BIZPLC_NM"에서 value(시설이름) item.name==="BSN_STATE_NM"에서 value가 영업중인것
   //item.name==="REFINE_ROADNM_ADDR" value(도로명주소)

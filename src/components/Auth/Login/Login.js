@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import './Login.css'
 import axios from 'axios'
 
@@ -24,6 +24,13 @@ function Login({
     handleSubmit,
     formState: { isSubmitting, isDirty, errors },
   } = useForm();
+  const navigate=useNavigate()
+  const findAccountLink=()=>{
+    navigate('/findAccount')
+  }
+  const registerLink=()=>{
+    navigate('/register')
+  }
 
   return (
     <div className="form_container">
@@ -42,7 +49,6 @@ function Login({
             required: "아이디은 필수 입력입니다."
           })}
         />
-        {errors.email && <small role="alert">{errors.email.message}</small>}
       </div>
       <div className="pwInput">
         <label htmlFor="password">비밀번호</label>
@@ -58,12 +64,14 @@ function Login({
             },
           })}
         />
-        {errors.password && <small role="alert">{errors.password.message}</small>}
       </div>
       <div className="submitBtn">
+      <button onClick={findAccountLink}>계정 찾기</button>
+        
         <button type="submit" disabled={isSubmitting}>
           로그인
         </button>
+        <button onClick={registerLink}>회원가입</button>
       </div>
     </form>
     </div>
