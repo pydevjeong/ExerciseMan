@@ -1,0 +1,10 @@
+.login_container{
+
+}
+.icon_img{
+  width: 3rem;
+  cursor: pointer;
+}
+.dropdown_container{
+  position: absolute;
+}

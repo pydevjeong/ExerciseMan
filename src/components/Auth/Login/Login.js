@@ -2,23 +2,35 @@ import { useForm } from "react-hook-form";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import './Login.css'
 import axios from 'axios'
+import setAuthorizationToken from "../../../utils/setAuthoriztionToken";
 
-function Login({
-  onSubmit = async (data) => {
+function Login(){
+
+  const onSubmit = async (data) => {
     const {userId,password}=data
     console.log(userId,password)
-    await axios.get('/user/login',{
+    await axios.post('http://15.165.205.17:8080/login',{
       userId:userId,
       password:password
     })
     .then(res=>{
       console.log('good',res)
-      localStorage.getItem("token")
+      if(res.data){
+        localStorage.setItem("user",JSON.stringify(res.data))
+        setAuthorizationToken(JSON.stringify(res.data))
+      }
+      return res.data
     })
     .catch(err=>console.log(err))
-  },
-}) 
-{
+  }
+  
+  // const logout=()=>{
+  //   localStorage.removeItem("user")
+  // }
+  // const getCurrentUser=()=>{
+  //   return JSON.parse(localStorage.getItem("user"))
+  // }
+
   const {
     register,
     handleSubmit,
@@ -33,6 +45,7 @@ function Login({
   }
 
   return (
+
     <div className="form_container">
       <div className="mainLogo">
         <Link className="mainLink" to='/'>운동人</Link>
@@ -77,5 +90,6 @@ function Login({
     </div>
   );
 }
+
 
 export default Login

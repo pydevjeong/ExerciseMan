@@ -8,6 +8,8 @@ import FitnessCenterOutlinedIcon from "@mui/icons-material/FitnessCenterOutlined
 import AddLocationAltOutlinedIcon from "@mui/icons-material/AddLocationAltOutlined";
 import SportsSoccerOutlinedIcon from "@mui/icons-material/SportsSoccerOutlined";
 import { Container } from "@mui/material";
+import { useState } from "react";
+import UserPage from "../UserPage/UserPage";
 
 const icons = [
   {
@@ -34,15 +36,23 @@ const icons = [
 // 코드 더 깔끔하게 만들방법 찾으면 map으로 사용]
 
 const Header = () => {
+  const [userIsLogined,setUserIsLogined]=useState(false)
+
   return (
     <Container style={{ marginTop: "5%" }} maxWidth="lg">
       <div className={styles.navlink}>
+        { userIsLogined ?
+           <UserPage/> :
         <Link className={styles.links} to="/login">
           로그인
         </Link>
+        }
+        { userIsLogined ?
         <Link className={styles.links} to="/register">
           회원가입
         </Link>
+        : ''
+        }
         <Link className={styles.links} to="/community">
           커뮤니티
         </Link>

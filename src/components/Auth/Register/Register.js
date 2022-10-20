@@ -13,13 +13,13 @@ const Register = () => {
 
 
   const handleRegistration = async(data)=>{
-    const {userId,password,email,name}=data
-    console.log(userId,password,email,name);
-    await axios.post('/user/join',{
+    const {userId,password,email,nickname}=data
+    console.log(userId,password,email,nickname);
+    await axios.post('http://15.165.205.17:8080/join',{
       userId: userId,
       password: password,
       email: email,
-      name: name
+      nickname: nickname
     })
     .then(response=>{
       console.log('great!',response.data)
@@ -80,11 +80,11 @@ const Register = () => {
       </div>
 
       <div>
-        <label>Name</label>
+        <label>nickname</label>
         <input
-          name="name"
+          name="nickname"
           type="text"
-          {...register("name", registerOptions.name)}
+          {...register("nickname", registerOptions.name)}
         />
         <small className="text-danger">
           {errors?.name && errors.name.message}

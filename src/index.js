@@ -11,6 +11,10 @@ import ContactUs from "./components/SubPage/ContactUs";
 import BookingPopup from "./components/SubPage/BookingPopup";
 import CloseFacility from "./components/SubPage/GymPage/CloseFacility";
 import FindAccount from "./components/Auth/FindAccount/FindAccount";
+import { Provider } from "react-redux";
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -76,10 +80,13 @@ const router = createBrowserRouter([
   }
 ]);
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+
     <RouterProvider router={router} />
+
   </React.StrictMode>
 );
 
