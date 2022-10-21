@@ -13,7 +13,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../Layout/Header/Header";
 import styles from "./MainCommunity.module.css";
 import Modal from "react-modal";
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 const customStyles = {
   // overlay: {
@@ -47,6 +47,15 @@ const CommunityBoard = () => {
   const [categoryName, setCategoryName] = useState("전체");
   const [urlName, setUrlName] = useState("");
 
+  function getBoardData(){
+    axios.get("http://15.165.205.17:8080/posts")
+    .then(res=>console.log(res))
+    .catch(err=>console.log(err))
+  }
+  useEffect(()=>{
+    // getBoardData()
+  },[])
+
   const catagoryChanged = (e) => {
     console.log(e.target.value);
     setCategoryName(e.target.value);
@@ -77,7 +86,7 @@ const CommunityBoard = () => {
         return false
       }
       else{
-      await axios.post("/posts/create",{
+      await axios.post("http://15.165.205.17:8080/posts/create",{
         title:title,
         content:content
       })

@@ -15,16 +15,15 @@ const NearFacilityList = ({ name, location, tel }) => {
   const navigate=useNavigate()
   const params={gym:`${name}`}
 
-
+  // search:`?${createSearchParams(params)}`,
   useEffect(()=>{
   },[])
+  
+
   const cardClicked=(e)=>{
     e.preventDefault();
     // 미완성 기능 -> 오류 생김 22/10/16
-    navigate({
-      'pathname':'/closeFacilty',
-      search:`?${createSearchParams(params)}`
-    })
+    navigate(`/facilityDetail?${createSearchParams(params)}`,{state:{"name":`${name}`,"location":`${location}`,"tel":`${tel}`}})
   }
   
   return (

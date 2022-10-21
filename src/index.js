@@ -12,6 +12,7 @@ import BookingPopup from "./components/SubPage/BookingPopup";
 import CloseFacility from "./components/SubPage/GymPage/CloseFacility";
 import FindAccount from "./components/Auth/FindAccount/FindAccount";
 import { Provider } from "react-redux";
+import FacilityDetail from "./components/SubPage/GymPage/FacilityDetail";
 
 
 
@@ -74,6 +75,11 @@ const router = createBrowserRouter([
     path:"/closeFacilty",
     element:<CloseFacility/>
   },
+  {
+    path:"/facilityDetail",
+    element:<FacilityDetail/>
+  },
+  
   {
     path:"/findAccount",
     element:<FindAccount/>
