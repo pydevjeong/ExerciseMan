@@ -72,6 +72,10 @@ const Time = () => {
     }
   };
 
+  const reserveBtn=()=>{
+    alert("")
+  }
+
   return (
     <div>
       <div className="v50_115" onClick={clickRe}>
@@ -114,8 +118,8 @@ const Time = () => {
         <div className="v50_122" onClick={countUp}></div>
 
         <div className="v50_140"></div>
-        <div className="v50_149">예약하기</div>
-        <div className="v50_153">취소</div>
+        <button className="v50_149" onClick={reserveBtn}>예약하기</button>
+        <button className="v50_153">취소</button>
       </div>
     </div>
   );

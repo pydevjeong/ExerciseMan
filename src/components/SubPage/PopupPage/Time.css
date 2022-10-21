@@ -213,9 +213,11 @@
     padding-top: 10px;
     border: 1px solid rgba(132,9,255,1);
     overflow: hidden;
+    cursor: pointer;
   }
   .v50_153 {
     width: 130px;
+    cursor: pointer;
     height: 40px;
     background: rgba(217,217,217,1);
     opacity: 1;

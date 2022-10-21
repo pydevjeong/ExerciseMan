@@ -22,7 +22,7 @@ const NearFacilityList = ({ name, location, tel }) => {
 
   const cardClicked=(e)=>{
     e.preventDefault();
-    // 미완성 기능 -> 오류 생김 22/10/16
+    // 미완성 기능 -> 오류 생김 22/10/16 -> 완성 22/10/21
     navigate(`/facilityDetail?${createSearchParams(params)}`,{state:{"name":`${name}`,"location":`${location}`,"tel":`${tel}`}})
   }
   
