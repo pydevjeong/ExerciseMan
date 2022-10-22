@@ -1,31 +1,31 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
+import "./Regi.css"
 
 const Register = () => {
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-
-  const handleRegistration = async(data)=>{
-    const {userId,password,email,nickname}=data
-    console.log(userId,password,email,nickname);
-    await axios.post('http://15.165.205.17:8080/join',{
-      userId: userId,
-      password: password,
-      email: email,
-      nickname: nickname
-    })
-    .then(response=>{
-      console.log('great!',response.data)
-    })
-    .catch(err=>console.log('error',err))
-  }
+  const handleRegistration = async (data) => {
+    const { userId, password, email, nickname } = data;
+    console.log(userId, password, email, nickname);
+    await axios
+      .post("http://15.165.205.17:8080/join", {
+        userId: userId,
+        password: password,
+        email: email,
+        nickname: nickname,
+      })
+      .then((response) => {
+        console.log("great!", response.data);
+      })
+      .catch((err) => console.log("error", err));
+  };
 
   const handleError = (errors) => {};
 
@@ -39,60 +39,84 @@ const Register = () => {
         message: "Password must have at least 8 characters",
       },
     },
+    checkPassWord: {
+      required: "Password is not correct",
+    },
   };
 
   return (
-    <form onSubmit={handleSubmit(handleRegistration, handleError)}>
-      <div>
-        <label>Id</label>
-        <input
-          name="userId"
-          type="text"
-          {...register("userId", registerOptions.name)}
-        />
-        <small className="text-danger">
-          {errors?.name && errors.name.message}
-        </small>
-      </div>
+    <div className="registerContainer">
+      <form onSubmit={handleSubmit(handleRegistration, handleError)}>
+        <div className="regiMainLogo">
+          <Link className="mainLink" to="/">
+            운동人
+          </Link>
+        </div>
+        <div className="registercontentes">
+          <label>아이디</label>
+          <input
+            name="userId"
+            type="text"
+            {...register("userId", registerOptions.name)}
+          />
+          <small className="text-danger">
+            {errors?.name && errors.name.message}
+          </small>
+        </div>
 
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          {...register("password", registerOptions.password)}
-        />
-        <small className="text-danger">
-          {errors?.password && errors.password.message}
-        </small>
-      </div>
+        <div className="regiMargin">
+          <label>비밀번호</label>
+          <input
+            type="password"
+            name="password"
+            {...register("password", registerOptions.password)}
+          />
+          <small className="text-danger">
+            {errors?.password && errors.password.message}
+          </small>
+        </div>
+        <div className="regiMargin">
+          <label>비밀번호 재확인</label>
+          <div>
+            <input
+              type="checkPassWord"
+              name="checkPassWord"
+              className="regiTextBox"
+              {...register("checkPassWord", registerOptions.checkPassWord)}
+            />
+            <small className="text-danger">
+              {errors?.checkPassWord && errors.checkPassWord.message}
+            </small>
+          </div>
+        </div>
 
-      <div>
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          {...register("email", registerOptions.email)}
-        />
-        <small className="text-danger">
-          {errors?.email && errors.email.message}
-        </small>
-      </div>
+        <div className="regiMargin">
+          <label>이메일</label>
+          <input
+            type="email"
+            name="email"
+            {...register("email", registerOptions.email)}
+          />
+          <small className="text-danger">
+            {errors?.email && errors.email.message}
+          </small>
+        </div>
 
-      <div>
-        <label>nickname</label>
-        <input
-          name="nickname"
-          type="text"
-          {...register("nickname", registerOptions.name)}
-        />
-        <small className="text-danger">
-          {errors?.name && errors.name.message}
-        </small>
-      </div>
+        <div className="regiMargin">
+          <label>nickname</label>
+          <input
+            name="nickname"
+            type="text"
+            {...register("nickname", registerOptions.name)}
+          />
+          <small className="text-danger">
+            {errors?.name && errors.name.message}
+          </small>
+        </div>
 
-      <button>Submit</button>
-    </form>
+        <button className="registersubmitBtn">회원가입</button>
+      </form>
+    </div>
   );
 };
 export default Register;

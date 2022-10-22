@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import './Login.css'
-import axios from 'axios'
+import "./Login.css"
+import axios from "axios"
 import setAuthorizationToken from "../../../utils/setAuthoriztionToken";
 
 function Login(){
@@ -77,6 +77,12 @@ function Login(){
             },
           })}
         />
+      </div>
+      <div className="findId">아이디 찾기 / 비밀번호 찾기 / 회원가입</div>
+      <div className="btLine" />
+      <div className="snsLogin">
+        <div>페이스북</div>
+        <div>구글</div>
       </div>
       <div className="submitBtn">
       <button onClick={findAccountLink}>계정 찾기</button>
