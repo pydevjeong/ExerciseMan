@@ -13,6 +13,7 @@ import CloseFacility from "./components/SubPage/GymPage/CloseFacility";
 import FindAccount from "./components/Auth/FindAccount/FindAccount";
 import { Provider } from "react-redux";
 import FacilityDetail from "./components/SubPage/GymPage/FacilityDetail";
+import PublicFacilityDetail from "./components/SubPage/PublicPage/PublicFacilityDetail";
 
 
 
@@ -79,11 +80,14 @@ const router = createBrowserRouter([
     path:"/facilityDetail",
     element:<FacilityDetail/>
   },
-  
   {
     path:"/findAccount",
     element:<FindAccount/>
-  }
+  },
+  {
+    path:"/publicfacilityDetail",
+    element:<PublicFacilityDetail/>
+  },
 ]);
 
 

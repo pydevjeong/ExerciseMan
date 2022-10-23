@@ -6,12 +6,13 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { Grid } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const PublicFacilityCard = (props) => {
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
+  const navigate = useNavigate();
 
   let organizeData = props.makeData;
   let temp = [];
@@ -27,16 +28,23 @@ const PublicFacilityCard = (props) => {
       name: arr[9].value,
     });
   });
-  // console.log(data)
-  const cardClicked = () => {
-    console.log("hi");
-  };
   return (
     <Container>
       {data.slice(offset, offset + limit).map((val, idx) => (
         <Card key={idx} style={{ marginTop: "10px" }}>
-          <CardActionArea onClick={cardClicked}>
-            <CardContent >
+          <CardActionArea
+            onClick={() => {
+              navigate("/publicfacilityDetail", {
+                state: {
+                  name: val.name,
+                  city: val.city,
+                  location: val.location,
+                  zipCode: val.zipCode,
+                },
+              });
+            }}
+          >
+            <CardContent>
               <Typography
                 sx={{ fontSize: 14 }}
                 color="text.secondary"
@@ -45,10 +53,10 @@ const PublicFacilityCard = (props) => {
                 정보
               </Typography>
               <Typography variant="h5" component="div">
-                {val.city}
+                {val.name}
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                {val.name}
+                {val.city}
               </Typography>
               <Typography variant="body2">{val.zipCode}</Typography>
               <Typography variant="body2">{val.location}</Typography>
