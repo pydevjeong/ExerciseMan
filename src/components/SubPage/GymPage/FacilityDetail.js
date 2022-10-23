@@ -15,7 +15,9 @@ const FacilityDetail = () => {
   const navigate=useNavigate()
   const [isOpen,setIsOpen] =useState(false)
 
-
+  const goCommunity=()=>{
+    navigate('/community')
+  }
   const openPopup=()=>{
     navigate('/booking_popup',{state:info.state})
     setIsOpen(true)
@@ -40,12 +42,12 @@ const FacilityDetail = () => {
             <h3>{info.state.tel}</h3>
           </div>
           <div>
-            <button>커뮤하기</button>
+            <button onClick={goCommunity}>커뮤니티</button>
             <button onClick={openPopup}>예약하기</button>
           </div>
           <div>
             <p>시설정보</p>
-            <span>ㅂㅈ얍ㅈ우ㅑ</span>
+            <span>임시데이터 카카오 검색 API를 통해서 헬스장 설명 작성할 예정</span>
             <Iframe
               url="https://youtube.com/embed/uz6TUGCXe7c"
               width="500px"

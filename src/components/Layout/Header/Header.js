@@ -15,22 +15,27 @@ const icons = [
   {
     icon: <SportsBasketballIcon fontSize="inherit" color="inherit" />,
     link: "/basketball",
+    name: "농구",
   },
   {
     icon: <SportsSoccerOutlinedIcon fontSize="inherit" />,
     link: "/soccer",
+    name: "축구",
   },
   {
     icon: <SportsTennisOutlinedIcon fontSize="inherit" />,
     link: "/badminton",
+    name: "배드민턴",
   },
   {
     icon: <FitnessCenterOutlinedIcon fontSize="inherit" />,
     link: "/gym",
+    name: "헬스",
   },
   {
     icon: <AddLocationAltOutlinedIcon fontSize="inherit" />,
     link: "/location",
+    name: "지도",
   },
 ];
 // 코드 더 깔끔하게 만들방법 찾으면 map으로 사용]
@@ -74,9 +79,12 @@ const Header = () => {
         </div>
         <div className={styles.icon_contier}>
           {icons.map((item, idx) => (
-            <Link key={idx} className={styles.icon_links} to={item.link}>
-              {item.icon}
-            </Link>
+            <div key={idx} className={styles.inside_container}>
+              <Link className={styles.icon_links} to={item.link}>
+                {item.icon}
+              </Link>
+              <p className={styles.icon_name}>{item.name}</p>
+            </div>
           ))}
         </div>
       </div>

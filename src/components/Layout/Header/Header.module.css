@@ -6,7 +6,7 @@
 .links{
   font-size: 0.8rem;
   text-decoration: none;
-  color: rgb(48, 47, 47);
+  color: rgb(99, 96, 96);
   margin-left: 1%;
   font-weight: bold;
 }
@@ -37,11 +37,26 @@
 .icon_contier{
   display: flex;
 }
+.inside_container{
+  display: inline;
+  margin-right: 16px;
+}
 .icon_links{
+  display: flex;
   text-decoration: none;
-  color: rgb(48, 47, 47);
+  color: rgb(99, 96, 96);
   font-weight: bold;
-  font-size: 250%;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 190%;
+}
+.icon_links:last-child{
+  margin: 0;
+}
+
+.icon_name{
+  margin: 0;
+  padding: 0;
 }
 .icon_links:hover{
   color: rgb(255, 0, 212);
