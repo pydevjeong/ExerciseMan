@@ -14,7 +14,7 @@ function ApiPage(props) {
 
   const [apiFectched,setApiFectched]=useState(true);
   
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(3);
   
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
@@ -30,7 +30,7 @@ function ApiPage(props) {
     if (inputValue === "성남시") {
       setCheckInputValue(true);
     } else {
-      console.log("입력값을 api에 적용 불가")
+      // console.log("입력값을 api에 적용 불가")
     }
 
   }, []);
