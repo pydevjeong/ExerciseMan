@@ -34,7 +34,7 @@ label{
   display: flex;
   justify-content: center;
   align-content: center;
-   margin-top: 7%;
+  margin-top: 7%;
   margin-bottom: 5%;
 }
 .submitBtnStyle{
@@ -70,6 +70,12 @@ label{
   align-content: center;
   padding-top: 1%;
   font-size: 140%;
+}
+.findAcc:hover{
+  color: #6867AC;
+}
+.goRegi:hover{
+  color: #6867AC;
 }
 .btLine{
   position: flex;
