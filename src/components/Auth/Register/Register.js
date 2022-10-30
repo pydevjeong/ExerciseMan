@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./Regi.css"
+import "./Regi.css";
 
 const Register = () => {
   const {
@@ -53,68 +53,73 @@ const Register = () => {
           </Link>
         </div>
         <div className="registercontentes">
-          <label>아이디</label>
-          <input
-            name="userId"
-            type="text"
-            {...register("userId", registerOptions.name)}
-          />
-          <small className="text-danger">
-            {errors?.name && errors.name.message}
-          </small>
-        </div>
-
-        <div className="regiMargin">
-          <label>비밀번호</label>
-          <input
-            type="password"
-            name="password"
-            {...register("password", registerOptions.password)}
-          />
-          <small className="text-danger">
-            {errors?.password && errors.password.message}
-          </small>
-        </div>
-        <div className="regiMargin">
-          <label>비밀번호 재확인</label>
           <div>
+            <label>아이디</label>
             <input
-              type="checkPassWord"
-              name="checkPassWord"
+              name="userId"
+              type="text"
               className="regiTextBox"
-              {...register("checkPassWord", registerOptions.checkPassWord)}
+              {...register("userId", registerOptions.name)}
             />
             <small className="text-danger">
-              {errors?.checkPassWord && errors.checkPassWord.message}
+              {errors?.name && errors.name.message}
             </small>
           </div>
-        </div>
 
-        <div className="regiMargin">
-          <label>이메일</label>
-          <input
-            type="email"
-            name="email"
-            {...register("email", registerOptions.email)}
-          />
-          <small className="text-danger">
-            {errors?.email && errors.email.message}
-          </small>
-        </div>
+          <div className="regiMargin">
+            <label>비밀번호</label>
+            <input
+              type="password"
+              name="password"
+              className="regiTextBox"
+              {...register("password", registerOptions.password)}
+            />
+            <small className="text-danger">
+              {errors?.password && errors.password.message}
+            </small>
+          </div>
+          <div className="regiMargin">
+            <label>비밀번호 재확인</label>
+            <div>
+              <input
+                type="checkPassWord"
+                name="checkPassWord"
+                className="regiTextBox"
+                {...register("checkPassWord", registerOptions.checkPassWord)}
+              />
+              <small className="text-danger">
+                {errors?.checkPassWord && errors.checkPassWord.message}
+              </small>
+            </div>
+          </div>
 
-        <div className="regiMargin">
-          <label>nickname</label>
-          <input
-            name="nickname"
-            type="text"
-            {...register("nickname", registerOptions.name)}
-          />
-          <small className="text-danger">
-            {errors?.name && errors.name.message}
-          </small>
-        </div>
+          <div className="regiMargin">
+            <label>이메일</label>
+            <input
+              type="email"
+              name="email"
+              className="regiTextBox"
+              {...register("email", registerOptions.email)}
+            />
+            <small className="text-danger">
+              {errors?.email && errors.email.message}
+            </small>
+          </div>
 
-        <button className="registersubmitBtn">회원가입</button>
+          <div className="regiMargin">
+            <label>닉네임</label>
+            <input
+              name="nickname"
+              type="text"
+              className="regiTextBox"
+              {...register("nickname", registerOptions.name)}
+            />
+            <small className="text-danger">
+              {errors?.name && errors.name.message}
+            </small>
+          </div>
+          <button className="registersubmitBtn">회원가입</button>
+        </div>
       </form>
     </div>
   );
