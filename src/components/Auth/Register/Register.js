@@ -71,6 +71,7 @@ const Register = () => {
             <input
               type="password"
               name="password"
+              placeholder="6자 이상 입력하세요"
               className="regiTextBox"
               {...register("password", registerOptions.password)}
             />

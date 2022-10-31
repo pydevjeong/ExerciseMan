@@ -99,7 +99,7 @@ function Login() {
             계정 찾기
           </div>
           &nbsp;/&nbsp;
-          <div className="goRegi" onClick={registerLink}>
+          <div className="findAcc" onClick={registerLink}>
             회원가입
           </div>
         </div>

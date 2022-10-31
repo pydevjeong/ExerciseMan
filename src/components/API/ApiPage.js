@@ -14,7 +14,7 @@ function ApiPage(props) {
 
   const [apiFectched,setApiFectched]=useState(true);
   
-  const [limit, setLimit] = useState(3);
+  const [limit, setLimit] = useState(10);
   
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
