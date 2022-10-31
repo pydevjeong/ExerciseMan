@@ -1,6 +1,119 @@
-.main_container{
-  border: 1px solid #000;
+.main_container {
+  /* border: 1px solid #000; */
 }
-.title_con{
+
+.title_con {
   display: flex;
+}
+
+.fewIcons {
+  display: flex;
+  align-items: center;
+}
+
+.fewIcons img {
+  cursor: pointer;
+}
+
+.fewIcons img:hover {
+  transform: scale(0.9);
+  transition: 1.5 ease-in-out;
+}
+
+.shareIcons {
+  display: flex;
+  cursor: pointer;
+  transform: scale(0.9);
+  transition: 1.5 ease-in-out;
+}
+
+.imgAndOthers {
+  display: flex;
+}
+
+.imgContainer {
+  display: flex;
+  margin-right: 2%;
+}
+
+.imgContainer img {
+  width: 100%;
+  height: auto;
+}
+
+.info_con {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_con {
+  display: inline;
+}
+
+.text_con h2 {
+  margin-top: 0;
+  color: #303030;
+  font-size: 25px;
+
+}
+
+.text_con h3 {
+  margin: 0;
+}
+
+.text_con h3:last-child {
+  font-size: 25px;
+}
+
+.share_con {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.share_con label {
+  font-size: 18px;
+}
+
+.majorBtns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 25%;
+}
+
+.majorBtns button {
+  cursor: pointer;
+  border: none;
+  font-size: 24px;
+  width: 70%;
+  padding: 15px 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+
+.majorBtns button:first-child {
+  background-color: #90AFFF;
+  margin-bottom: 5%;
+}
+
+.majorBtns button:last-child {
+  background-color: #FFAB48;
+}
+
+/* 시설정보 */
+.explainCon{
+  display: flex;
+  border:1px solid red
+}
+.detailIExplain{
+  display: flex;
+  flex:2;
+  background-color: #FC7979;
+}
+.reviewCon{
+  display: flex;
+  flex:1;
+  background-color:#D4A9FF;
 }
