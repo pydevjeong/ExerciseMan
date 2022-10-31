@@ -9,9 +9,9 @@ import ModalPage from "../../../Modal/ModalPage";
 const FacilityDetail = () => {
   // const params=useNavigate()
   const info = useLocation();
-  console.log(info.state);
+  // console.log(info.state);
   const decode = decodeURI(info?.search);
-  console.log(decode);
+  // console.log(decode);
   const navigate=useNavigate()
   const [isOpen,setIsOpen] =useState(false)
 
