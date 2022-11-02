@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CommunityCategory from "../Community/CommunityCategory";
 import Layout from "../Layout/Layout";
 import ApiPage from "../API/ApiPage";
@@ -11,11 +11,11 @@ import CommunityCard from "../Community/CommunityCard";
 import PublicFacility from "../SubPage/PublicPage/PublicFacility";
 import WholeSportsAPI from "../API/WholeSportsAPI";
 import PublicFacilityCard from "../SubPage/PublicPage/PublicFacilityCard";
-// import CommunityBoard from "../Community/CommunityBoard";
+import { KaKaoGeolocation } from "../API/KaKaoGeolocation";
 
 const MainPage = () => {
   const [apiFectched,setApiFectched]=useState(true)
-  //api fetching 되면 페이지가 나오게 만들어야함
+
   return (
     <Layout>
       <Notice />

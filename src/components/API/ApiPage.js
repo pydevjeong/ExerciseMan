@@ -30,7 +30,7 @@ function ApiPage(props) {
     if (inputValue === "성남시") {
       setCheckInputValue(true);
     } else {
-      console.log("입력값을 api에 적용 불가")
+      // console.log("입력값을 api에 적용 불가")
     }
 
   }, []);

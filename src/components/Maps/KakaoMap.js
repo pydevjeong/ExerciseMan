@@ -15,7 +15,7 @@ function KaKaoMap({ myGeo }) {
   useEffect(() => {
     setPoints(myGeo);
   }, [myGeo]);
-console.log(points);
+// console.log(points);
   useEffect(() => {
     setLocation(locationState.state);
   }, [locationState]);
@@ -38,6 +38,7 @@ console.log(points);
         let markers = [];
 
         for (var i = 0; i < data.length; i++) {
+          console.log(data[i])
           markers.push({
             position: {
               lat: data[i].y,
@@ -53,6 +54,8 @@ console.log(points);
       }
     });
   }, [location, map]);
+
+  // console.log(markers)
 
   return (
     <Map //center부분 수정예정(?)

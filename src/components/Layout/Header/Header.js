@@ -10,6 +10,7 @@ import SportsSoccerOutlinedIcon from "@mui/icons-material/SportsSoccerOutlined";
 import { Container } from "@mui/material";
 import { useState } from "react";
 import UserPage from "../UserPage/UserPage";
+import logo from '../../../img/ourLogo.png'
 
 const icons = [
   {
@@ -70,7 +71,7 @@ const Header = () => {
       <div className={styles.second_container}>
         <div className={styles.main}>
           <Link className={styles.mainLink} to="/">
-            운동人
+            <img className={styles.logoImg} src={logo} alt=""/>
           </Link>
           {/* 새로고침되게 해야함 */}
         </div>

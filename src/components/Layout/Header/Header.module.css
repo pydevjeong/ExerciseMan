@@ -23,13 +23,19 @@
 
 .main{
   display: flex;
-  font-size: 2rem;
+  /* font-size: 2rem; */
 }
 .mainLink{
-  color: #6867AC;
+  /* color: #6867AC;
   text-decoration: none;
   font-size: 50px;
-  font-weight: bold;
+  font-weight: bold; */
+}
+/* 로고 css속성 위에 주석 처리한 부분은 로고를 이미지로 대체했기 때문에 주석처리*/
+/* 이미지 자체의 여백이 최대한 제거해둠 */
+.logoImg{
+  width: 8rem;
+  height:8rem;
 }
 .search_container{
   display: flex;

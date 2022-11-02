@@ -19,7 +19,6 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  
 }
 label{
   font-size: 140%;
@@ -72,9 +71,11 @@ label{
   font-size: 140%;
 }
 .findAcc:hover{
+  cursor: pointer;
   color: #6867AC;
 }
 .goRegi:hover{
+  cursor: pointer;
   color: #6867AC;
 }
 .btLine{

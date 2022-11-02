@@ -21,6 +21,6 @@ export const imageSearch=(params)=>{
 }
 
 export const blogSearch=(params)=>{
-  return KakaoSearch.get('/v2/search/image',{params})
+  return KakaoSearch.get('/v2/search/blog',{params})
 }
 
