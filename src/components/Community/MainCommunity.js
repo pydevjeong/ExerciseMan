@@ -45,63 +45,6 @@ import CommunityBoard from "./CommunityBoard";
   // React가 계속 리렌더링 하는듯
 
 const MainCommunity = () => {
-
-
-  // const [modalIsOpen, setModalIsOpen] = useState(false)
-
-  // 로직상 이 페이지가 열리면 아래 useEffect부분에 case "전체"가 제일 먼저 실행됨
-  // -> 받아온 url에 따라서 카테고리도 바뀌게 변경해야함
-
-  // useEffect(() => {
-  //   setUrlName(checkURL.pathname);
-  //   switch (categoryName) {
-  //     case "전체":
-  //       console.log("전체");
-  //       break;
-  //     case "농구":
-  //       navigate("/basketball");
-  //       console.log("농구");
-  //       break;
-  //     case "야구":
-  //       navigate("/baseball");
-  //       console.log("야구");
-  //       break;
-  //     case "배드민턴":
-  //       navigate("/badminton");
-  //       break;
-  //     case "헬스":
-  //       navigate("/gym");
-  //       break;
-  //     case "축구":
-  //       navigate("/soccer");
-  //       break;
-  //     case "기타":
-  //       navigate("/others");
-  //       break;
-  //     default:
-  //       //없는 페이지입니다
-  //       break;
-  //   }
-  // }, []);
-  // console.log(checkURL,navigate);
-
-
-
-  /*
-  const getContents=async()=>{
-    // 특정조회시 `/posts/${postId}`
-    await axios.get(`/posts`,{
-      title:title,
-      content:content
-    })
-    .then(res=>{
-      console.log(res)
-    })
-    .catch(err=>console.log(err))
-  }
-  */
-
-
   return (
     <Container>
       <Header />

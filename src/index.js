@@ -14,6 +14,7 @@ import FindAccount from "./components/Auth/FindAccount/FindAccount";
 import { Provider } from "react-redux";
 import FacilityDetail from "./components/SubPage/GymPage/FacilityDetail";
 import PublicFacilityDetail from "./components/SubPage/PublicPage/PublicFacilityDetail";
+import WholeCommunity from "./components/Community/WholeCommunity";
 
 
 
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
   {
     path:"/community",
     // 커뮤니티에 대한 페이지 개발후 수정
-    element: <MainCommunity/>
+    element: <WholeCommunity/>
   },
   {
     path: "/basketball",
