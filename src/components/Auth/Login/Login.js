@@ -2,9 +2,15 @@ import { useForm } from "react-hook-form";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
+import React, { useState } from "react";
+import FindAccount from "../FindAccount/FindAccount.js";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import setAuthorizationToken from "../../../utils/setAuthoriztionToken";
 
-function Login() {
+function Login(props) {
   const onSubmit = async (data) => {
     const { userId, password } = data;
     console.log(userId, password);
@@ -23,7 +29,11 @@ function Login() {
       })
       .catch((err) => console.log(err));
   };
-
+  /*
+    <btton className="findAcc" onClick={findAccountLink}>
+            계정 찾기
+          </btton>
+  */
   // const logout=()=>{
   //   localStorage.removeItem("user")
   // }
@@ -37,12 +47,26 @@ function Login() {
     formState: { isSubmitting, isDirty, errors },
   } = useForm();
   const navigate = useNavigate();
-  const findAccountLink = () => {
-    navigate("/findAccount");
-  };
+
   const registerLink = () => {
     navigate("/register");
   };
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "60%",
+    height: "50%",
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+  const [open, setOpen] = useState(props.isOpen);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const closeModal = () => setOpen(false);
 
   return (
     <div className="form_container">
@@ -95,13 +119,29 @@ function Login() {
           </div>
         </div>
         <div className="findId">
-          <div className="findAcc" onClick={findAccountLink}>
+          <button className="findAcc" onClick={handleOpen}>
             계정 찾기
-          </div>
-          &nbsp;/&nbsp;
-          <div className="findAcc" onClick={registerLink}>
+          </button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h5" component="h2">
+                이메일로 계정 찾기
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                <FindAccount />
+              </Typography>
+              <Button onClick={closeModal}>닫기</Button>
+            </Box>
+          </Modal>
+          /
+          <btton className="findAcc" onClick={registerLink}>
             회원가입
-          </div>
+          </btton>
         </div>
         <div className="btLine" />
         <div className="snsLogin">

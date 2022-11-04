@@ -70,6 +70,13 @@ label{
   padding-top: 1%;
   font-size: 140%;
 }
+.findAcc{
+  font-size: 100%;
+  border: 0;
+  outline: 0;
+  background-color: white;
+  margin: 0 10% 0 10%;
+}
 .findAcc:hover{
   cursor: pointer;
   color: #6867AC;
