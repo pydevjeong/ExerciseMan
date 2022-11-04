@@ -34,12 +34,12 @@ const SliderBanner = () => {
     <Container style={{marginTop:"3%"}} >
     <Slider {...settings}>
       <div>
-        <Link to='/contact_us'>
+        <Link to='/'>
           <img className="bannerImg" src={sports} alt="" />
         </Link>
       </div>
       <div>
-        <a href="https://peaceful-sands-33500.herokuapp.com" target="_blank" rel="noreferrer">
+        <a href="/" target="_blank" rel="noreferrer">
           <img className="bannerImg" src={sports2} alt=""/>
         </a>
       </div>
