@@ -58,6 +58,7 @@ const Register = () => {
             <input
               name="userId"
               type="text"
+              placeholder="사용할 아이디를 입력하세요"
               className="regiTextBox"
               {...register("userId", registerOptions.name)}
             />
@@ -85,6 +86,7 @@ const Register = () => {
               <input
                 type="checkPassWord"
                 name="checkPassWord"
+                placeholder="위와 동일한 비밀번호를 입력해주세요"
                 className="regiTextBox"
                 {...register("checkPassWord", registerOptions.checkPassWord)}
               />
@@ -99,6 +101,7 @@ const Register = () => {
             <input
               type="email"
               name="email"
+              placeholder="이메일을 입력해주세요"
               className="regiTextBox"
               {...register("email", registerOptions.email)}
             />
@@ -112,6 +115,7 @@ const Register = () => {
             <input
               name="nickname"
               type="text"
+              placeholder="2자 이상 입력하세요"
               className="regiTextBox"
               {...register("nickname", registerOptions.name)}
             />
