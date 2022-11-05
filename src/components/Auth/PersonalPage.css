@@ -1,0 +1,118 @@
+.PersonalPage{
+    display: flex;
+    margin-top: 7%;
+    margin-bottom: 10%;
+}
+.PersonalInfo{
+    position:relative;
+    width:25%;
+    height:1000px;
+}
+.PersonalImg{
+    width:150px;
+    height:150px;
+    border-radius:75px;
+    text-align:center;
+    margin:0 auto;
+    font-size:12px;
+    vertical-align:middle;
+}
+.PersonalName{
+    font-size: 150%;
+    color: #6867ac;
+    margin-top: 5%;
+}
+.PersonalAdd{
+    font-size: 120%;
+    margin-top: 5%;
+}
+.Inquirebtn{
+    background-color: white;
+    color: #555;
+    width:170px;
+    height:50px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    border:1px solid;
+    font-size: 100%;
+    margin-top: 20%;
+}
+.logoutbtn{
+    background-color: white;
+    color: #555;
+    font-size: 100%;
+    border: 0;
+    outline: 0;
+    position:absolute;
+    bottom: 0px;
+    left: 0px;
+}
+.PersonalMain{
+    width:70%;
+    border: solid 1px;
+}
+.userinfo{
+    background-color: #aaa;
+    height:17%;
+    font-size: 150%;
+    padding: 3% 5% 0 5%;
+}
+.userinfo1{
+    display: flex;
+    border-top: solid 1.5px;
+    margin-top: 3%;
+}
+.userinfo2{
+    flex-direction: column;
+    border-right: solid 1.5px;
+    margin-top: 3%;
+    margin-right: 5%;
+    padding-right: 5%;
+}
+.userinfo3{
+    flex-direction: column;
+    margin-top: 3%;
+    padding-right: 5%;
+}
+.userinfospan{
+    font-size: 120%;
+}
+.reservationinfo{
+    margin: 3% 5% 0 5%;
+    font-size: 120%;
+}
+.reservationcontents{
+    border-top: solid 1px;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height:550px;
+}
+.addFunction{
+    display: flex;
+    border-top: solid 1px;
+    margin-top: 3%;
+    padding-top: 3%;
+    font-size: 150%;
+    justify-content: space-around;
+    text-align : center;
+}
+.addFunction2{
+    height: 120px;
+    width: 25%;
+    border-right: solid 1.5px;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+.addFunction3{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
