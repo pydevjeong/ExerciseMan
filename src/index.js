@@ -16,6 +16,7 @@ import FacilityDetail from "./components/SubPage/GymPage/FacilityDetail";
 import PublicFacilityDetail from "./components/SubPage/PublicPage/PublicFacilityDetail";
 import WholeCommunity from "./components/Community/WholeCommunity";
 import PersonalPage from "./components/Auth/PersonalPage";
+import KakaoLogin from "./components/Auth/Login/KakaoLogin";
 
 const router = createBrowserRouter([
   {
@@ -91,6 +92,11 @@ const router = createBrowserRouter([
     path: "/personalPage",
     // 개인정보 페이지추가
     element: <PersonalPage />,
+  },
+  {
+    path: "/auth/kakao/callback",
+    // 카카오 로그인 만드는중
+    element: <KakaoLogin />,
   },
 ]);
 
