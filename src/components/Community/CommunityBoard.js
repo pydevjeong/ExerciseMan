@@ -1,5 +1,5 @@
 import {
-  Button,
+  
   FormControl,
   InputLabel,
   ListItem,
@@ -8,12 +8,11 @@ import {
   Stack,
 } from "@mui/material";
 import { Container } from "@mui/system";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Header from "../Layout/Header/Header";
 import styles from "./MainCommunity.module.css";
 import Modal from "react-modal";
-import axios, { Axios } from "axios";
+import axios from "axios";
 
 const customStyles = {
   // overlay: {

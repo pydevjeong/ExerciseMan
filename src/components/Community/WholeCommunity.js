@@ -1,6 +1,5 @@
 import { Box, Container } from "@mui/system";
 import React,{useState} from "react";
-import Notice from "../SubPage/Notice";
 import Header from '../Layout/Header/Header'
 import CommunityStyle from "./CommunityStyle";
 

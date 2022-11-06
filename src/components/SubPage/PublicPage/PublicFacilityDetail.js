@@ -2,18 +2,18 @@ import { Container } from '@mui/system';
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from '../../Layout/Header/Header';
-import { webSearch,blogSearch,imageSearch,videoSearch } from '../../API/KaKaoSearchAPI/KakaoSearchApi';
+import {imageSearch } from '../../API/KaKaoSearchAPI/KakaoSearchApi';
 import bookmark from "../../../img/bookmark.PNG";
 import shareIcon from "../../../img/shareIcon.PNG";
 import freegymImg from "../../../img/freegymImg.jpg";
 import Iframe from "react-iframe";
-import { useState } from 'react';
+// import { useState } from 'react';
 import styles from './PublicFacilityDetail.module.css'
 
 const PublicFacilityDetail = () => {
   const data=useLocation()
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   let {name,city,location,zipCode}=data.state
 
   useEffect(()=>{

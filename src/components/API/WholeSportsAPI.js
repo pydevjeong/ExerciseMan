@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import XMLParser from "react-xml-parser";
-import PublicFacility from "../SubPage/PublicPage/PublicFacility";
-import { Container } from "@mui/system";
 import PublicFacilityCard from "../SubPage/PublicPage/PublicFacilityCard";
 
 const WholeSportsAPI = () => {

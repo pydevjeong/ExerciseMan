@@ -1,7 +1,6 @@
 import React from "react";
 import "./BookingPopup.css";
 import DatePicker from "./PopupPage/DatePicker";
-import BookingHead from "./PopupPage/BookingHead";
 import Time from "./PopupPage/Time";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { useLocation } from "react-router-dom";

@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../Layout/Header/Header";
 import styles from "./FacilityDetail.module.css";
 import Iframe from "react-iframe";
-import ModalPage from "../../../Modal/ModalPage";
 import bookmark from "../../../img/bookmark.PNG";
 import shareIcon from "../../../img/shareIcon.PNG";
 import freegymImg from "../../../img/freegymImg.jpg";

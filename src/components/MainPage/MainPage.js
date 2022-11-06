@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CommunityCategory from "../Community/CommunityCategory";
 import Layout from "../Layout/Layout";
 import ApiPage from "../API/ApiPage";
@@ -8,10 +8,8 @@ import "./MainPage.css";
 import { Container } from "@mui/material";
 import ErrorLoadingPage from "../Error/ErrorLoadingPage";
 import CommunityCard from "../Community/CommunityCard";
-import PublicFacility from "../SubPage/PublicPage/PublicFacility";
 import WholeSportsAPI from "../API/WholeSportsAPI";
-import PublicFacilityCard from "../SubPage/PublicPage/PublicFacilityCard";
-import { KaKaoGeolocation } from "../API/KaKaoGeolocation";
+
 
 const MainPage = () => {
   const [apiFectched,setApiFectched]=useState(true)

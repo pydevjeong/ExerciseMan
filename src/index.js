@@ -11,7 +11,6 @@ import ContactUs from "./components/SubPage/ContactUs";
 import BookingPopup from "./components/SubPage/BookingPopup";
 import CloseFacility from "./components/SubPage/GymPage/CloseFacility";
 import FindAccount from "./components/Auth/FindAccount/FindAccount";
-import { Provider } from "react-redux";
 import FacilityDetail from "./components/SubPage/GymPage/FacilityDetail";
 import PublicFacilityDetail from "./components/SubPage/PublicPage/PublicFacilityDetail";
 import WholeCommunity from "./components/Community/WholeCommunity";
