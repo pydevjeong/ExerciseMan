@@ -8,6 +8,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import kakao from "../../../img/kakao_login.png";
+import { REST_API_KEY, REDIRECT_URI } from "./KakaoLoginData";
 import setAuthorizationToken from "../../../utils/setAuthoriztionToken";
 
 function Login(props) {
@@ -29,11 +31,6 @@ function Login(props) {
       })
       .catch((err) => console.log(err));
   };
-  /*
-    <btton className="findAcc" onClick={findAccountLink}>
-            계정 찾기
-          </btton>
-  */
   // const logout=()=>{
   //   localStorage.removeItem("user")
   // }
@@ -67,6 +64,10 @@ function Login(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const closeModal = () => setOpen(false);
+  const kakaoLoginUrl = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
+  const kakaoLogin = () => {
+    window.location.href = kakaoLoginUrl;
+  };
 
   return (
     <div className="form_container">
@@ -144,10 +145,9 @@ function Login(props) {
           </btton>
         </div>
         <div className="btLine" />
-        <div className="snsLogin">
-          <div>페이스북</div>
-          <div>구글</div>
-        </div>
+        <btton className="snsLogin" onClick={kakaoLogin}>
+          <img alt="kakao" src={kakao} />
+        </btton>
       </form>
     </div>
   );

@@ -14,9 +14,8 @@ import FindAccount from "./components/Auth/FindAccount/FindAccount";
 import FacilityDetail from "./components/SubPage/GymPage/FacilityDetail";
 import PublicFacilityDetail from "./components/SubPage/PublicPage/PublicFacilityDetail";
 import WholeCommunity from "./components/Community/WholeCommunity";
-
-
-
+import PersonalPage from "./components/Auth/PersonalPage";
+import KakaoLogin from "./components/Auth/Login/KakaoLogin";
 
 const router = createBrowserRouter([
   {
@@ -36,9 +35,9 @@ const router = createBrowserRouter([
     element: <MapPage />,
   },
   {
-    path:"/community",
+    path: "/community",
     // 커뮤니티에 대한 페이지 개발후 수정
-    element: <WholeCommunity/>
+    element: <WholeCommunity />,
   },
   {
     path: "/basketball",
@@ -73,30 +72,37 @@ const router = createBrowserRouter([
     element: <BookingPopup />,
   },
   {
-    path:"/closeFacilty",
-    element:<CloseFacility/>
+    path: "/closeFacilty",
+    element: <CloseFacility />,
   },
   {
-    path:"/facilityDetail",
-    element:<FacilityDetail/>
+    path: "/facilityDetail",
+    element: <FacilityDetail />,
   },
   {
-    path:"/findAccount",
-    element:<FindAccount/>
+    path: "/findAccount",
+    element: <FindAccount />,
   },
   {
-    path:"/publicfacilityDetail",
-    element:<PublicFacilityDetail/>
+    path: "/publicfacilityDetail",
+    element: <PublicFacilityDetail />,
+  },
+  {
+    path: "/personalPage",
+    // 개인정보 페이지추가
+    element: <PersonalPage />,
+  },
+  {
+    path: "/auth/kakao/callback",
+    // 카카오 로그인 만드는중
+    element: <KakaoLogin />,
   },
 ]);
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-
     <RouterProvider router={router} />
-
   </React.StrictMode>
 );
 
