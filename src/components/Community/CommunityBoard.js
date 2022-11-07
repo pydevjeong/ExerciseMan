@@ -85,7 +85,7 @@ const CommunityBoard = () => {
         return false
       }
       else{
-      await axios.post("http://15.165.205.17:8080/posts/create",{
+      await axios.post("http://54.180.82.194:8080/posts/create",{
         title:title,
         content:content
       })

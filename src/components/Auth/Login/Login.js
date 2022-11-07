@@ -17,7 +17,7 @@ function Login(props) {
     const { userId, password } = data;
     console.log(userId, password);
     await axios
-      .post("http://15.165.205.17:8080/login", {
+      .post("http://54.180.82.194:8080/login", {
         userId: userId,
         password: password,
       })
@@ -140,9 +140,9 @@ function Login(props) {
             </Box>
           </Modal>
           /
-          <btton className="findAcc" onClick={registerLink}>
+          <button className="findAcc" onClick={registerLink}>
             회원가입
-          </btton>
+          </button>
         </div>
         <div className="btLine" />
         <btton className="snsLogin" onClick={kakaoLogin}>
