@@ -38,6 +38,10 @@
     font-size: 100%;
     margin-top: 20%;
 }
+.Inquirebtn:hover{
+    cursor: pointer;
+    color: #6867AC;
+  }
 .logoutbtn{
     background-color: white;
     color: #555;
@@ -48,6 +52,10 @@
     bottom: 0px;
     left: 0px;
 }
+.logoutbtn:hover{
+    cursor: pointer;
+    color: #6867AC;
+  }
 .PersonalMain{
     width:70%;
     border: solid 1px;
@@ -115,4 +123,8 @@
     flex-direction: column;
     justify-content: center;
     align-items:center;
+}
+.addFunctionhover:hover{
+    cursor: pointer;
+    color: #6867AC;
 }
