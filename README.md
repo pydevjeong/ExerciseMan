@@ -10,6 +10,9 @@
 | BE    | 김유성     |
 |Design | 고진혁     |
 
+## 개발 기간
+10.01 ~ 11.30
+
 # Developing Documents ( 개발 문서 )
 https://www.notion.so/3-2-Project-8f9f0dfdcb3c43f29f7d6ed9affe75c1
 
