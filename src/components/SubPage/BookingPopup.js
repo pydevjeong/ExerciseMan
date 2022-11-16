@@ -6,11 +6,11 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import { useLocation } from "react-router-dom";
 
 const BookingPopup = () => {
-  const info=useLocation()
-  let {name,location,tel}=info.state
+  const info = useLocation();
+  let { name, location, tel } = info.state;
   return (
     <div>
-      <h1>{name}</h1>
+      <h1 className="bookingHeader">{name}</h1>
       <div className="v50_">
         <StyledEngineProvider injectFirst>
           <DatePicker />

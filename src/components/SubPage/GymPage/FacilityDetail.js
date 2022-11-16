@@ -7,6 +7,11 @@ import Iframe from "react-iframe";
 import bookmark from "../../../img/bookmark.PNG";
 import shareIcon from "../../../img/shareIcon.PNG";
 import freegymImg from "../../../img/freegymImg.jpg";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { Modal } from "@mui/material";
+import BookingPopup from "../BookingPopup";
 
 const FacilityDetail = () => {
   // const params=useNavigate()
@@ -24,6 +29,33 @@ const FacilityDetail = () => {
     navigate("/booking_popup", { state: info.state });
     setIsOpen(true);
   };
+  /*팝업페이지 테스트해봤는데 잘 안됨*/
+  const openPopupTest = (url1) => {
+    var url = url1;
+    var title = "popup";
+    var status =
+      "toolbar=no,scrollbars=no,resizable=no,status=no,menubar=no,width=500, height=700, top=0,left=0";
+
+    window.open(url, title, status);
+  };
+  /*모달창 테스트*/
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const closeModal = () => setOpen(false);
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "500px",
+    height: "700px",
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+
   return (
     <>
       <Header />
@@ -58,7 +90,21 @@ const FacilityDetail = () => {
               </div>
               <div className={styles.majorBtns}>
                 <button onClick={goCommunity}>커뮤니티</button>
-                <button onClick={openPopup}>예약하기</button>
+                <button onClick={handleOpen}>예약하기</button>
+                {/*모달창 실험중*/}
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={style}>
+                    <BookingPopup />
+                    <Button className="modalClosebtn" onClick={closeModal}>
+                      닫기
+                    </Button>
+                  </Box>
+                </Modal>
               </div>
             </div>
           </div>
@@ -68,21 +114,21 @@ const FacilityDetail = () => {
               <h3>시설정보</h3>
               {/* 이부분은 검색 api, 카카오 지도 api를 통해서 헬스장 정보를 불러와야함 */}
               <div className={styles.videoAndText}>
-              <p>
-                고객님이 운동하는 곳은 오기 편해야 하는 곳입니다. 카페 같은
-                분위기 & 부족함 없는 머신 셋팅 운동하는날입니다!
-              </p>
-              <Iframe
-                url="https://youtube.com/embed/uz6TUGCXe7c"
-                width="100%"
-                height="400px"
-                id=""
-                className=""
-                display="block"
-                position="relative"
-              />
+                <p>
+                  고객님이 운동하는 곳은 오기 편해야 하는 곳입니다. 카페 같은
+                  분위기 & 부족함 없는 머신 셋팅 운동하는날입니다!
+                </p>
+                <Iframe
+                  url="https://youtube.com/embed/uz6TUGCXe7c"
+                  width="100%"
+                  height="400px"
+                  id=""
+                  className=""
+                  display="block"
+                  position="relative"
+                />
               </div>
-              
+
               <div className={styles.facilityEx}>
                 <p>
                   '대한민국 휘트니스의 최고를 말하다.' NO.1휘트니스
@@ -111,9 +157,7 @@ const FacilityDetail = () => {
                 </p>
               </div>
 
-              <div className={styles.mapCon}>
-                {/* 지도 */}
-              </div>
+              <div className={styles.mapCon}>{/* 지도 */}</div>
             </div>
             <div className={styles.reviewCon}>
               <h3>후기</h3>

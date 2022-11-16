@@ -190,3 +190,8 @@ h3 {
   margin-bottom: 0;
 
 }
+.modalClosebtn{
+  position: absolute;
+  right:    0;
+  bottom:   0;
+}
