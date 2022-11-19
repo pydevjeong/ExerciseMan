@@ -12,6 +12,8 @@
 
 ## 개발 기간
 10.01 ~ 11.30
+중간 공백
+11.14~21
 
 # Developing Documents ( 개발 문서 )
 https://www.notion.so/3-2-Project-8f9f0dfdcb3c43f29f7d6ed9affe75c1
