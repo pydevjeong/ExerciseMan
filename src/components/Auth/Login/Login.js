@@ -7,12 +7,12 @@ import FindAccount from "../FindAccount/FindAccount.js";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
+import { Modal } from "@mui/material";
 import kakao from "../../../img/kakao_login.png";
 import { REST_API_KEY, REDIRECT_URI } from "./KakaoLoginData";
 import setAuthorizationToken from "../../../utils/setAuthoriztionToken";
 
-function Login(props) {
+function Login() {
   const onSubmit = async (data) => {
     const { userId, password } = data;
     console.log(userId, password);
@@ -54,13 +54,12 @@ function Login(props) {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: "60%",
-    height: "50%",
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
     p: 4,
   };
-  const [open, setOpen] = useState(props.isOpen);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const closeModal = () => setOpen(false);
@@ -121,7 +120,7 @@ function Login(props) {
         </div>
         <div className="findId">
           <button className="findAcc" onClick={handleOpen}>
-            계정 찾기
+            계정찾기
           </button>
           <Modal
             open={open}
@@ -133,9 +132,7 @@ function Login(props) {
               <Typography id="modal-modal-title" variant="h5" component="h2">
                 이메일로 계정 찾기
               </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                <FindAccount />
-              </Typography>
+              <FindAccount />
               <Button onClick={closeModal}>닫기</Button>
             </Box>
           </Modal>
@@ -144,10 +141,9 @@ function Login(props) {
             회원가입
           </button>
         </div>
-        <div className="btLine" />
-        <btton className="snsLogin" onClick={kakaoLogin}>
+        <button className="snsLogin" onClick={kakaoLogin}>
           <img alt="kakao" src={kakao} />
-        </btton>
+        </button>
       </form>
     </div>
   );

@@ -55,19 +55,19 @@ const PersonalPage = () => {
             <div className="addFunction">
               <div className="addFunction2">
                 <FitnessCenterIcon fontSize="large" />
-                시설등록요청
+                <div className="addFunctionhover">시설등록요청</div>
               </div>
               <div className="addFunction2">
                 <EventAvailableIcon fontSize="large" />
-                공지/이벤트
+                <div className="addFunctionhover">공지/이벤트</div>
               </div>
               <div className="addFunction2">
                 <HeadsetMicIcon fontSize="large" />
-                고객센터
+                <div className="addFunctionhover">고객센터</div>
               </div>
               <div className="addFunction3">
                 <SettingsIcon fontSize="large" />
-                세부정보
+                <div className="addFunctionhover">세부정보</div>
               </div>
             </div>
           </div>
