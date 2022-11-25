@@ -10,7 +10,7 @@ import freegymImg from "../../../img/freegymImg.jpg";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Modal } from "@mui/material";
+import { autocompleteClasses, Modal } from "@mui/material";
 import BookingPopup from "../BookingPopup";
 
 const FacilityDetail = () => {
@@ -48,11 +48,12 @@ const FacilityDetail = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "500px",
-    height: "700px",
+    width: "520px",
+    height: "430px",
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
+    overflow: "auto",
     p: 4,
   };
 
@@ -100,9 +101,6 @@ const FacilityDetail = () => {
                 >
                   <Box sx={style}>
                     <BookingPopup />
-                    <Button className="modalClosebtn" onClick={closeModal}>
-                      닫기
-                    </Button>
                   </Box>
                 </Modal>
               </div>

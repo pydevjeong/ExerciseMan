@@ -1,13 +1,12 @@
 .v50_ {
     width: 500px;
-    height: 70px;
+    height: 100px;
     background: rgba(238,221,255,1);
     opacity: 1;
     position: absolute;
-    top: 80px;
+    top: 100px;
     text-align: center;
-    padding-top: 10px;
-    overflow: hidden;
+    padding-top: 20px;
   }
 .bookingHeader {
   width: 500px;
