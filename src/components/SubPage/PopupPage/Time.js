@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./Time.css";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Time = () => {
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState("v50_555");
   const [retime, setRetime] = useState("1:00");
   const [count, setCount] = useState(1);
   const [up, setUp] = useState("v50_200");
 
   const clickRe = () => {
-    setTime("");
+    setTime("v50_555");
     setUp("v50_200");
   };
 
@@ -72,12 +74,12 @@ const Time = () => {
     }
   };
 
-  const reserveBtn=()=>{
-    alert("")
-  }
+  const reserveBtn = () => {
+    alert("");
+  };
 
   return (
-    <div>
+    <div className="v50_222">
       <div className="v50_115" onClick={clickRe}>
         오후 {retime}
       </div>
@@ -113,12 +115,18 @@ const Time = () => {
 
       <div className={up}>
         <span className="v50_118">{count}명</span>
-        <div className="v50_121" onClick={countDown}></div>
+        <div className="v50_121" onClick={countDown}>
+          <ArrowBackIosIcon fontSize="large" />
+        </div>
         <div className="v50_123">{count}</div>
-        <div className="v50_122" onClick={countUp}></div>
+        <div className="v50_122" onClick={countUp}>
+          <ArrowForwardIosIcon fontSize="large" />
+        </div>
 
         <div className="v50_140"></div>
-        <button className="v50_149" onClick={reserveBtn}>예약하기</button>
+        <button className="v50_149" onClick={reserveBtn}>
+          예약하기
+        </button>
         <button className="v50_153">취소</button>
       </div>
     </div>

@@ -126,13 +126,9 @@
   .v50_80 {
     color: rgba(0,0,0,1);
     position: absolute;
-    top: 270px;
+    top: 250px;
     left: 15px;
-    font-family: Inter;
-    font-weight: Regular;
     font-size: 30px;
-    opacity: 1;
-    text-align: left;
   }
   .v50_115 {
     width: 500px;
@@ -159,20 +155,24 @@
   }
   .v50_121 {
     width: 64px;
-    height: 64px;
+    height: 52px;
     background: rgba(227,200,255,1);
     opacity: 1;
     position: absolute;
+    text-align: center;
+    padding: 12px 0 0 5px;
     left: 200px;
     border: 1px solid rgba(0,0,0,1);
     overflow: hidden;
   }
   .v50_122 {
     width: 64px;
-    height: 64px;
+    height: 52px;
     background: rgba(227,200,255,1);
     opacity: 1;
     position: absolute;
+    text-align: center;
+    padding-top: 12px;
     left: 376px;
     border: 1px solid rgba(0,0,0,1);
     overflow: hidden;
@@ -235,7 +235,8 @@
     height: 150px;
     opacity: 1;
     position: absolute;
-    top: 500px;
+    top: 530px;
+    padding-bottom: 10%;
   }
 
   .v50_201 {
@@ -244,4 +245,12 @@
     opacity: 1;
     position: absolute;
     top: 280px;
+  }
+  .v50_222{
+    position: absolute;
+  }
+  .v50_555{
+    position: absolute;
+    width: 400px;
+    top: 20px;
   }
