@@ -66,7 +66,7 @@ const FacilityDetail = () => {
             <div className={styles.title_con}>
               <h1>{info.state.name}</h1>
               <div className={styles.fewIcons}>
-                <img src={bookmark} alt="" srcset="" />
+                <img src={bookmark} alt="" srcSet="" />
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ const FacilityDetail = () => {
                   className={styles.shareIcons}
                   src={shareIcon}
                   alt=""
-                  srcset=""
+                  srcSet=""
                 />
               </div>
               <div className={styles.majorBtns}>

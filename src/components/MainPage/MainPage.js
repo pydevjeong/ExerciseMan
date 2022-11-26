@@ -35,8 +35,6 @@ const MainPage = () => {
       <h1>공공시설</h1>
       </Container>
       <div>
-      {/* <PublicFacility/> */}
-      {/* <PublicFacilityCard/> */}
       <WholeSportsAPI/>
       </div>
       

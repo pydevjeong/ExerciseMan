@@ -5,6 +5,7 @@ import { Container } from "@mui/system";
 // import CloseFacility from "./CloseFacility";
 import NearFacilityList from "../SubPage/GymPage/NearFacilityList";
 import ErrorPage from "../Error/ErrorPage";
+import {imageSearch} from "./KaKaoSearchAPI/KakaoSearchApi";
 
 // API q 커스텀 훅으로 만들어야함
 function ApiPage(props) {
@@ -14,7 +15,7 @@ function ApiPage(props) {
 
   const [apiFectched,setApiFectched]=useState(true);
   
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(5);
   
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
@@ -26,6 +27,7 @@ function ApiPage(props) {
   아마도 api를 불러오는 시간을 따로 설정해서 완전히 state가 초기화 되는것을 방지?
   */
   useEffect(() => {
+    console.log(props.inputValue);
     setInputValue(props.inputValue);
     if (inputValue === "성남시") {
       setCheckInputValue(true);
@@ -44,7 +46,7 @@ function ApiPage(props) {
   // SIGUN_CD하드코딩 된걸 입력값에 따라서 지역코드가 나타나게 해야함
   // ex) 검색에 성남시 헬스장 -> 41130(성남 코드)
   const gymApi=process.env.REACT_APP_GYM_API
-  const url = `https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?KEY=${gymApi}&TYPE=xml&SIGUN_NM=${checkInputValue ? inputValue : "부천시"}`;
+  const url = `https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?KEY=${gymApi}&TYPE=xml&SIGUN_NM=${checkInputValue ? inputValue : "성남시"}`;
   
   const fetchDatas = async () => {
     try {
@@ -62,12 +64,12 @@ function ApiPage(props) {
     fetchDatas();
   }, []);
 
-  setApiDatas()
   // console.log(datas) datas에 정상적으로 담김
+  setApiDatas()
   function setApiDatas(){
     makeData = datas.map((e) => {
       return e.children;
-  });
+    });
 
   if(apiFectched){
     makeData.shift(); //쓸모없는 첫번째 배열부분 자르기
@@ -87,9 +89,11 @@ function ApiPage(props) {
   else{
     console.log("value 에러")
   }
-
   }
-
+  
+  const imageSearchHandler=()=>{
+    
+  }
 
   //item.name==="BIZPLC_NM"에서 value(시설이름) item.name==="BSN_STATE_NM"에서 value가 영업중인것
   //item.name==="REFINE_ROADNM_ADDR" value(도로명주소)

@@ -28,7 +28,6 @@ function CustomizedInputBase() {
   };
 
   const pressEnter = (e) => {
-
     if (e.key === "Enter") {
       console.log('enter');
       if (checkInput) {
