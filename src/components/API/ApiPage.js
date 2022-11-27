@@ -5,7 +5,7 @@ import { Container } from "@mui/system";
 // import CloseFacility from "./CloseFacility";
 import NearFacilityList from "../SubPage/GymPage/NearFacilityList";
 import ErrorPage from "../Error/ErrorPage";
-import {imageSearch} from "./KaKaoSearchAPI/KakaoSearchApi";
+import {imageSearch,blogSearch} from "./KaKaoSearchAPI/KakaoSearchApi";
 
 // API q 커스텀 훅으로 만들어야함
 function ApiPage(props) {
@@ -27,7 +27,6 @@ function ApiPage(props) {
   아마도 api를 불러오는 시간을 따로 설정해서 완전히 state가 초기화 되는것을 방지?
   */
   useEffect(() => {
-    console.log(props.inputValue);
     setInputValue(props.inputValue);
     if (inputValue === "성남시") {
       setCheckInputValue(true);
@@ -91,9 +90,20 @@ function ApiPage(props) {
   }
   }
   
-  const imageSearchHandler=()=>{
-    
+  const imageSearchHandler=async ()=>{
+    console.log(findGym);
+    const params={
+      query:`${findGym[0].name}`,
+      sort:"accuracy",
+      page:1,
+      size:20
+    }
+    const {data}= await imageSearch(params)
+    console.log(data);
   }
+  useEffect(()=>{
+    imageSearchHandler()
+  },[])
 
   //item.name==="BIZPLC_NM"에서 value(시설이름) item.name==="BSN_STATE_NM"에서 value가 영업중인것
   //item.name==="REFINE_ROADNM_ADDR" value(도로명주소)
