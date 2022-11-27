@@ -17,6 +17,10 @@ import WholeCommunity from "./components/Community/WholeCommunity";
 import PersonalPage from "./components/Auth/PersonalPage";
 import KakaoLogin from "./components/Auth/Login/KakaoLogin";
 
+import store from './store';
+import { Provider } from 'react-redux';
+import { CookiesProvider } from 'react-cookie';
+
 const router = createBrowserRouter([
   {
     path: "/",
