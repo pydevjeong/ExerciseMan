@@ -5,7 +5,8 @@ import { Container } from "@mui/system";
 // import CloseFacility from "./CloseFacility";
 import NearFacilityList from "../SubPage/GymPage/NearFacilityList";
 import ErrorPage from "../Error/ErrorPage";
-import {imageSearch,blogSearch} from "./KaKaoSearchAPI/KakaoSearchApi";
+import {imageSearch,blogSearch} from "./KaKaoSearchAPI/KakaoSearchApi"
+import CardContainer from "../SubPage/GymPage/CardContainer";
 
 // API q 커스텀 훅으로 만들어야함
 function ApiPage(props) {
@@ -15,10 +16,7 @@ function ApiPage(props) {
 
   const [apiFectched,setApiFectched]=useState(true);
   
-  const [limit, setLimit] = useState(5);
-  
-  const [page, setPage] = useState(1);
-  const offset = (page - 1) * limit;
+
 
   /* 
   고쳐야 하는 로직 -> 검색하고 난후 const [inputValue, setInputValue] = useState("");
@@ -78,6 +76,7 @@ function ApiPage(props) {
       if (arr[5].value !== "폐업") {
         findGym.push({
           name: arr[2].value,
+          facilityId:arr[3].value,
           location: arr[19].value,
           tel: arr[11].value,
         });
@@ -110,23 +109,23 @@ function ApiPage(props) {
   //item.name==="LOCPLC_FACLT_TELNO" value(전화번호)
   // REFINE_WGS84_LOGT , REFINE_WGS84_LAT 위도 경도
   return (
-    <Container>
-      { apiFectched ?
-      <Container>
-      <h1>API페이지 / 가장 가까운 시설 보여주기</h1>
-      {findGym.slice(offset,offset+limit).map((data, idx) => (
+    <div>
+      { findGym.length!==0 ?
+      <>
+      <CardContainer gymData={findGym}/>
+      {/* {findGym.slice(offset,offset+limit).map((data, idx) => (
         <NearFacilityList
           key={idx}
           name={data.name}
           location={data.location}
           tel={data.tel}
         />
-      ))} 
-      </Container>
+      ))}  */}
+      </>
       : 
       <ErrorPage/>
       }
-    </Container>
+    </div>
   );
 }
 export default ApiPage;
