@@ -3,7 +3,7 @@ import "./Time.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-const Time = () => {
+const Time = (props) => {
   const [time, setTime] = useState("v50_555");
   const [retime, setRetime] = useState("1:00");
   const [count, setCount] = useState(1);
@@ -127,7 +127,9 @@ const Time = () => {
         <button className="v50_149" onClick={reserveBtn}>
           예약하기
         </button>
-        <button className="v50_153">취소</button>
+        <button className="v50_153" onClick={props.close}>
+          취소
+        </button>
       </div>
     </div>
   );
