@@ -100,7 +100,7 @@ const FacilityDetail = () => {
                   aria-describedby="modal-modal-description"
                 >
                   <Box sx={style}>
-                    <BookingPopup />
+                    <BookingPopup close={closeModal} />
                   </Box>
                 </Modal>
               </div>

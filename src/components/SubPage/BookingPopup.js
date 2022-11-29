@@ -5,7 +5,7 @@ import Time from "./PopupPage/Time";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { useLocation } from "react-router-dom";
 
-const BookingPopup = () => {
+const BookingPopup = (props) => {
   const info = useLocation();
   let { name, location, tel } = info.state;
   return (
@@ -16,7 +16,7 @@ const BookingPopup = () => {
           <DatePicker />
         </StyledEngineProvider>
       </div>
-      <Time />
+      <Time close={props.close} />
     </div>
   );
 };
