@@ -3,15 +3,19 @@ import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, CardMedia, Grid, ListItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import goyang from '../../../img/goyang.jpg'
+import suwon from '../../../img/suwon.jpg'
+import goyangsub from '../../../img/goyangsub.jpg'
 
 
 const PublicFacilityCard = (props) => {
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(3);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
   const navigate = useNavigate();
+  let imgArr=[goyang,suwon,goyangsub]
 
   let organizeData = props.makeData;
   let temp = [];
@@ -27,10 +31,13 @@ const PublicFacilityCard = (props) => {
       name: arr[9].value,
     });
   });
+
   return (
     <Container>
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       {data.slice(offset, offset + limit).map((val, idx) => (
-        <Card key={idx} style={{ marginTop: "10px" }}>
+        <Grid item xs={2} sm={2} md={4} key={idx}>
+          <ListItem>
           <CardActionArea
             onClick={() => {
               navigate("/publicfacilityDetail", {
@@ -43,6 +50,12 @@ const PublicFacilityCard = (props) => {
               });
             }}
           >
+          <CardMedia
+          component="img"
+          height="140"
+          image={imgArr[idx]}
+          alt="gym"
+        />
             <CardContent>
               <Typography
                 sx={{ fontSize: 14 }}
@@ -61,8 +74,10 @@ const PublicFacilityCard = (props) => {
               <Typography variant="body2">{val.location}</Typography>
             </CardContent>
           </CardActionArea>
-        </Card>
+          </ListItem>
+          </Grid>
       ))}
+      </Grid>
     </Container>
   );
 };
