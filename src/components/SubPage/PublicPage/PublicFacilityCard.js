@@ -15,7 +15,7 @@ const PublicFacilityCard = (props) => {
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
   const navigate = useNavigate();
-  let imgArr=[goyang,suwon,goyangsub]
+  let imgArr=[suwon,goyang,goyangsub]
 
   let organizeData = props.makeData;
   let temp = [];
