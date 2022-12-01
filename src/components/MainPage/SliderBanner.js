@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import sports from '../../img/sports.jpg'
 import sports2 from '../../img/sports2.jpg'
+import sketch from '../../img/sketch.jpg'
 import './SliderBanner.css'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";

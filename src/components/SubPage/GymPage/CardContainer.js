@@ -2,12 +2,17 @@ import { Container, Grid, ListItem } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import NearFacilityList from "./NearFacilityList";
+import gorilla from '../../../img/gorilla.jpg'
+import linegym from '../../../img/linegym.jpg';
+import skyview from '../../../img/skyview.jpeg';
 
 const CardContainer = ({ gymData }) => {
   const [limit, setLimit] = useState(3);
 
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
+
+  const gymPicture=[gorilla,linegym,skyview]
   return (
     <Container>
       <h1>스포츠 카테고리</h1>
@@ -21,6 +26,7 @@ const CardContainer = ({ gymData }) => {
                 name={data.name}
                 location={data.location}
                 tel={data.tel}
+                gymPicture={gymPicture[idx]}
               />
             </ListItem>
           </Grid>

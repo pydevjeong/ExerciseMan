@@ -5,10 +5,10 @@ import Typography from "@mui/material/Typography";
 import { Container } from "@mui/system";
 import { CardActionArea,CardMedia } from "@mui/material";
 import { createSearchParams, useNavigate } from "react-router-dom";
-
+import gorilla from '../../../img/gorilla.jpg'
 
 // 보여지는 개수를 정해두고 로딩이 뜨면서 추가적인 정보가 보이면서 창이 내려가게 만들기
-const NearFacilityList = ({ idx,name, facilityId ,location, tel }) => {
+const NearFacilityList = ({ idx,name, facilityId ,location, tel,gymPicture }) => {
   const navigate=useNavigate()
   const params={gym:`${name}`}
 
@@ -26,21 +26,22 @@ const NearFacilityList = ({ idx,name, facilityId ,location, tel }) => {
     display: 'block',
     width: '30vw',
     transitionDuration: '0.3s',
-    height: '20vw',
+    height: '12vw',
     marginTop:"5px",
     alignItems:"center",
     justifyContent:"center"
 }
+console.log(gymPicture);
   return (
     <>
       <Card style={cardStyle}>
         <CardActionArea onClick={cardClicked}>
-        {/* <CardMedia
+        <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        /> */}
+          image={gymPicture}
+          alt="gym"
+        />
           <CardContent>
             <Typography
               sx={{ fontSize: 14 }}
