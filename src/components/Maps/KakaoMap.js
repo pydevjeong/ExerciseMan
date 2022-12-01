@@ -55,7 +55,7 @@ function KaKaoMap({ myGeo }) {
     });
   }, [location, map]);
 
-  // console.log(markers)
+  console.log(info)
 
   return (
     <Map //center부분 수정예정(?)
@@ -77,7 +77,9 @@ function KaKaoMap({ myGeo }) {
           onClick={() => setInfo(marker)}
         >
           {info && info.content === marker.content && (
-            <div style={{ color: "#000" }}>{marker.content}</div>
+            <div style={{ color: "#000" }}>
+              <span>{marker.content}</span>
+              </div>
           )}
         </MapMarker>
       ))}

@@ -19,8 +19,9 @@
   border: 2px solid #d4531f;
 }
 .stack_item{
-  background-color: #303030;
-  color: #fff;
+  background-color: #6867AC50;
+  color: #303030;
+  font-weight: 500;
 }
 
 /* Community write Button CSS */

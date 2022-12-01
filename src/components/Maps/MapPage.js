@@ -30,7 +30,7 @@ const MapPage = () => {
   return (
     <>
     <Header/>
-    <div>
+    <div style={{marginBottom:'10px'}}>
       <h1>검색</h1>
       <Paper
       component="form"
@@ -52,7 +52,9 @@ const MapPage = () => {
       </Link>
     </Paper>
     </div>
+    <div style={{marginBottom:"5%", width:"100%",height:"100px"}}>
     <KaKaoMap myGeo={mygeo}/>
+    </div>
     <Footer/>
     </>
   );

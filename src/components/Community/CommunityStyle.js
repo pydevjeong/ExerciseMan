@@ -36,7 +36,7 @@ const Title=styled(Paper)(({theme})=>({
 export default function CommunityStyle(props) {
   // 여기에서 notice,Q and A, meetUp, userBoard 정보를 db에서 받아서 각각
   // 뿌려줘야하는데 방법이??
-  // Title은 일단 똑같으므로 Item쪽에서 작업해야하는데 어캐하지??
+  // Title은 일단 똑같으므로 Item쪽에서 작업해야함
   // 1. 다 따로따로 컴포넌트를 분리시켜서 한다
   // const [noticeInfo,setNoticeInfo]=useState({})
   // useEffect(()=>{
