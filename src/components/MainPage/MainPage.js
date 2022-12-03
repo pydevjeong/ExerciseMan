@@ -9,7 +9,7 @@ import { Container } from "@mui/material";
 import ErrorLoadingPage from "../Error/ErrorLoadingPage";
 import CommunityCard from "../Community/CommunityCard";
 import WholeSportsAPI from "../API/WholeSportsAPI";
-import PublicFacility from "../SubPage/PublicPage/PublicFacility";
+
 
 
 const MainPage = () => {
@@ -28,18 +28,7 @@ const MainPage = () => {
       <Container>
       <h1 style={{position:"absolute",color:"#fff",zIndex:99,top:"150%"}}>가까운 헬스장</h1>
       </Container>
-      <div style={{
-          position:'absolute',
-          width: "100vw",
-          height: "15vh",
-          marginLeft: "calc(-50vw + 50%)",
-          backgroundColor: "#9B8BFF",
-          overflow: "hidden",
-          paddingBottom: "3%",
-          top:"152.5%",
-          left:0,
-          right:0,
-      }}>
+      <div className="gymApi">
       </div>
       {apiFectched ? <ApiPage /> : <ErrorLoadingPage/>}
       <Container style={{marginTop:"80px"}}>
@@ -59,7 +48,7 @@ const MainPage = () => {
           backgroundColor: "#9B8BFF",
           overflow: "hidden",
           paddingBottom: "3%",
-          top:"225.5%",
+          top:"132rem",
           left:0,
           right:0
         }}
