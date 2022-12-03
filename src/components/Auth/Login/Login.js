@@ -10,40 +10,38 @@ import Typography from "@mui/material/Typography";
 import { Modal } from "@mui/material";
 import kakao from "../../../img/kakao_login.png";
 import { REST_API_KEY, REDIRECT_URI } from "./KakaoLoginData";
-import setAuthorizationToken from "../../../utils/setAuthoriztionToken";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../API/Users";
+import { setRefreshToken } from "../../../storage/Cookie";
+import {SET_TOKEN} from "../../../store/Auth"
 
 function Login() {
+  const navigate = useNavigate();
+  const dispatch= useDispatch();
+
+
+
   const onSubmit = async (data) => {
     const { userId, password } = data;
     console.log(userId, password);
-    await axios
-      .post("http://54.180.82.194:8080/login", {
-        userId: userId,
-        password: password,
-      })
-      .then((res) => {
-        console.log("good", res);
-        if (res.data) {
-          localStorage.setItem("user", JSON.stringify(res.data));
-          setAuthorizationToken(JSON.stringify(res.data));
-        }
-        return res.data;
-      })
-      .catch((err) => console.log(err));
+    const response = await loginUser({ userId, password });
+
+    if (response.status) {
+        // 쿠키에 Refresh Token, store에 Access Token 저장
+        setRefreshToken(response.json.refresh_token);
+        dispatch(SET_TOKEN(response.json.access_token));
+
+        return navigate("/");
+    } else {
+        console.log(response.json);
+    }
   };
-  // const logout=()=>{
-  //   localStorage.removeItem("user")
-  // }
-  // const getCurrentUser=()=>{
-  //   return JSON.parse(localStorage.getItem("user"))
-  // }
 
   const {
     register,
     handleSubmit,
     formState: { isSubmitting, isDirty, errors },
   } = useForm();
-  const navigate = useNavigate();
 
   const registerLink = () => {
     navigate("/register");
