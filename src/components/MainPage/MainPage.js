@@ -26,7 +26,7 @@ const MainPage = () => {
         <CommunityCategory />
       </div>
       <Container>
-      <h1 style={{position:"absolute",color:"#fff",zIndex:99,top:"150%"}}>가까운 헬스장</h1>
+      <h1 style={{position:"absolute",color:"#fff",zIndex:99,top:"88rem"}}>가까운 헬스장</h1>
       </Container>
       <div 
       style={{
@@ -51,7 +51,7 @@ const MainPage = () => {
       <CommunityCard/>
       </div>
       <Container >
-      <h1 style={{position:"absolute",color:"#fff",zIndex:99,top:"225%"}}>공공시설</h1>
+      <h1 style={{position:"absolute",color:"#fff",zIndex:99,top:"132rem"}}>공공시설</h1>
       <div
         style={{
           position:'absolute',
