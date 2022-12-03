@@ -28,7 +28,20 @@ const MainPage = () => {
       <Container>
       <h1 style={{position:"absolute",color:"#fff",zIndex:99,top:"150%"}}>가까운 헬스장</h1>
       </Container>
-      <div className="gymApi">
+      <div 
+      style={{
+          position:'absolute',
+          width: "100vw",
+          height: "15vh",
+          marginLeft: "calc(-50vw + 50%)",
+          backgroundColor: "#9B8BFF",
+          overflow: "hidden",
+          paddingBottom: "3%",
+          top:"88rem",
+          left:0,
+          right:0
+        }}
+      >
       </div>
       {apiFectched ? <ApiPage /> : <ErrorLoadingPage/>}
       <Container style={{marginTop:"80px"}}>
