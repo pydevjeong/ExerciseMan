@@ -26,12 +26,12 @@ const NearFacilityList = ({ idx,name, facilityId ,location, tel,gymPicture }) =>
     display: 'block',
     width: '30vw',
     transitionDuration: '0.3s',
-    height: '12vw',
+    height: '220px',
     marginTop:"5px",
     alignItems:"center",
-    justifyContent:"center"
+    justifyContent:"center",
 }
-console.log(gymPicture);
+// console.log(gymPicture);
   return (
     <>
       <Card style={cardStyle}>

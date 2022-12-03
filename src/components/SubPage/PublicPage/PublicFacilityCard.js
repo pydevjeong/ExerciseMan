@@ -31,13 +31,23 @@ const PublicFacilityCard = (props) => {
       name: arr[9].value,
     });
   });
-
+  const cardStyle = {
+    display: 'block',
+    width: '30vw',
+    transitionDuration: '0.3s',
+    height: '340px',
+    marginTop:"5px",
+    alignItems:"center",
+    justifyContent:"center",
+}
   return (
+
     <Container>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       {data.slice(offset, offset + limit).map((val, idx) => (
         <Grid item xs={2} sm={2} md={4} key={idx}>
           <ListItem>
+            <Card style={cardStyle}>
           <CardActionArea
             onClick={() => {
               navigate("/publicfacilityDetail", {
@@ -74,6 +84,7 @@ const PublicFacilityCard = (props) => {
               <Typography variant="body2">{val.location}</Typography>
             </CardContent>
           </CardActionArea>
+          </Card>
           </ListItem>
           </Grid>
       ))}

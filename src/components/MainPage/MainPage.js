@@ -9,6 +9,7 @@ import { Container } from "@mui/material";
 import ErrorLoadingPage from "../Error/ErrorLoadingPage";
 import CommunityCard from "../Community/CommunityCard";
 import WholeSportsAPI from "../API/WholeSportsAPI";
+import PublicFacility from "../SubPage/PublicPage/PublicFacility";
 
 
 const MainPage = () => {
@@ -21,18 +22,49 @@ const MainPage = () => {
       <Container>
         <h1>스포츠 카테고리</h1>
       </Container>
-      <div className="community_category123">
+      <div className="community_category123" >
         <CommunityCategory />
       </div>
-      {apiFectched ? <ApiPage /> : <ErrorLoadingPage/>}
       <Container>
+      <h1 style={{position:"absolute",color:"#fff",zIndex:99,top:"150%"}}>가까운 헬스장</h1>
+      </Container>
+      <div style={{
+          position:'absolute',
+          width: "100vw",
+          height: "15vh",
+          marginLeft: "calc(-50vw + 50%)",
+          backgroundColor: "#9B8BFF",
+          overflow: "hidden",
+          paddingBottom: "3%",
+          top:"152.5%",
+          left:0,
+          right:0,
+      }}>
+      </div>
+      {apiFectched ? <ApiPage /> : <ErrorLoadingPage/>}
+      <Container style={{marginTop:"80px"}}>
       <h1>커뮤니티</h1>
       </Container>
-      <div>
+      <div style={{marginBottom:"100px"}}>
       <CommunityCard/>
       </div>
-      <Container>
-      <h1>공공시설</h1>
+      <Container >
+      <h1 style={{position:"absolute",color:"#fff",zIndex:99,top:"225%"}}>공공시설</h1>
+      <div
+        style={{
+          position:'absolute',
+          width: "100vw",
+          height: "25vh",
+          marginLeft: "calc(-50vw + 50%)",
+          backgroundColor: "#9B8BFF",
+          overflow: "hidden",
+          paddingBottom: "3%",
+          top:"225.5%",
+          left:0,
+          right:0
+        }}
+        >
+          </div>
       </Container>
       <div>
       <WholeSportsAPI/>
