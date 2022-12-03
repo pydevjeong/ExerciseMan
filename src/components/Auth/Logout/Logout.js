@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getCookieToken, removeCookieToken } from '../storage/Cookie';
-import { DELETE_TOKEN } from '../store/Auth';
-import { logoutUser } from '../api/Users';
+import { getCookieToken, removeCookieToken } from '../../../storage/Cookie';
+import { DELETE_TOKEN } from '../../../store/Auth';
+import { logoutUser } from '../../API/Users';
 
 
 function Logout(){

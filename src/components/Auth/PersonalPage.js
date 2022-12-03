@@ -9,6 +9,7 @@ import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import Logout from "./Logout/Logout";
 
 const PersonalPage = () => {
   return (
@@ -21,7 +22,7 @@ const PersonalPage = () => {
             <div className="PersonalName">닉네임</div>
             <div className="PersonalAdd">*******@****.com{/*이메일*/}</div>
             <button className="Inquirebtn">1:1 문의하기</button>
-            <button className="logoutbtn">로그아웃</button>
+            <button onClick={()=><Logout/>} className="logoutbtn">로그아웃</button>
           </div>
           <div className="PersonalMain">
             <div className="userinfo">
