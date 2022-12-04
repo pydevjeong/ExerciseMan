@@ -12,16 +12,19 @@ import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import {Logout} from "./Logout/Logout";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { decoded } from "../../utils/jwtTokenDecoder";
 
 const PersonalPage = () => {
   const navigate = useNavigate()
   const logoutHandler=()=>{
     navigate('/logout')
   }
-  useEffect(()=>{
+  // useEffect(()=>{
     
-  },[])
+  // },[])
+  
+  
+  // const name=decoded.sub ? decoded.sub : "Temp Name"
+  // const id=decoded.id ? decoded.id : "Temp Id"
 
   return (
     <Container>
@@ -30,9 +33,9 @@ const PersonalPage = () => {
         <div className="PersonalPage">
           <div className="PersonalInfo">
             <img className="PersonalImg" alt="Personal" src={Personal} />
-            <div className="PersonalName">{decoded.sub}</div>
+            <div className="PersonalName">{"name"}</div>
             <div className="PersonalAdd">*******@****.com</div>
-            <p className="PersonalAdd">Id : {decoded.id}</p>
+            <p className="PersonalAdd">Id : {"id"}</p>
             <button className="Inquirebtn">1:1 문의하기</button>
             <button onClick={logoutHandler} className="logoutbtn">로그아웃</button>
           </div>
