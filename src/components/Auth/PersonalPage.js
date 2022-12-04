@@ -12,15 +12,23 @@ import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import {Logout} from "./Logout/Logout";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import { getCookieToken } from "../../storage/Cookie";
+
+let token = getCookieToken();
+const getCookie=()=>{
+  if(token) return jwt_decode(token)
+}
 
 const PersonalPage = () => {
   const navigate = useNavigate()
   const logoutHandler=()=>{
     navigate('/logout')
   }
-  // useEffect(()=>{
-    
-  // },[])
+  useEffect(()=>{
+    const gotCookie=getCookie()
+    console.log(gotCookie);
+  },[])
   
   
   // const name=decoded.sub ? decoded.sub : "Temp Name"
