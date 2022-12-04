@@ -9,9 +9,20 @@ import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import Logout from "./Logout/Logout";
+import {Logout} from "./Logout/Logout";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { decoded } from "../../utils/jwtTokenDecoder";
 
 const PersonalPage = () => {
+  const navigate = useNavigate()
+  const logoutHandler=()=>{
+    navigate('/logout')
+  }
+  useEffect(()=>{
+    
+  },[])
+
   return (
     <Container>
       <Header />
@@ -19,10 +30,11 @@ const PersonalPage = () => {
         <div className="PersonalPage">
           <div className="PersonalInfo">
             <img className="PersonalImg" alt="Personal" src={Personal} />
-            <div className="PersonalName">닉네임</div>
-            <div className="PersonalAdd">*******@****.com{/*이메일*/}</div>
+            <div className="PersonalName">{decoded.sub}</div>
+            <div className="PersonalAdd">*******@****.com</div>
+            <p className="PersonalAdd">Id : {decoded.id}</p>
             <button className="Inquirebtn">1:1 문의하기</button>
-            <button onClick={()=><Logout/>} className="logoutbtn">로그아웃</button>
+            <button onClick={logoutHandler} className="logoutbtn">로그아웃</button>
           </div>
           <div className="PersonalMain">
             <div className="userinfo">

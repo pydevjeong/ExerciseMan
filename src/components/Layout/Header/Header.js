@@ -8,9 +8,9 @@ import FitnessCenterOutlinedIcon from "@mui/icons-material/FitnessCenterOutlined
 import AddLocationAltOutlinedIcon from "@mui/icons-material/AddLocationAltOutlined";
 import SportsSoccerOutlinedIcon from "@mui/icons-material/SportsSoccerOutlined";
 import { Container } from "@mui/material";
-import { useState } from "react";
-import UserPage from "../UserPage/UserPage";
-import logo from '../../../img/ourLogo.png'
+import { useState,useEffect } from "react";
+import logo from "../../../img/ourLogo.png";
+import {getCookieToken} from '../../../storage/Cookie'
 
 const icons = [
   {
@@ -43,12 +43,21 @@ const icons = [
 
 const Header = () => {
   const [userIsLogined, setUserIsLogined] = useState(false);
-
+  useEffect(()=>{
+    // console.log(getCookieToken().length)
+    if(getCookieToken()!==undefined){
+      if(getCookieToken().length!==0){
+        setUserIsLogined(true)
+      }
+    }
+  },[])
   return (
     <Container style={{ marginTop: "5%" }} maxWidth="lg">
       <div className={styles.navlink}>
         {userIsLogined ? (
-          <UserPage />
+          <Link className={styles.links} to="/personalPage">
+            마이페이지
+          </Link>
         ) : (
           <Link className={styles.links} to="/login">
             로그인
@@ -71,7 +80,7 @@ const Header = () => {
       <div className={styles.second_container}>
         <div className={styles.main}>
           <Link className={styles.mainLink} to="/">
-            <img className={styles.logoImg} src={logo} alt=""/>
+            <img className={styles.logoImg} src={logo} alt="" />
           </Link>
           {/* 새로고침되게 해야함 */}
         </div>
