@@ -33,9 +33,10 @@ function Login() {
     if (response.status) {
       console.log(response.json);
         // 쿠키에 Refresh Token, store에 Access Token 저장
-        setRefreshToken(response.json.refresh_token);
-        dispatch(SET_TOKEN(response.json.access_token));
-        // return navigate("/");
+        setRefreshToken(response.json);
+        let temp=dispatch(SET_TOKEN(response.json.access_token));
+        console.log(temp)
+        return navigate("/");
     } else {
         console.log(response.json);
     }

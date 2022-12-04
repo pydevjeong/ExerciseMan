@@ -8,9 +8,11 @@ import { DELETE_TOKEN } from '../../../store/Auth';
 import { logoutUser } from '../../API/Users';
 
 
-function Logout(){
+
+export const Logout=()=>{
+    // console.log(state.accessToken) 
     // store에 저장된 Access Token 정보를 받아 온다
-    const { accessToken } = useSelector(state => state.token);
+    const {accessToken}  = useSelector(state => state.token)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -21,7 +23,7 @@ function Logout(){
     async function logout() {
         // 백으로부터 받은 응답
         const data = await logoutUser({ refresh_token: refreshToken }, accessToken);
-
+        console.log(data)
         if (data.status) {
             // store에 저장된 Access Token 정보를 삭제
             dispatch(DELETE_TOKEN());
@@ -44,5 +46,3 @@ function Logout(){
         </>
     );
 }
-
-export default Logout;
