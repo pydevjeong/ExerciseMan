@@ -90,19 +90,21 @@ function ApiPage(props) {
   }
   
   const imageSearchHandler=async ()=>{
-    console.log(findGym);
-    const params={
-      query:`${findGym[0].name}`,
-      sort:"accuracy",
-      page:1,
-      size:20
+    let params;
+    if(findGym.length!==0){
+      params={
+        query:`${findGym[0].name}`,
+        sort:"accuracy",
+        page:1,
+        size:20
+      }
     }
     const {data}= await imageSearch(params)
-    // console.log(data);
+    console.log(data);
   }
   useEffect(()=>{
-    imageSearchHandler()
-  },[])
+    if(findGym.length!==0) imageSearchHandler()
+  },[findGym])
 
   //item.name==="BIZPLC_NM"에서 value(시설이름) item.name==="BSN_STATE_NM"에서 value가 영업중인것
   //item.name==="REFINE_ROADNM_ADDR" value(도로명주소)
