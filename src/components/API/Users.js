@@ -28,7 +28,9 @@ const getPromise = async (url, option) => {
 
 // 백으로 로그인 요청
 export const loginUser = async (credentials) => {
+  console.log(credentials);
   const option = {
+    crossDomain:true,
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=UTF-8",
@@ -36,7 +38,7 @@ export const loginUser = async (credentials) => {
     body: JSON.stringify(credentials),
   };
 
-  const data = await getPromise("http://52.79.76.198:8080/login", option).catch(() => {
+  const data = await getPromise("http://43.200.173.80:8080/login", option).catch((e) => {
     return statusError;
   });
 
@@ -44,7 +46,7 @@ export const loginUser = async (credentials) => {
     const status = data.ok;
     const code = data.status;
     const text = await data.text();
-    const json = text.length ? JSON.parse(text) : "";
+    const json = text.length ? text : "";
 
     return {
       status,
@@ -64,7 +66,7 @@ export const logoutUser = async (credentials, accessToken) => {
       body: JSON.stringify(credentials)
   };
 
-  const data = await getPromise('http://52.79.76.198:8080/login', option).catch(() => {
+  const data = await getPromise('http://43.200.173.80:8080/login', option).catch(() => {
       return statusError;
   });
 
@@ -93,7 +95,7 @@ export const requestToken = async (refreshToken) => {
       body: JSON.stringify({ refresh_token: refreshToken })
   }
 
-  const data = await getPromise('/http://52.79.76.198:8080/login', option).catch(() => {
+  const data = await getPromise('/http://43.200.173.80:8080/login', option).catch(() => {
       return statusError;
   });
 

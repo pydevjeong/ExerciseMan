@@ -98,7 +98,7 @@ function ApiPage(props) {
       size:20
     }
     const {data}= await imageSearch(params)
-    console.log(data);
+    // console.log(data);
   }
   useEffect(()=>{
     imageSearchHandler()

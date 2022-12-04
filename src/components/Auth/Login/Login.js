@@ -19,29 +19,28 @@ function Login() {
   const navigate = useNavigate();
   const dispatch= useDispatch();
 
-
-
-  const onSubmit = async (data) => {
-    const { userId, password } = data;
-    console.log(userId, password);
-    const response = await loginUser({ userId, password });
-
-    if (response.status) {
-        // 쿠키에 Refresh Token, store에 Access Token 저장
-        setRefreshToken(response.json.refresh_token);
-        dispatch(SET_TOKEN(response.json.access_token));
-
-        return navigate("/");
-    } else {
-        console.log(response.json);
-    }
-  };
-
   const {
     register,
     handleSubmit,
     formState: { isSubmitting, isDirty, errors },
   } = useForm();
+
+  const onSubmit = async (data) => {
+    const { userId, password } = data;
+    console.log(userId, password);
+    const response = await loginUser({ userId, password });
+    //reponse status는 true아니면 false로 온다
+    if (response.status) {
+      console.log(response.json);
+        // 쿠키에 Refresh Token, store에 Access Token 저장
+        setRefreshToken(response.json.refresh_token);
+        dispatch(SET_TOKEN(response.json.access_token));
+        // return navigate("/");
+    } else {
+        console.log(response.json);
+    }
+  };
+
 
   const registerLink = () => {
     navigate("/register");

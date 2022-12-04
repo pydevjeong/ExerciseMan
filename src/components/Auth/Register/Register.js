@@ -15,7 +15,7 @@ const Register = () => {
     const { userId, password, email, nickname } = data;
     console.log(userId, password, email, nickname);
     await axios
-      .post("http://52.79.76.198:8080/join", {
+      .post("http://43.200.173.80:8080/join", {
         userId: userId,
         password: password,
         email: email,
