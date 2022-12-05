@@ -8,16 +8,13 @@ import bookmark from "../../../img/bookmark.PNG";
 import shareIcon from "../../../img/shareIcon.PNG";
 import freegymImg from "../../../img/freegymImg.jpg";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { autocompleteClasses, Modal } from "@mui/material";
+import {  Modal } from "@mui/material";
 import BookingPopup from "../BookingPopup";
 
 const FacilityDetail = () => {
   // const params=useNavigate()
   const info = useLocation();
   // console.log(info.state);
-  const decode = decodeURI(info?.search);
   // console.log(decode);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -40,16 +37,19 @@ const FacilityDetail = () => {
   };
   /*모달창 테스트*/
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setOpen(true)
+  }
   const handleClose = () => setOpen(false);
   const closeModal = () => setOpen(false);
+
   const style = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: "520px",
-    height: "430px",
+    height: "500px",
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,

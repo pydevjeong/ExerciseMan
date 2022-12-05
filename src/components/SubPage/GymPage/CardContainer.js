@@ -27,7 +27,7 @@ const CardContainer = ({ gymData }) => {
             <Grid item xs={2} sm={2} md={4} key={idx}>
               <ListItem>
                 <NearFacilityList
-                  idx={idx}
+                  facility_id={data.facilityId}
                   key={data.facilityId}
                   name={data.name}
                   location={data.location}

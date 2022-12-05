@@ -12,6 +12,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./MainCommunity.module.css";
 import Modal from "react-modal";
 import axios from "axios";
+import { getCookieToken } from "../../storage/Cookie";
+import jwt_decode from "jwt-decode";
 
 const customStyles = {
   // overlay: {
@@ -37,6 +39,11 @@ const customStyles = {
 
 const CommunityBoard = () => {
 
+  let token = getCookieToken();
+const getCookie=()=>{
+  if(token) return jwt_decode(token)
+}
+const [cookies,setCookies]=useState("")
   const [title,setTitle]=useState("");
   const [content,setContent]=useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -45,8 +52,14 @@ const CommunityBoard = () => {
   const [categoryName, setCategoryName] = useState("전체");
   const [urlName, setUrlName] = useState("");
 
+  useEffect(()=>{
+    const gotCookie=getCookie()
+    setCookies(gotCookie)
+  },[])
+  console.log(cookies);
+
   function getBoardData(){
-    axios.get("http://15.165.205.17:8080/posts")
+    axios.get("http://43.200.173.80:8080/posts")
     .then(res=>console.log(res))
     .catch(err=>console.log(err))
   }
@@ -84,7 +97,7 @@ const CommunityBoard = () => {
         return false
       }
       else{
-      await axios.post("http://54.180.82.194:8080/posts/create",{
+      await axios.post(`http://43.200.173.80:8080/posts/${cookies.id}/create`,{
         title:title,
         content:content
       })

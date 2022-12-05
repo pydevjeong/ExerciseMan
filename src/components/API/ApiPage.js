@@ -67,9 +67,8 @@ function ApiPage(props) {
     makeData = datas.map((e) => {
       return e.children;
     });
-
-  if(apiFectched){
-    makeData.shift(); //쓸모없는 첫번째 배열부분 자르기
+    if(apiFectched){
+      makeData.shift(); //쓸모없는 첫번째 배열부분 자르기
     // console.log(makeData) 여기도 Array로 정상적으로 출력후 쓸모없는 부분 잘린거 확인
     //아래서 arr[2].value 하면 시설이름이 나옴
     makeData.map((arr) => {
