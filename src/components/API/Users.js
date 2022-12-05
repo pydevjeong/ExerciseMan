@@ -66,7 +66,7 @@ export const logoutUser = async (credentials, accessToken) => {
       body: JSON.stringify(credentials)
   };
 
-  const data = await getPromise('http://43.200.173.80:8080/login', option).catch(() => {
+  const data = await getPromise('https://43.200.173.80:8080/login', option).catch(() => {
       return statusError;
   });
 
@@ -95,7 +95,7 @@ export const requestToken = async (refreshToken) => {
       body: JSON.stringify({ refresh_token: refreshToken })
   }
 
-  const data = await getPromise('/http://43.200.173.80:8080/login', option).catch(() => {
+  const data = await getPromise('https://43.200.173.80:8080/login', option).catch(() => {
       return statusError;
   });
 
