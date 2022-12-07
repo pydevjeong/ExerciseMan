@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import sports from '../../img/sports.jpg'
-import sports2 from '../../img/sports2.jpg'
-import sketch from '../../img/sketch.jpg'
+import sliderimg1 from '../../img/sliderimg1.jpg'
+import sliderimg2 from '../../img/sliderimg2.jpg'
+// import sketch from '../../img/sketch.jpg'
 import './SliderBanner.css'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -36,12 +36,12 @@ const SliderBanner = () => {
     <Slider {...settings}>
       <div>
         <Link to='/'>
-          <img className="bannerImg" src={sports} alt="" />
+          <img className="bannerImg" src={sliderimg2} alt=""/>
         </Link>
       </div>
       <div>
         <a href="/" target="_blank" rel="noreferrer">
-          <img className="bannerImg" src={sports2} alt=""/>
+          <img className="bannerImg" src={sliderimg1} alt="" />
         </a>
       </div>
     </Slider>
