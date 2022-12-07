@@ -60,7 +60,7 @@ const NoticeCard = (props) => {
   };
   return (
     <Container style={{marginTop:"5%"}}>
-      <Stack>
+      <Stack bgcolor={'#5E5DF033'}>
       <Button variant="outlined" onClick={handleClickOpen}>
         공지사항
       </Button>
@@ -78,19 +78,11 @@ const NoticeCard = (props) => {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
+          [개발] : 
+          이 사이트는 아직 개발 중인 단계이므로 학기 마무리 후 리뉴얼 시켜 동적 사이트로 만들 예정입니다
           </Typography>
           <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
+          여기에 있는 공지사항은 참고용이며 추후 관리자 기능이 생기면 업로드할 예정입니다.
           </Typography>
         </DialogContent>
         <DialogActions>
