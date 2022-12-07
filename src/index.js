@@ -20,7 +20,7 @@ import KakaoLogin from "./components/Auth/Login/KakaoLogin";
 import store from './store';
 import { Provider } from 'react-redux';
 import { CookiesProvider } from 'react-cookie';
-import { Logout } from "./components/Auth/Logout/Logout";
+import Logout from "./components/Auth/Logout/Logout";
 
 const router = createBrowserRouter([
   {

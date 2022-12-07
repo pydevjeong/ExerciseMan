@@ -9,17 +9,17 @@ import { logoutUser } from '../../API/Users';
 
 
 
-export const Logout=()=>{
+function Logout(){
     // console.log(state.accessToken) 
     // store에 저장된 Access Token 정보를 받아 온다
-    const {accessToken}  = useSelector(state => state.token)
+    const {accessToken}  = useSelector(state => state)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
     // Cookie에 저장된 Refresh Token 정보를 받아 온다
     const refreshToken = getCookieToken();
-
+    console.log(accessToken, refreshToken);
     async function logout() {
         // 백으로부터 받은 응답
         const data = await logoutUser({ refresh_token: refreshToken }, accessToken);
@@ -46,3 +46,5 @@ export const Logout=()=>{
         </>
     );
 }
+
+export default Logout

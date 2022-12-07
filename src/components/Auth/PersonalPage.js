@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "@mui/material";
 import Header from "../Layout/Header/Header";
 import Footer from "../Layout/Footer/Footer";
@@ -9,11 +9,11 @@ import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import {Logout} from "./Logout/Logout";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { getCookieToken } from "../../storage/Cookie";
+import Logout from "./Logout/Logout";
 
 let token = getCookieToken();
 const getCookie=()=>{
@@ -25,15 +25,15 @@ const PersonalPage = () => {
   const logoutHandler=()=>{
     navigate('/logout')
   }
+  const [cookieInfo,setCookieInfo]=useState({sub:"Temp Name",id:"Temp Id"})
   useEffect(()=>{
     const gotCookie=getCookie()
     console.log(gotCookie);
+    if(gotCookie!==undefined){
+      setCookieInfo(gotCookie)
+    }
   },[])
   
-  
-  // const name=decoded.sub ? decoded.sub : "Temp Name"
-  // const id=decoded.id ? decoded.id : "Temp Id"
-
   return (
     <Container>
       <Header />
@@ -41,9 +41,9 @@ const PersonalPage = () => {
         <div className="PersonalPage">
           <div className="PersonalInfo">
             <img className="PersonalImg" alt="Personal" src={Personal} />
-            <div className="PersonalName">{"name"}</div>
+            <div className="PersonalName">{cookieInfo.sub}</div>
             <div className="PersonalAdd">*******@****.com</div>
-            <p className="PersonalAdd">Id : {"id"}</p>
+            <p className="PersonalAdd">Database Id : {cookieInfo.id}</p>
             <button className="Inquirebtn">1:1 문의하기</button>
             <button onClick={logoutHandler} className="logoutbtn">로그아웃</button>
           </div>
