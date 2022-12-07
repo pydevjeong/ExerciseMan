@@ -99,7 +99,7 @@ function ApiPage(props) {
       }
     }
     const {data}= await imageSearch(params)
-    console.log(data);
+    // console.log(data);
   }
   useEffect(()=>{
     if(findGym.length!==0) imageSearchHandler()

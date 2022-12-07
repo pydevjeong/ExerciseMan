@@ -21,6 +21,7 @@ import store from './store';
 import { Provider } from 'react-redux';
 import { CookiesProvider } from 'react-cookie';
 import Logout from "./components/Auth/Logout/Logout";
+import SearchedFacility from "./components/SubPage/GymPage/SearchedFacility";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
   {
     path: "/closeFacilty",
     element: <CloseFacility />,
+  },
+  {
+    path: "/searchedFacility",
+    element: <SearchedFacility />,
   },
   {
     path: "/facilityDetail",

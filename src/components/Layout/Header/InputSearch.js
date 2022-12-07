@@ -31,7 +31,7 @@ function CustomizedInputBase() {
     if (e.key === "Enter") {
       console.log('enter');
       if (checkInput) {
-        navigate('/closeFacilty',{state:{
+        navigate('/searchedFacility',{state:{
           searchInput:searchInput
         }
       })
@@ -49,7 +49,7 @@ function CustomizedInputBase() {
 
       <InputBase
         sx={{ ml: 1, flex: 1 }}
-        placeholder="운동시설 검색하기"
+        placeholder="성남시,부천시처럼 도시를 검색해주세요"
         inputProps={{ "aria-label": "운동 시설 검색하기" }}
         onChange={inputSearch}
         onKeyPress={pressEnter}
@@ -62,7 +62,7 @@ function CustomizedInputBase() {
         sx={{ p: "10px" }}
         aria-label="search"
       >
-        <Link to="/closeFacilty" state={{ searchInput }}>
+        <Link to="/searchedFacility" state={{ searchInput }}>
           <SearchIcon />
         </Link>
       </IconButton>
