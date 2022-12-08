@@ -55,7 +55,7 @@ function KaKaoMap({ myGeo }) {
     });
   }, [location, map]);
 
-  console.log(info)
+  // console.log(info)
 
   return (
     <Map //center부분 수정예정(?)
