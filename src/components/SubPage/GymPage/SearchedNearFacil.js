@@ -9,7 +9,6 @@ import gorilla from '../../../img/gorilla.jpg'
 
 // 보여지는 개수를 정해두고 로딩이 뜨면서 추가적인 정보가 보이면서 창이 내려가게 만들기
 const SearchedNearFacil = ({ facility_id,name, facilityId ,location, tel,gymPicture }) => {
-  console.log(name);
   const navigate=useNavigate()
   const params={gym:`${name}`}
 
@@ -26,12 +25,13 @@ const SearchedNearFacil = ({ facility_id,name, facilityId ,location, tel,gymPict
   const cardStyle = {
     display: 'flex',
     flexDirection: 'row',
-    width: '30vw',
+    width: '40%',
     transitionDuration: '0.3s',
-    height: '30vh',
+    height: '30%',
     marginTop:"10px",
     alignItems:"center",
     justifyContent:"center",
+    marginLeft:"7%"
 }
 // console.log(facility_id);
   return (

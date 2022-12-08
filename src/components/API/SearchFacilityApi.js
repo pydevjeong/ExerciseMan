@@ -7,6 +7,11 @@ import { imageSearch, blogSearch } from "./KaKaoSearchAPI/KakaoSearchApi";
 import CardContainer from "../SubPage/GymPage/CardContainer";
 import ErrorLoadingPage from "../Error/ErrorLoadingPage";
 import ErrorPage from "../Error/ErrorPage";
+import { Divider, Grid } from '@mui/material';
+import { Container } from '@mui/material';
+import Header from './../Layout/Header/Header';
+import {MdGpsFixed} from 'react-icons/md'
+import Pagination from './../../utils/Pagination';
 
   // const seongNam=41130
   // const regex=/name/gi
@@ -23,6 +28,7 @@ function SearchFacilityApi(props) {
   const [checkInputValue, setCheckInputValue] = useState(false);
   const [apiFectched, setApiFectched] = useState(false);
   const [sortedData, setSortedData] = useState([]);
+  const [gymLen,setGymLen]=useState(0)
 
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
@@ -87,14 +93,12 @@ function SearchFacilityApi(props) {
   useEffect(()=>{
     if(makeData.length>3){
       setSortedData(findGym)
+      setLimit(7)
+      setGymLen(findGym.length)
     }
   },[findGym, makeData])
 
   // const [gymData, setGymData] = useState([])
-
-
-
-
 
   // const imageSearchHandler = async () => {
   //   let params;
@@ -117,8 +121,41 @@ function SearchFacilityApi(props) {
   //item.name==="REFINE_ROADNM_ADDR" value(도로명주소)
   //item.name==="LOCPLC_FACLT_TELNO" value(전화번호)
   // REFINE_WGS84_LOGT , REFINE_WGS84_LAT 위도 경도
+  const gridInner={
+    marginTop:"5px",
+    marginBottom:"10%",
+  }
+  const dividerInner={
+    display:"flex",
+    marginTop:"5px",
+    justifyContent: "space-between",
+    alignContent: "center"
+  }
+const loc={
+  display:"block",
+  marginBottom:'10px'
+}
+const loc_buttons={
+  display:"block",
+  marginTop:"25px"
+}
   return (
-    <div>
+    <>
+    <div style={gridInner}>
+      <Divider/>
+      <div style={dividerInner}>
+        <div style={loc}>
+      <p style={{marginTop:"10px"}}>홈 {">"} 내 주변 운동시설</p>
+      <MdGpsFixed cursor={"pointer"}/><span>성남시</span>
+      </div>
+      <div style={loc_buttons}>
+        <button>재설정</button>
+        <button>위치지정</button>
+      </div>
+      </div>
+      <Divider/>
+      </div>
+    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       {
       sortedData
       .slice(offset, offset + limit)
@@ -131,7 +168,9 @@ function SearchFacilityApi(props) {
         />
       ))
       }
-    </div>
+    </Grid>
+    <Pagination total={gymLen} limit={limit} page={page} setPage={setPage} />
+    </>
   );
 }
 export default SearchFacilityApi;

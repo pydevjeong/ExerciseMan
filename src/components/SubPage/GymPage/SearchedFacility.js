@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import SearchFacilityApi from '../../API/SearchFacilityApi';
 import ErrorLoadingPage from '../../Error/ErrorLoadingPage';
+import Header from './../../Layout/Header/Header';
 
 const SearchedFacility = (props) => {
   const checkProps= useLocation()
@@ -14,6 +15,8 @@ const SearchedFacility = (props) => {
   
   return (
     <div>
+    <Header/>
+    <div>
     <Container>
       {
         inputValue.length > 0 ? 
@@ -21,9 +24,8 @@ const SearchedFacility = (props) => {
         :
         <p>!</p>
       }
-      <h1>{inputValue}</h1>
-      <h2>SearchFacilityApi 페이지</h2>
     </Container>
+    </div>
     </div>
   );
 };
