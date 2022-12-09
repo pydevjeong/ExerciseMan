@@ -14,7 +14,7 @@ import BookingPopup from "../BookingPopup";
 const FacilityDetail = () => {
   // const params=useNavigate()
   const info = useLocation();
-  // console.log(info.state);
+  console.log(info.state);
   // console.log(decode);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +72,7 @@ const FacilityDetail = () => {
           </div>
           <div className={styles.imgAndOthers}>
             <div className={styles.imgContainer}>
-              <img src={freegymImg} alt="" />
+              <img src={info.state.gymPicture} alt="" />
             </div>
             <div className={styles.info_con}>
               <div className={styles.text_con}>
@@ -117,7 +117,7 @@ const FacilityDetail = () => {
                   분위기 & 부족함 없는 머신 셋팅 운동하는날입니다!
                 </p>
                 <Iframe
-                  url="https://youtube.com/embed/uz6TUGCXe7c"
+                  url={info.state.vid}
                   width="100%"
                   height="400px"
                   id=""

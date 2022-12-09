@@ -2,13 +2,12 @@ import React, { useEffect, } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Container } from "@mui/system";
 import { CardActionArea,CardMedia } from "@mui/material";
 import { createSearchParams, useNavigate } from "react-router-dom";
-import gorilla from '../../../img/gorilla.jpg'
+
 
 // 보여지는 개수를 정해두고 로딩이 뜨면서 추가적인 정보가 보이면서 창이 내려가게 만들기
-const SearchedNearFacil = ({ facility_id,name, facilityId ,location, tel,gymPicture }) => {
+const SearchedNearFacil = ({ facility_id,name, facilityId ,location, tel,gymPicture,vid }) => {
   const navigate=useNavigate()
   const params={gym:`${name}`}
 
@@ -19,7 +18,7 @@ const SearchedNearFacil = ({ facility_id,name, facilityId ,location, tel,gymPict
   const cardClicked=(e)=>{
     e.preventDefault();
     // 미완성 기능 -> 오류 생김 22/10/16 -> 완성 22/10/21
-    navigate(`/facilityDetail?${createSearchParams(params)}`,{state:{"name":`${name}`,"id":`${facility_id}`,"location":`${location}`,"tel":`${tel}`}})
+    navigate(`/facilityDetail?${createSearchParams(params)}`,{state:{"name":`${name}`,"id":`${facility_id}`,"location":`${location}`,"tel":`${tel}`,"gymPicture":`${gymPicture}`,"vid":`${vid}`}})
   }
   
   const cardStyle = {
