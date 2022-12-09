@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.title{
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+    font-size: 160%;
+}
+
+.item{
+    width: 500px;
+    height: 200px;
+    border: 1.5px solid white;
+    border-radius: 10px;
+}
+
+.img{
+    width: 150px;
+    border-radius: 500px;
+    margin: 5% 10% 0 5%;
+    float: left;
+}
+
+.info{
+    margin-top: 5%;
+    color: aqua;
+    font-size: 200%;
+}
+
+.name{
+    margin-top: 3%;
+    font-size: 150%;
+}
+
+.email{
+    font-size: 120%;
+}
