@@ -22,7 +22,7 @@ const BookingPopup = (props) => {
   const [cookies,setCookies]=useState('')
   const info = useLocation();
   let { name, id,location, tel } = info.state;
-  // console.log(name, id,location,tel,cookies.sub,cookies.id);
+  console.log(name, id,location,tel,cookies.sub,cookies.id);
   return (
     <div>
       <h1 className="bookingHeader">{name}</h1>
@@ -31,7 +31,7 @@ const BookingPopup = (props) => {
           <DatePicker />
         </StyledEngineProvider>
       </div>
-      <Time close={props.close} />
+      <Time close={props.close} user_id={cookies.id} facility_id={id} />
     </div>
   );
 };

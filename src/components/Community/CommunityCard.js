@@ -19,7 +19,7 @@ const sportsImgs = [
   {
     img: QandA,
     name: "Q & A",
-    link: "/baseball",
+    link: "/QandA",
   },
   {
     img: randombox,

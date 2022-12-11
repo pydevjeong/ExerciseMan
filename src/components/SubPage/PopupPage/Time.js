@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./Time.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import axios from "axios";
 
-const Time = (props) => {
+const Time = ({close,user_id,facility_id}) => {
   const [time, setTime] = useState("v50_555");
   const [retime, setRetime] = useState("1:00");
   const [count, setCount] = useState(1);
@@ -74,8 +75,19 @@ const Time = (props) => {
     }
   };
 
-  const reserveBtn = () => {
-    alert("");
+  const reserveBtn =async (e) => {
+    e.preventDefault();
+    const id=user_id
+    const faci_id=Number(facility_id)
+    console.log(id,faci_id);
+    await axios.post(`http://54.180.152.210/reservation/${id}/${faci_id}/create`,{
+      user_id:id,
+      facility_id:faci_id
+    })
+    .then((res)=>{
+      console.log(res);
+    })
+    .catch((err)=>console.log(err))
   };
 
   return (
@@ -127,7 +139,7 @@ const Time = (props) => {
         <button className="v50_149" onClick={reserveBtn}>
           예약하기
         </button>
-        <button className="v50_153" onClick={props.close}>
+        <button className="v50_153" onClick={close}>
           취소
         </button>
       </div>

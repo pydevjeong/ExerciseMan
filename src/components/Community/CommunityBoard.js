@@ -59,7 +59,7 @@ const CommunityBoard = () => {
 
   function getBoardData() {
     axios
-      .get("http://43.200.173.80:8080/posts")
+      .get("http://54.180.152.210:8080/posts")
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   }
@@ -115,7 +115,7 @@ const CommunityBoard = () => {
       return false;
     } else {
       await axios
-        .post(`http://43.200.173.80:8080/posts/${cookies.id}/create`, {
+        .post(`http://54.180.152.210:8080/posts/${cookies.id}/create`, {
           title: title,
           content: content,
         })

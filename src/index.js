@@ -22,6 +22,7 @@ import { Provider } from 'react-redux';
 import { CookiesProvider } from 'react-cookie';
 import Logout from "./components/Auth/Logout/Logout";
 import SearchedFacility from "./components/SubPage/GymPage/SearchedFacility";
+import QandA from "./components/SubPage/QandA";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
     path: "/community",
     // 커뮤니티에 대한 페이지 개발후 수정
     element: <WholeCommunity />,
+  },
+  {
+    path: "/QandA",
+    element: <QandA />,
   },
   {
     path: "/basketball",
