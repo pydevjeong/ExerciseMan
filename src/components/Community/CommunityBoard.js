@@ -7,7 +7,7 @@ import {
   Stack,
 } from "@mui/material";
 import { Container } from "@mui/system";
-import React, { useEffect,  useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./MainCommunity.module.css";
 import Modal from "react-modal";
@@ -38,111 +38,117 @@ const customStyles = {
 };
 
 const CommunityBoard = () => {
-
   let token = getCookieToken();
-const getCookie=()=>{
-  if(token) return jwt_decode(token)
-}
-const [cookies,setCookies]=useState("")
-  const [title,setTitle]=useState("");
-  const [content,setContent]=useState("");
+  const getCookie = () => {
+    if (token) return jwt_decode(token);
+  };
+  const [cookies, setCookies] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
   const checkURL = useLocation();
   const navigate = useNavigate();
-  const [categoryName, setCategoryName] = useState("전체");
+  const [categoryName, setCategoryName] = useState("");
   const [urlName, setUrlName] = useState("");
 
-  useEffect(()=>{
-    const gotCookie=getCookie()
-    setCookies(gotCookie)
-  },[])
-  console.log(cookies);
+  useEffect(() => {
+    const gotCookie = getCookie();
+    setCookies(gotCookie);
+  }, []);
+  // console.log(cookies);
 
-  function getBoardData(){
-    axios.get("http://43.200.173.80:8080/posts")
-    .then(res=>console.log(res))
-    .catch(err=>console.log(err))
+  function getBoardData() {
+    axios
+      .get("http://43.200.173.80:8080/posts")
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   }
-  useEffect(()=>{
-    // getBoardData()
-  },[])
+
+  useEffect(() => {
+    if (checkURL.pathname === "/basketball") {
+      setCategoryName("농구");
+    } else if (checkURL.pathname === "/soccer") {
+      setCategoryName("축구");
+    } else if (checkURL.pathname === "/badminton") {
+      setCategoryName("배드민턴");
+    } else if (checkURL.pathname === "/gym") {
+      setCategoryName("헬스");
+    } else if (checkURL.pathname === "/others") {
+      setCategoryName("기타");
+    }
+  }, [checkURL]);
 
   const catagoryChanged = (e) => {
     console.log(e.target.value);
     setCategoryName(e.target.value);
   };
+  const getCommunityContent = (e) => {
+    // navigate(checkURL.pathname+'/community'+`${}`)
+    console.log(e);
+  };
+  let tempContent = [
+    "잉글랜드도 축구수준 많이 올라왔네",
+    "펙덱플라이,체스트프레스 하루에 두개 같이해도됨?",
+    "배고프다",
+  ];
+  //modal
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal() {
+    setIsOpen(false);
+  }
 
-  let sportName = ["전체", "농구", "야구", "배드민턴", "헬스", "축구", "기타"];
-    //modal
-    function openModal() {
-      setIsOpen(true);
+  const getTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const getContent = (e) => {
+    setContent(e.target.value);
+  };
+
+  const submitBtn = async (e) => {
+    e.preventDefault();
+    console.log(title, content);
+    if (title === "" && content === "") {
+      alert("내용입력바람");
+      return false;
+    } else {
+      await axios
+        .post(`http://43.200.173.80:8080/posts/${cookies.id}/create`, {
+          title: title,
+          content: content,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
     }
-    function closeModal() {
-      setIsOpen(false);
-    }
-  
-    const getTitle=(e)=>{
-      setTitle(e.target.value)
-    }
-    
-    const getContent=(e)=>{
-      setContent(e.target.value)
-    }
-  
-    const submitBtn = async(e) => {
-      e.preventDefault();
-      console.log(title,content);
-      if(title==="" && content===""){
-        alert("내용입력바람")
-        return false
-      }
-      else{
-      await axios.post(`http://43.200.173.80:8080/posts/${cookies.id}/create`,{
-        title:title,
-        content:content
-      })
-      .then(res=>{
-        console.log(res)
-      })
-      .catch(err=>console.log(err))
-    }
-    };
+  };
   return (
     <div>
-       <Container maxWidth="lg">
+      <Container maxWidth="lg">
         <div className={styles.select_container}>
-          <FormControl>
-            <InputLabel id="demo-simple-select-label">카테고리</InputLabel>
-            <Select
-              onChange={catagoryChanged}
-              label="카테고리"
-              id="select_Catagory"
-              value={categoryName}
-            >
-              {sportName.map((item, idx) => (
-                <MenuItem value={item} key={idx}>
-                  {item}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          {/* </div>
-        <div className={styles.btn_container}> */}
+          <h1>{categoryName}</h1>
           <button className={styles.write_btn} onClick={openModal}>
             글쓰기
           </button>
           <Modal
-            isOpen={modalIsOpen}
             // onAfterOpen={afterOpenModal}
+            isOpen={modalIsOpen}
             onRequestClose={closeModal}
             style={customStyles}
             ariaHideApp={false}
           >
-            <h1 style={{marginBottom:"1%",marginTop:"0"}}>작성하기</h1>
+            <h1 style={{ marginBottom: "1%", marginTop: "0" }}>작성하기</h1>
             <div className={styles.titleContainer}>
               <label htmlFor="">제목</label>
               <div className={styles.contents}>
-                <input type="text" placeholder="글의 제목을 입력해주세요" onChange={getTitle}/>
+                <input
+                  type="text"
+                  placeholder="글의 제목을 입력해주세요"
+                  onChange={getTitle}
+                />
               </div>
               <label htmlFor="">내용</label>
               <div className={styles.contents}>
@@ -166,7 +172,6 @@ const [cookies,setCookies]=useState("")
             </div>
           </Modal>
         </div>
-        {/* <Container maxWidth="md"> */}
         <Stack
           direction="column"
           justifyContent="center"
@@ -174,11 +179,15 @@ const [cookies,setCookies]=useState("")
           spacing={2}
           className={styles.stack_container}
         >
-          <ListItem className={styles.stack_item}>
-            {categoryName ? categoryName : ""} : 첫 글입니다.
-          </ListItem>
-          <ListItem className={styles.stack_item}>Item 2</ListItem>
-          <ListItem className={styles.stack_item}>Item 3</ListItem>
+          {tempContent.map((item, idx) => (
+            <ListItem
+              onClick={getCommunityContent}
+              className={styles.stack_item}
+              key={idx}
+            >
+              {idx + 1}. {categoryName} : {item}
+            </ListItem>
+          ))}
         </Stack>
       </Container>
     </div>
