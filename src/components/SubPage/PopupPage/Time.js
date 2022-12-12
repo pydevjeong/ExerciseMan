@@ -4,7 +4,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import axios from "axios";
 
-const Time = ({close,user_id,facility_id}) => {
+const Time = ({close,user_id,facility_id,location,name}) => {
   const [time, setTime] = useState("v50_555");
   const [retime, setRetime] = useState("1:00");
   const [count, setCount] = useState(1);
@@ -80,13 +80,15 @@ const Time = ({close,user_id,facility_id}) => {
     const id=user_id
     const faci_id=Number(facility_id)
     console.log(id,faci_id);
-    await axios.post(`http://54.180.152.210/reservation/${id}/${faci_id}/create`,{
-      user_id:id,
-      facility_id:faci_id
+    await axios.post(`http://3.39.226.98:8080/reservation/${id}/create`,{
+      facilityId:faci_id,
+      facilityName:name,
+      facilityLocation:location
     })
     .then((res)=>{
       console.log(res);
     })
+    .then((err)=>console.log(err))
     .catch((err)=>console.log(err))
   };
 

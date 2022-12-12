@@ -31,7 +31,7 @@ const BookingPopup = (props) => {
           <DatePicker />
         </StyledEngineProvider>
       </div>
-      <Time close={props.close} user_id={cookies.id} facility_id={id} />
+      <Time close={props.close} user_id={cookies.id} facility_id={id} location={location} name={name} />
     </div>
   );
 };
