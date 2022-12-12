@@ -3,12 +3,14 @@ import "./Time.css";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Time = ({close,user_id,facility_id,location,name}) => {
   const [time, setTime] = useState("v50_555");
   const [retime, setRetime] = useState("1:00");
   const [count, setCount] = useState(1);
   const [up, setUp] = useState("v50_200");
+  const navigate=useNavigate()
 
   const clickRe = () => {
     setTime("v50_555");
@@ -79,17 +81,21 @@ const Time = ({close,user_id,facility_id,location,name}) => {
     e.preventDefault();
     const id=user_id
     const faci_id=Number(facility_id)
-    console.log(id,faci_id);
-    await axios.post(`http://3.39.226.98:8080/reservation/${id}/create`,{
+    console.log(id,faci_id,name,location);
+
+    if(faci_id){
+    await axios.post(`http://13.209.22.167:8080/reservation/${id}/create`,{
       facilityId:faci_id,
-      facilityName:name,
-      facilityLocation:location
+      resName:name,
+      resLocation:location
     })
     .then((res)=>{
       console.log(res);
     })
     .then((err)=>console.log(err))
     .catch((err)=>console.log(err))
+  }
+  navigate('/personalPage',{state:{"faci_id":faci_id}})
   };
 
   return (
