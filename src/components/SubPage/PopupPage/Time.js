@@ -4,6 +4,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import PersonalPage from "../../Auth/PersonalPage";
 
 const Time = ({close,user_id,facility_id,location,name}) => {
   const [time, setTime] = useState("v50_555");
@@ -84,7 +85,7 @@ const Time = ({close,user_id,facility_id,location,name}) => {
     console.log(id,faci_id,name,location);
 
     if(faci_id){
-    await axios.post(`http://13.209.22.167:8080/reservation/${id}/create`,{
+    await axios.post(`http://54.180.91.160:8080/reservation/${id}/create`,{
       facilityId:faci_id,
       resName:name,
       resLocation:location
