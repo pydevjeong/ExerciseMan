@@ -1,9 +1,15 @@
-import React from 'react';
+import React from "react";
+import Header from "../Layout/Header/Header";
+import { Container } from "@mui/system";
+import CommunityBoard from "../Community/CommunityBoard";
 
 const QandA = () => {
   return (
     <div>
-      <h1>Q and A 페이지</h1>
+      <Container>
+        <Header />
+        <CommunityBoard />
+      </Container>
     </div>
   );
 };
