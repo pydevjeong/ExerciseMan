@@ -57,7 +57,7 @@ const PersonalPage = () => {
           <div className="PersonalInfo">
             <img className="PersonalImg" alt="Personal" src={Personal} />
             <div className="PersonalName">{cookieInfo.sub}</div>
-            <div className="PersonalAdd">*******@****.com</div>
+            {/* <div className="PersonalAdd">*******@****.com</div> */}
             <p className="PersonalAdd">Database Id : {cookieInfo.id}</p>
             <button className="Inquirebtn">1:1 문의하기</button>
             <button onClick={logoutHandler} className="logoutbtn">로그아웃</button>
@@ -88,8 +88,8 @@ const PersonalPage = () => {
               <button onClick={getReservationInfo}>나의 예약정보</button>
               <div className="reservationcontents">
                 <DateRangeIcon fontSize="large" />
-                  <p>예약 시설 이름 : {reserveData[reserveData.length-1].resName}</p>
-                  <p>예약 시설 위치 : {reserveData[reserveData.length-1].resLocation}</p>
+                  <p>예약 시설 이름 : {reserveData ?reserveData[reserveData.length-1].resName : "예약된 시설"}</p>
+                  <p>예약 시설 위치 : {reserveData ?reserveData[reserveData.length-1].resLocation : "예약된 위치"}</p>
               </div>
             </div>
             <div className="addFunction">

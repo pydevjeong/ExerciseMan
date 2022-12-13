@@ -38,7 +38,7 @@ export const loginUser = async (credentials) => {
     body: JSON.stringify(credentials),
   };
 
-  const data = await getPromise("http://54.180.152.210:8080/login", option).catch((e) => {
+  const data = await getPromise("http://54.180.91.160:8080/login", option).catch((e) => {
     return statusError;
   });
 
@@ -66,7 +66,7 @@ export const logoutUser = async (credentials, accessToken) => {
       body: JSON.stringify(credentials)
   };
 
-  const data = await getPromise('https://54.180.152.210:8080/login', option).catch(() => {
+  const data = await getPromise('https://54.180.91.160:8080/login', option).catch(() => {
       return statusError;
   });
 
@@ -95,7 +95,7 @@ export const requestToken = async (refreshToken) => {
       body: JSON.stringify({ refresh_token: refreshToken })
   }
 
-  const data = await getPromise('https://54.180.152.210:8080/login', option).catch(() => {
+  const data = await getPromise('https://54.180.91.160:8080/login', option).catch(() => {
       return statusError;
   });
 
