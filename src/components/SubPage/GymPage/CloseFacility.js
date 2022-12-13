@@ -15,8 +15,6 @@ const CloseFacility = (props) => {
     <div>
     <Container>
       <ApiPage inputValue={inputValue}/>
-      <h1>{inputValue}</h1>
-      <h2>CloseFacility 페이지</h2>
     </Container>
     </div>
   );

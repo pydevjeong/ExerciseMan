@@ -14,31 +14,37 @@ const CardContainer = ({ gymData }) => {
   const offset = (page - 1) * limit;
 
   const gymPicture = [gorilla, linegym, skyview];
+  const vid = [
+    "https://www.youtube.com/embed/d6aMZJuX3iE",
+    "https://serviceapi.nmv.naver.com/flash/convertIframeTag.nhn?vid=0090E8EEA4C1DA1C274BBE24178CA35F9F97&outKey=V1288a230540734a5735958ab75ceedc4f49e9c864afe4baef7e758ab75ceedc4f49e&width=544&height=306",
+    "https://youtube.com/embed/52sc6ISAELI",
+  ];
   return (
-      <Container>
-        <h1 style={{ color: "#fff" }}>가까운 헬스장</h1>
-        <Grid
-          container
-          rowSpacing={1}
-          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          className={styles.card_position}
-        >
-          {gymData.slice(offset, offset + limit).map((data, idx) => (
-            <Grid item xs={2} sm={2} md={4} key={idx}>
-              <ListItem>
-                <NearFacilityList
-                  facility_id={data.facilityId}
-                  key={data.facilityId}
-                  name={data.name}
-                  location={data.location}
-                  tel={data.tel}
-                  gymPicture={gymPicture[idx]}
-                />
-              </ListItem>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+    <Container>
+      <h1 style={{ color: "#fff" }}>가까운 헬스장</h1>
+      <Grid
+        container
+        rowSpacing={1}
+        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+        className={styles.card_position}
+      >
+        {gymData.slice(offset, offset + limit).map((data, idx) => (
+          <Grid item xs={2} sm={2} md={4} key={idx}>
+            <ListItem>
+              <NearFacilityList
+                facility_id={data.facilityId}
+                key={data.facilityId}
+                name={data.name}
+                location={data.location}
+                tel={data.tel}
+                gymPicture={gymPicture[idx]}
+                vid={vid[idx]}
+              />
+            </ListItem>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
 };
 
