@@ -73,6 +73,8 @@ const CommunityBoard = () => {
       setCategoryName("배드민턴");
     } else if (checkURL.pathname === "/gym") {
       setCategoryName("헬스");
+    } else if (checkURL.pathname === "/QandA") {
+      setCategoryName("Q & A");
     } else if (checkURL.pathname === "/others") {
       setCategoryName("기타");
     }
