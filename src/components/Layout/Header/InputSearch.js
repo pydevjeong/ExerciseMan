@@ -13,7 +13,6 @@ function CustomizedInputBase() {
   const searchBtnClicked = (e) => {
     e.preventDefault();
     if (checkInput) {
-      console.log(searchInput);
     } else {
       alert("적어도 2글자 이상 검색해주세요");
     }

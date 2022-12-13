@@ -44,7 +44,6 @@ const icons = [
 const Header = () => {
   const [userIsLogined, setUserIsLogined] = useState(false);
   useEffect(()=>{
-    // console.log(getCookieToken().length)
     if(getCookieToken()!==undefined){
       if(getCookieToken().length!==0){
         setUserIsLogined(true)
@@ -82,7 +81,6 @@ const Header = () => {
           <Link className={styles.mainLink} to="/">
             <img className={styles.logoImg} src={logo} alt="" />
           </Link>
-          {/* 새로고침되게 해야함 */}
         </div>
         <div className={styles.search_container}>
           <CustomizedInputBase />

@@ -1,9 +1,5 @@
 import {
-  FormControl,
-  InputLabel,
   ListItem,
-  MenuItem,
-  Select,
   Stack,
 } from "@mui/material";
 import { Container } from "@mui/system";
@@ -16,14 +12,6 @@ import { getCookieToken } from "../../storage/Cookie";
 import jwt_decode from "jwt-decode";
 
 const customStyles = {
-  // overlay: {
-  //   position: 'fixed',
-  //   top: 0,
-  //   left: 0,
-  //   right: 0,
-  //   bottom: 0,
-  //   backgroundColor: 'rgba(255, 255, 255, 0.75)'
-  // 기본값으로 설정},
   content: {
     top: "50%",
     left: "50%",
@@ -47,15 +35,12 @@ const CommunityBoard = () => {
   const [content, setContent] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
   const checkURL = useLocation();
-  const navigate = useNavigate();
   const [categoryName, setCategoryName] = useState("");
-  const [urlName, setUrlName] = useState("");
 
   useEffect(() => {
     const gotCookie = getCookie();
     setCookies(gotCookie);
   }, []);
-  // console.log(cookies);
 
   function getBoardData() {
     axios

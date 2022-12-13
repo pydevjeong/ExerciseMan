@@ -22,9 +22,10 @@ const Register = () => {
         nickname: nickname,
       })
       .then((response) => {
+        alert("회원가입 완료!")
         console.log("great!", response.data);
       })
-      .catch((err) => console.log("error", err));
+      .catch((err) => alert("회원가입 실패"+err));
   };
 
   const handleError = (errors) => {};

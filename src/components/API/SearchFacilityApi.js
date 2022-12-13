@@ -1,41 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import XMLParser from "react-xml-parser";
-// import CloseFacility from "./CloseFacility";
 import SearchedNearFacil from "../SubPage/GymPage/SearchedNearFacil";
-import { imageSearch, blogSearch } from "./KaKaoSearchAPI/KakaoSearchApi";
-import CardContainer from "../SubPage/GymPage/CardContainer";
-import ErrorLoadingPage from "../Error/ErrorLoadingPage";
-import ErrorPage from "../Error/ErrorPage";
 import { Divider, Grid } from "@mui/material";
-import { Container } from "@mui/material";
-import Header from "./../Layout/Header/Header";
 import { MdGpsFixed } from "react-icons/md";
 import Pagination from "./../../utils/Pagination";
-import bfgym from "../../img/gymImg/bfgym.jpg";
 import bodysen from "../../img/gymImg/bodysen.jpg";
 import fitnessbm from "../../img/gymImg/fitnessbm.jpg";
 import gorilla from "../../img/gymImg/gorilla.jpg";
 import gymline from "../../img/gymImg/gymline.jpg";
-import jtotal from "../../img/gymImg/jtotal.jpg";
 import roy from "../../img/gymImg/roy.jpeg";
 import sgfit from "../../img/gymImg/sgfit.jpg";
 import skyview from "../../img/gymImg/skyview.jpg";
-import unigym from "../../img/gymImg/unigym.jpeg";
 
-// const seongNam=41130
-// const regex=/name/gi
-// SIGUN_CD하드코딩 된걸 입력값에 따라서 지역코드가 나타나게 해야함
-// ex) 검색에 성남시 헬스장 -> 41130(성남 코드)
 
-// API q 커스텀 훅으로 만들어야함
 function SearchFacilityApi(props) {
   let makeData = [];
   let findGym = [];
   const [datas, setDatas] = useState([]);
   const [inputValue, setInputValue] = useState(null);
   const [checkInputValue, setCheckInputValue] = useState(false);
-  const [apiFectched, setApiFectched] = useState(false);
   const [sortedData, setSortedData] = useState([]);
   const [gymLen, setGymLen] = useState(0);
 
@@ -44,9 +28,6 @@ function SearchFacilityApi(props) {
   const offset = (page - 1) * limit;
 
   const gymApi = process.env.REACT_APP_GYM_API;
-  // const url = `https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?KEY=${gymApi}&TYPE=xml&SIGUN_NM=${
-  //   checkInputValue ? inputValue : "성남시"
-  // }`;
 
   const fetchDatas = async () => {
     const url = `https://openapi.gg.go.kr/PhysicaFitnessTrainingPlace?KEY=${gymApi}&TYPE=xml&SIGUN_NM=${inputValue}`;
@@ -67,9 +48,7 @@ function SearchFacilityApi(props) {
       return e.children;
     });
     if (makeData.length > 3) {
-      makeData.shift(); //쓸모없는 첫번째 배열부분 자르기
-      // console.log(makeData) 여기도 Array로 정상적으로 출력후 쓸모없는 부분 잘린거 확인
-      //아래서 arr[2].value 하면 시설이름이 나옴
+      makeData.shift(); 
       makeData.map((arr) => {
         if (arr[5].value !== "폐업") {
           findGym.push({
@@ -107,29 +86,6 @@ function SearchFacilityApi(props) {
     }
   }, [findGym, makeData]);
 
-  // const [gymData, setGymData] = useState([])
-
-  // const imageSearchHandler = async () => {
-  //   let params;
-  //   if (findGym.length !== 0) {
-  //     params = {
-  //       query: `${findGym[0].name}`,
-  //       sort: "accuracy",
-  //       page: 1,
-  //       size: 20,
-  //     };
-  //   }
-  //   const { data } = await imageSearch(params);
-  //   // console.log(data);
-  // };
-  // useEffect(() => {
-  //   if (findGym.length > 3) imageSearchHandler();
-  // }, [findGym]);
-
-  //item.name==="BIZPLC_NM"에서 value(시설이름) item.name==="BSN_STATE_NM"에서 value가 영업중인것
-  //item.name==="REFINE_ROADNM_ADDR" value(도로명주소)
-  //item.name==="LOCPLC_FACLT_TELNO" value(전화번호)
-  // REFINE_WGS84_LOGT , REFINE_WGS84_LAT 위도 경도
   const gridInner = {
     marginTop: "5px",
     marginBottom: "10%",

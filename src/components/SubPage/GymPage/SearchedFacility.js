@@ -2,7 +2,6 @@ import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import SearchFacilityApi from '../../API/SearchFacilityApi';
-import ErrorLoadingPage from '../../Error/ErrorLoadingPage';
 import Header from './../../Layout/Header/Header';
 
 const SearchedFacility = (props) => {

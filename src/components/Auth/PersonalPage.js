@@ -13,7 +13,6 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { getCookieToken } from "../../storage/Cookie";
-// import Logout from "./Logout/Logout";
 import axios from "axios";
 
 let token = getCookieToken();
@@ -31,19 +30,15 @@ const PersonalPage = () => {
   const [reserveData,setReserveData]=useState('')
   useEffect(()=>{
     const gotCookie=getCookie()
-    // console.log(gotCookie);
     if(gotCookie!==undefined){
       setCookieInfo(gotCookie)
     }
   },[])
-  // console.log(location);
   const getReservationInfo=async(e)=>{
     resId.push(location.state.faci_id)
     e.preventDefault();
-    console.log(resId)
     await axios.get(`http://54.180.91.160:8080/reservation/${resId[0]}`)
     .then((res)=>{
-      console.log(res)
       setReserveData(res.data)
     })
     .catch((err)=>console.log(err))
@@ -57,7 +52,6 @@ const PersonalPage = () => {
           <div className="PersonalInfo">
             <img className="PersonalImg" alt="Personal" src={Personal} />
             <div className="PersonalName">{cookieInfo.sub}</div>
-            {/* <div className="PersonalAdd">*******@****.com</div> */}
             <p className="PersonalAdd">Database Id : {cookieInfo.id}</p>
             <button className="Inquirebtn">1:1 문의하기</button>
             <button onClick={logoutHandler} className="logoutbtn">로그아웃</button>

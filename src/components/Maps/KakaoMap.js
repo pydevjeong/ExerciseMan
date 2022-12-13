@@ -1,5 +1,5 @@
 /* global kakao */
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { useLocation } from "react-router-dom";
 
@@ -20,13 +20,6 @@ function KaKaoMap({ myGeo }) {
     setLocation(locationState.state);
   }, [locationState]);
 
-  // useEffect(()=>{
-  //   navigator.geolocation.getCurrentPosition(({coords:{latitude,longitude}})=>{
-  //     setCoord({lat:latitude,lng:longitude})
-  //   })
-  // },[])
-
-  //여기에 map이 로딩되기전에 loading 컴포넌트가 하나 있었으면 하고, 로딩 안됬을때 에러 컴포넌트도 만들예정
   useEffect(() => {
     if (!map) return;
     const ps = new kakao.maps.services.Places();

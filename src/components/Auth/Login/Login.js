@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import axios from "axios";
 import React, { useState } from "react";
 import FindAccount from "../FindAccount/FindAccount.js";
 import Box from "@mui/material/Box";
@@ -13,11 +12,11 @@ import { REST_API_KEY, REDIRECT_URI } from "./KakaoLoginData";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../API/Users";
 import { setRefreshToken } from "../../../storage/Cookie";
-import {SET_TOKEN} from "../../../store/Auth"
+import { SET_TOKEN } from "../../../store/Auth";
 
 function Login() {
   const navigate = useNavigate();
-  const dispatch= useDispatch();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -27,21 +26,18 @@ function Login() {
 
   const onSubmit = async (data) => {
     const { userId, password } = data;
-    console.log(userId, password);
     const response = await loginUser({ userId, password });
     //reponse status는 true아니면 false로 온다
     if (response.status) {
-      console.log(response.json);
-        // 쿠키에 Refresh Token, store에 Access Token 저장
-        setRefreshToken(response.json);
-        let temp=dispatch(SET_TOKEN(response.json.access_token));
-        console.log(temp)
-        return navigate("/");
+      // 쿠키에 Refresh Token, store에 Access Token 저장
+      setRefreshToken(response.json);
+      let temp = dispatch(SET_TOKEN(response.json.access_token));
+      console.log(temp);
+      return navigate("/");
     } else {
-        console.log(response.json);
+      alert("로그인 실패");
     }
   };
-
 
   const registerLink = () => {
     navigate("/register");

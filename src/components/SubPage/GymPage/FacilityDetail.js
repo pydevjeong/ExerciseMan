@@ -6,16 +6,12 @@ import styles from "./FacilityDetail.module.css";
 import Iframe from "react-iframe";
 import bookmark from "../../../img/bookmark.PNG";
 import shareIcon from "../../../img/shareIcon.PNG";
-import freegymImg from "../../../img/freegymImg.jpg";
 import Box from "@mui/material/Box";
 import {  Modal } from "@mui/material";
 import BookingPopup from "../BookingPopup";
 
 const FacilityDetail = () => {
-  // const params=useNavigate()
   const info = useLocation();
-  console.log(info.state);
-  // console.log(decode);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -92,7 +88,6 @@ const FacilityDetail = () => {
               <div className={styles.majorBtns}>
                 <button onClick={goCommunity}>커뮤니티</button>
                 <button onClick={handleOpen}>예약하기</button>
-                {/*모달창 실험중*/}
                 <Modal
                   open={open}
                   onClose={handleClose}
@@ -106,7 +101,6 @@ const FacilityDetail = () => {
               </div>
             </div>
           </div>
-          {/* 시설정보 */}
           <div className={styles.explainCon}>
             <div className={styles.detailIExplain}>
               <h3>시설정보</h3>

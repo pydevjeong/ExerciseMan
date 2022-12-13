@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import sliderimg1 from '../../img/sliderimg1.jpg'
 import sliderimg2 from '../../img/sliderimg2.jpg'
-// import sketch from '../../img/sketch.jpg'
 import './SliderBanner.css'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";

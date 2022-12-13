@@ -11,7 +11,6 @@ const SearchedNearFacil = ({ facility_id,name, facilityId ,location, tel,gymPict
   const navigate=useNavigate()
   const params={gym:`${name}`}
 
-  // search:`?${createSearchParams(params)}`,
   useEffect(()=>{
   },[])
 
@@ -32,7 +31,6 @@ const SearchedNearFacil = ({ facility_id,name, facilityId ,location, tel,gymPict
     justifyContent:"center",
     marginLeft:"7%"
 }
-// console.log(facility_id);
   return (
     <>
       <Card style={cardStyle}>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {} from '@mui/material';
 import KaKaoMap from './KakaoMap';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';

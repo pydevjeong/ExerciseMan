@@ -16,13 +16,11 @@ const BookingPopup = (props) => {
   }  
   useEffect(()=>{
     const gotCookie=getCookie()
-    // console.log(gotCookie);
     setCookies(gotCookie)
   },[])
   const [cookies,setCookies]=useState('')
   const info = useLocation();
   let { name, id,location, tel } = info.state;
-  console.log(name, id,location,tel,cookies.sub,cookies.id);
   return (
     <div>
       <h1 className="bookingHeader">{name}</h1>

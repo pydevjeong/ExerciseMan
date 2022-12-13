@@ -82,7 +82,6 @@ const Time = ({close,user_id,facility_id,location,name}) => {
     e.preventDefault();
     const id=user_id
     const faci_id=Number(facility_id)
-    console.log(id,faci_id,name,location);
 
     if(faci_id){
     await axios.post(`http://54.180.91.160:8080/reservation/${id}/create`,{
