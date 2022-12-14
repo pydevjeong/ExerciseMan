@@ -1,10 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Regi.css";
-
+import {SETVERIP} from '../../../utils/Constant'
 const Register = () => {
+  const navigate=useNavigate()
   const {
     register,
     handleSubmit,
@@ -15,7 +16,7 @@ const Register = () => {
     const { userId, password, email, nickname } = data;
     console.log(userId, password, email, nickname);
     await axios
-      .post("http://43.200.173.80:8080/join", {
+      .post(`http://${SETVERIP}:8080/join`, {
         userId: userId,
         password: password,
         email: email,
@@ -24,6 +25,7 @@ const Register = () => {
       .then((response) => {
         alert("회원가입 완료!")
         console.log("great!", response.data);
+        return navigate('/')
       })
       .catch((err) => alert("회원가입 실패"+err));
   };
