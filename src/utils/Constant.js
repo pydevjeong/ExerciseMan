@@ -1,1 +1,1 @@
-export const SETVERIP=`54.180.91.160`
+export const SERVERIP=`54.180.91.160`

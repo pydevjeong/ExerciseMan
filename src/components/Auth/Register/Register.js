@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Regi.css";
-import {SETVERIP} from '../../../utils/Constant'
+import {SERVERIP} from '../../../utils/Constant'
 const Register = () => {
   const navigate=useNavigate()
   const {
@@ -16,7 +16,7 @@ const Register = () => {
     const { userId, password, email, nickname } = data;
     console.log(userId, password, email, nickname);
     await axios
-      .post(`http://${SETVERIP}:8080/join`, {
+      .post(`http://${SERVERIP}:8080/join`, {
         userId: userId,
         password: password,
         email: email,

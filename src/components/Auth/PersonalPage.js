@@ -14,6 +14,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { getCookieToken } from "../../storage/Cookie";
 import axios from "axios";
+import {SERVERIP} from '../../utils/Constant'
 
 let token = getCookieToken();
 const getCookie=()=>{
@@ -28,6 +29,8 @@ const PersonalPage = () => {
   }
   const [cookieInfo,setCookieInfo]=useState({sub:"Temp Name",id:"Temp Id"})
   const [reserveData,setReserveData]=useState('')
+  const [showData,setShowData]=useState(false)
+
   useEffect(()=>{
     const gotCookie=getCookie()
     if(gotCookie!==undefined){
@@ -35,11 +38,13 @@ const PersonalPage = () => {
     }
   },[])
   const getReservationInfo=async(e)=>{
-    resId.push(location.state.faci_id)
+    // resId.push(location.state.faci_id)
+    console.log(cookieInfo.id);
     e.preventDefault();
-    await axios.get(`http://54.180.91.160:8080/reservation/${resId[0]}`)
+    await axios.get(`http://${SERVERIP}:8080/reservation/user/${cookieInfo.id}`)
     .then((res)=>{
       setReserveData(res.data)
+      setShowData(true)
     })
     .catch((err)=>console.log(err))
   }
@@ -82,8 +87,15 @@ const PersonalPage = () => {
               <button onClick={getReservationInfo}>나의 예약정보</button>
               <div className="reservationcontents">
                 <DateRangeIcon fontSize="large" />
-                  <p>예약 시설 이름 : {reserveData ?reserveData[reserveData.length-1].resName : "예약된 시설"}</p>
-                  <p>예약 시설 위치 : {reserveData ?reserveData[reserveData.length-1].resLocation : "예약된 위치"}</p>
+                {showData ? reserveData.map((e,i)=>(
+                  <div key={i}>
+                   <p>시설 위치 : {e.resLocation}</p>
+                   <p>시설 이름 : {e.resName}</p>
+                  </div>
+                ))
+                :
+                <p>예약된 정보</p>
+              }
               </div>
             </div>
             <div className="addFunction">
